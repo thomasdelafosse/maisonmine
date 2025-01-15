@@ -12,6 +12,12 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import Footer from "@/components/footer";
+import { CollectionType } from "@/types/collectionType";
+
+type ImageType = {
+  url: string;
+  alt?: string;
+};
 
 export default function Page() {
   const router = useRouter();
@@ -35,7 +41,7 @@ function SiegeDetails({ slug }: { slug: string }) {
 
   if (!item) return <div>Loading...</div>;
 
-  const images = [
+  const images: ImageType[] = [
     item.fieldData["thumbnail-image"],
     item.fieldData["mini-1"],
     item.fieldData["mini-2"],
@@ -55,7 +61,7 @@ function SiegeDetails({ slug }: { slug: string }) {
     item.fieldData["mini-16"],
     item.fieldData["mini-17"],
     item.fieldData["mini-18"],
-  ].filter((img) => img?.url);
+  ].filter((img): img is ImageType => img?.url !== undefined);
 
   return (
     <div>
