@@ -35,13 +35,13 @@ export default function Tarifs() {
       <div className="mt-10 mx-4 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-10 md:mx-48">
         {items.map((item, index) => (
           <div key={index} className="text-center">
-            <div className="border-2 border-dashed rounded-full p-10 border-gray-500 md:w-64 md:h-64 mx-auto ">
+            <div className="border-2 border-dashed rounded-full p-8 border-gray-500 md:w-64 md:h-64 mx-auto ">
               <Image
                 src={item.src}
                 alt={item.alt}
                 width={500}
                 height={500}
-                className="mx-auto rounded-full"
+                className="mx-auto rounded-3xl "
               />
             </div>
             <h2 className="mt-4 font-bold">{item.title}</h2>
@@ -100,7 +100,7 @@ const items = [
     refection: 350,
   },
   {
-    src: "/images/fauteuilCabrioletTarif.png",
+    src: "/images/fauteuilcabrioletTarif.png",
     alt: "fauteuil cabriolet",
     title: "FAUTEUIL CABRIOLET",
     subtitle: "SIÈGE AVEC DOSSIER ET ACCOTOIRS",
@@ -108,7 +108,7 @@ const items = [
     refection: 980,
   },
   {
-    src: "/images/fauteuilCabrioletAvecCoussinTarif.png",
+    src: "/images/fauteuilcabrioletaveccoussinTarif.png",
     alt: "fauteuil cabriolet avec coussin",
     title: "FAUTEUIL CABRIOLET",
     subtitle: "AVEC COUSSIN",
@@ -132,7 +132,7 @@ const items = [
     refection: 1720,
   },
   {
-    src: "/images/bergereMedaillonCoussinTarif.png",
+    src: "/images/bergeremedailloncoussinTarif.png",
     alt: "bergere médaillon",
     title: "BERGERE MÉDAILLON",
     subtitle: "ASSISE AVEC COUSSIN",
