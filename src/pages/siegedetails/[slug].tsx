@@ -12,11 +12,13 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import Footer from "@/components/footer";
-import { CollectionType } from "@/types/collectionType";
 
-type ImageType = {
-  url: string;
-  alt?: string;
+// Custom styles for Swiper navigation
+const swiperStyles = {
+  ".swiper-button-next, .swiper-button-prev": {
+    color: "black",
+    transform: "scale(0.7)",
+  },
 };
 
 export default function Page() {
@@ -24,24 +26,27 @@ export default function Page() {
   const { slug } = router.query;
 
   // Don't render anything until we have the slug
-  if (!router.isReady || typeof slug !== 'string') return <div>Loading...</div>;
+  if (!router.isReady || !slug) return <div>Loading...</div>;
 
-  return <SiegeDetails slug={slug} />;
+  return <SiegeDetails slug={slug as string} />;
 }
 
 function SiegeDetails({ slug }: { slug: string }) {
   const item = useItem(process.env.NEXT_PUBLIC_SIEGE_COLLECTION_ID || "", slug);
   const swiperRef = useRef<SwiperType | null>(null);
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current.slideTo(0);
-    }
-  }, [slug]);
+  useEffect(
+    function () {
+      if (swiperRef.current) {
+        swiperRef.current.slideTo(0);
+      }
+    },
+    [slug]
+  );
 
   if (!item) return <div>Loading...</div>;
 
-  const images: ImageType[] = [
+  const images = [
     item.fieldData["thumbnail-image"],
     item.fieldData["mini-1"],
     item.fieldData["mini-2"],
@@ -61,7 +66,7 @@ function SiegeDetails({ slug }: { slug: string }) {
     item.fieldData["mini-16"],
     item.fieldData["mini-17"],
     item.fieldData["mini-18"],
-  ].filter((img): img is ImageType => img?.url !== undefined);
+  ].filter((img) => img?.url);
 
   return (
     <div>

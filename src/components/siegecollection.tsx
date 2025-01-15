@@ -4,7 +4,6 @@ import { CollectionType } from "@/types/collectionType";
 import { useState, ReactElement } from "react";
 import DOMPurify from "dompurify";
 import Image from "next/image";
-
 type SiegeCollectionProps = {
   className: string;
   innerDivClassName: string;
@@ -26,7 +25,7 @@ export default function SiegeCollection({
   svgElement,
   priceClassName,
 }: SiegeCollectionProps) {
-  const { collections, isLoading, error } = useCollection(
+  const collection = useCollection(
     process.env.NEXT_PUBLIC_SIEGE_COLLECTION_ID || ""
   );
   const [visibleTextIds, setVisibleTextIds] = useState<{
@@ -36,17 +35,9 @@ export default function SiegeCollection({
   const toggleTextVisibility = (id: string) =>
     setVisibleTextIds((prevState) => ({ ...prevState, [id]: !prevState[id] }));
 
-  if (isLoading) {
-    return <div className={className}>Loading...</div>;
-  }
-
-  if (error) {
-    return <div className={className}>Error: {error}</div>;
-  }
-
   return (
     <div className={className}>
-      {collections.map((item: CollectionType) => (
+      {collection.map((item: CollectionType) => (
         <div key={item.id} className="collection-item relative cursor-pointer">
           {svgElement && (
             <div
