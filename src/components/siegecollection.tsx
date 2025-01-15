@@ -4,6 +4,7 @@ import { CollectionType } from "@/types/collectionType";
 import { useState, ReactElement } from "react";
 import DOMPurify from "dompurify";
 import Image from "next/image";
+
 type SiegeCollectionProps = {
   className: string;
   innerDivClassName: string;
@@ -67,7 +68,9 @@ export default function SiegeCollection({
                   <div
                     className="mx-4"
                     dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(item.fieldData["texte"] || ""),
+                      __html: DOMPurify.sanitize(
+                        item.fieldData["text-on-hover"] || ""
+                      ),
                     }}
                   />
                 )}

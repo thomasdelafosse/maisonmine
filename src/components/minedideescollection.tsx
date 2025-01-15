@@ -37,9 +37,17 @@ export default function MinedideesCollection({
   const toggleTextVisibility = (id: string) =>
     setVisibleTextIds((prevState) => ({ ...prevState, [id]: !prevState[id] }));
 
+  const sortedCollection = [...(collection as CollectionType[])].sort(
+    (a, b) => {
+      const rankingA = Number(a.fieldData.ranking) || Infinity;
+      const rankingB = Number(b.fieldData.ranking) || Infinity;
+      return rankingA - rankingB;
+    }
+  );
+
   return (
     <div className={className}>
-      {collection.map((item: CollectionType) => (
+      {sortedCollection.map((item: CollectionType) => (
         <div key={item.id} className="collection-item relative cursor-pointer">
           {svgElement && (
             <div

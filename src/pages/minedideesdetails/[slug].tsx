@@ -51,7 +51,7 @@ function MineDetails({ slug }: { slug: string }) {
           )}
         </div>
         <div className="w-full md:w-2/3 ">
-          <div className="flex flex-col mt-4 mx-4 md:ml-10 md:mr-36 md:mt-32">
+          <div className="flex flex-col mt-4 mx-4 md:ml-10 md:mr-36 md:mt-10">
             <div className="md:border-l-2 md:border-gray-300 md:pl-2">
               {/* BOX TEXTE */}
               <div

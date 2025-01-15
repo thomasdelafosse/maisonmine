@@ -9,6 +9,7 @@ export type CollectionType = {
     price?: string;
     date?: string;
     description?: string;
+    ranking?: string;
     "blog-post-summary"?: string;
     "thumbnail-image"?: {
       url: string;
@@ -18,7 +19,8 @@ export type CollectionType = {
       url: string;
       alt?: string;
     };
-    texte?: string;
+    Texte?: string;
+    "text-on-hover"?: string;
     "blog-content"?: string;
     "property-description"?: string;
     "mini-1"?: {
