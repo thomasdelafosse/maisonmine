@@ -13,36 +13,25 @@ import { useEffect, useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import Footer from "@/components/footer";
 
-// Custom styles for Swiper navigation
-const swiperStyles = {
-  ".swiper-button-next, .swiper-button-prev": {
-    color: "black",
-    transform: "scale(0.7)",
-  },
-};
-
 export default function Page() {
   const router = useRouter();
   const { slug } = router.query;
 
   // Don't render anything until we have the slug
-  if (!router.isReady || !slug) return <div>Loading...</div>;
+  if (!router.isReady || typeof slug !== 'string') return <div>Loading...</div>;
 
-  return <SiegeDetails slug={slug as string} />;
+  return <SiegeDetails slug={slug} />;
 }
 
 function SiegeDetails({ slug }: { slug: string }) {
   const item = useItem(process.env.NEXT_PUBLIC_SIEGE_COLLECTION_ID || "", slug);
   const swiperRef = useRef<SwiperType | null>(null);
 
-  useEffect(
-    function () {
-      if (swiperRef.current) {
-        swiperRef.current.slideTo(0);
-      }
-    },
-    [slug]
-  );
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(0);
+    }
+  }, [slug]);
 
   if (!item) return <div>Loading...</div>;
 
