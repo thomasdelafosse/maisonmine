@@ -26,7 +26,7 @@ export default function MeubleCollection({
   svgElement,
   priceClassName,
 }: MeubleCollectionProps) {
-  const collection = useCollection(collectionId);
+  const { collections, isLoading, error } = useCollection(collectionId);
   const [visibleTextIds, setVisibleTextIds] = useState<{
     [key: string]: boolean;
   }>({});
@@ -34,9 +34,17 @@ export default function MeubleCollection({
   const toggleTextVisibility = (id: string) =>
     setVisibleTextIds((prevState) => ({ ...prevState, [id]: !prevState[id] }));
 
+  if (isLoading) {
+    return <div className={className}>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className={className}>Error: {error}</div>;
+  }
+
   return (
     <div className={className}>
-      {collection.map((item: CollectionType) => (
+      {collections.map((item: CollectionType) => (
         <div key={item.id} className="collection-item relative cursor-pointer">
           {svgElement && (
             <div

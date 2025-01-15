@@ -27,7 +27,7 @@ export default function MinedideesCollection({
   priceClassName,
   collectionId,
 }: MinedideesCollectionProps) {
-  const collection = useCollection(
+  const { collections, isLoading, error } = useCollection(
     collectionId || process.env.NEXT_PUBLIC_MINE_DIDEES_COLLECTION_ID || ""
   );
   const [visibleTextIds, setVisibleTextIds] = useState<{
@@ -37,9 +37,17 @@ export default function MinedideesCollection({
   const toggleTextVisibility = (id: string) =>
     setVisibleTextIds((prevState) => ({ ...prevState, [id]: !prevState[id] }));
 
+  if (isLoading) {
+    return <div className={className}>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className={className}>Error: {error}</div>;
+  }
+
   return (
     <div className={className}>
-      {collection.map((item: CollectionType) => (
+      {collections.map((item: CollectionType) => (
         <div key={item.id} className="collection-item relative cursor-pointer">
           {svgElement && (
             <div
