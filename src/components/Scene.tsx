@@ -1,13 +1,14 @@
 import { Canvas } from "@react-three/fiber";
 import Model from "./Model";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { Environment, OrbitControls, ContactShadows } from "@react-three/drei";
 
 type SceneProps = {
   modelPath: string;
+  onLoadingChange?: (loading: boolean) => void;
 };
 
-export default function Scene({ modelPath }: SceneProps) {
+export default function Scene({ modelPath, onLoadingChange }: SceneProps) {
   return (
     <Canvas camera={{ position: [8, 2, 2.5], fov: 8 }}>
       <ambientLight intensity={1} />
@@ -19,7 +20,7 @@ export default function Scene({ modelPath }: SceneProps) {
       />
       <directionalLight position={[0, 5, 5]} intensity={4} />
       <Suspense fallback={null}>
-        <Model modelPath={modelPath} />
+        <Model modelPath={modelPath} onLoadingChange={onLoadingChange} />
       </Suspense>
       <Environment preset="sunset" />
       <ContactShadows

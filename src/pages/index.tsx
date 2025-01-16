@@ -3,21 +3,46 @@ import Navbar from "../components/navbar";
 import Image from "next/image";
 import Footer from "../components/footer";
 import Scene from "@/components/Scene";
+import ModelLoader from "@/components/ModelLoader";
+import { useState } from "react";
 
 export default function Home() {
+  const [loadingStates, setLoadingStates] = useState({
+    chaise: true,
+    chaiseZebre: true,
+    clubArtDeco: true,
+  });
+
+  const handleLoadingChange =
+    (model: keyof typeof loadingStates) => (loading: boolean) => {
+      setLoadingStates((prev) => ({ ...prev, [model]: loading }));
+    };
+
   return (
     <div>
       <Navbar />
       <div className="mt-48 md:mt-72">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-4 md:mx-20">
-          <div className="h-[600px]  flex items-center justify-center">
-            <Scene modelPath="/chaise3D.glb" />
+          <div className="h-[600px] flex items-center justify-center relative">
+            <ModelLoader loading={loadingStates.chaise} />
+            <Scene
+              modelPath="/chaise3D.glb"
+              onLoadingChange={handleLoadingChange("chaise")}
+            />
           </div>
-          <div className="h-[600px]  flex items-center justify-center">
-            <Scene modelPath="/chaisezèbre3D.glb" />
+          <div className="h-[600px] flex items-center justify-center relative">
+            <ModelLoader loading={loadingStates.chaiseZebre} />
+            <Scene
+              modelPath="/chaisezèbre3D.glb"
+              onLoadingChange={handleLoadingChange("chaiseZebre")}
+            />
           </div>
-          <div className="h-[600px]  flex items-center justify-center">
-            <Scene modelPath="/clubartdéco3D.glb" />
+          <div className="h-[600px] flex items-center justify-center relative">
+            <ModelLoader loading={loadingStates.clubArtDeco} />
+            <Scene
+              modelPath="/clubartdéco3D.glb"
+              onLoadingChange={handleLoadingChange("clubArtDeco")}
+            />
           </div>
         </div>
         <div className="flex flex-col items-center mt-10 mx-4 md:flex-row md:justify-center md:mt-20 md:mx-32 ">
