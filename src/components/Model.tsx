@@ -2,8 +2,6 @@ import { useGLTF } from "@react-three/drei";
 import { useRef, useEffect } from "react";
 import { Group } from "three";
 
-useGLTF.preload("/chaise3D.glb");
-
 type ModelProps = {
   modelPath: string;
   onLoadingChange?: (loading: boolean) => void;
