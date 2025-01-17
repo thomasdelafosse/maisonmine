@@ -16,7 +16,7 @@ export default function ContactContent() {
       const emailData = {
         to_name: formData.get("to_name")?.toString() || "",
         from_name: formData.get("from_name")?.toString() || "",
-        phone: formData.get("to_test")?.toString() || "",
+        phone: formData.get("phone")?.toString() || "",
         projectType: formData.get("projectType")?.toString() || "",
         message: formData.get("message")?.toString() || "",
       };
@@ -88,7 +88,7 @@ export default function ContactContent() {
             VOS COORDONNÉES TÉLÉPHONIQUES
           </label>
           <input
-            name="to_test"
+            name="phone"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline"
             type="tel"
             placeholder="entrez votre numéro de téléphone"
