@@ -53,7 +53,11 @@ function NavBar() {
               src="/images/maisonminelogo.png"
               width={250}
               height={250}
-              className="w-max mx-auto"
+              style={{
+                width: "auto",
+                height: "auto",
+              }}
+              priority
             />
           </Link>
           <div className="md:hidden absolute top-6 right-4">

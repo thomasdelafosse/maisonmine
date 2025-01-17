@@ -6,12 +6,16 @@ export function useCollection(collectionId: string) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const collectionData = await fetchCollectionData(collectionId);
-      setCollections(collectionData);
+      try {
+        const collectionData = await fetchCollectionData(collectionId);
+        setCollections(collectionData);
+      } catch (error) {
+        console.error("Error loading collection:", error);
+      }
     };
 
     fetchData();
-  }, []);
+  }, [collectionId]);
 
   return collections;
 }

@@ -8,8 +8,8 @@ export function useItem(collectionId: string, slug?: string) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (!collectionId || !slug) {
-          throw new Error("Collection ID and slug are required");
+        if (!slug) {
+          throw new Error("slug is required");
         }
 
         const itemData = await fetchItemData(collectionId, undefined, slug);

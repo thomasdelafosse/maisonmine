@@ -21,6 +21,7 @@ export type CollectionType = {
     };
     Texte?: string;
     "text-on-hover"?: string;
+    texte?: string;
     "blog-content"?: string;
     "property-description"?: string;
     "mini-1"?: {

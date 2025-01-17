@@ -21,7 +21,11 @@ export default function Footer() {
               alt="Maison Mine Logo"
               width={200}
               height={200}
-              className=""
+              style={{
+                width: "auto",
+                height: "auto",
+              }}
+              priority
             />
             <p className="text-xs text-gray-800 ">
               © 2023 MAISON MINE

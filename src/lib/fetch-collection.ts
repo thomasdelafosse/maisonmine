@@ -1,4 +1,3 @@
-// Function to fetch collection data with collectionId
 export const fetchCollectionData = async (collectionId: string) => {
   try {
     const itemsResponse = await fetch(
@@ -6,7 +5,6 @@ export const fetchCollectionData = async (collectionId: string) => {
     );
 
     const items = await itemsResponse.json();
-    // console.log(itemsResponse);
 
     return items;
   } catch (error) {
