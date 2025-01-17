@@ -15,6 +15,41 @@ export default function Footer() {
     <footer className="py-8">
       <div className="mx-4 md:mx-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:mt-10">
+          <div className="flex flex-col space-y-4 items-center order-3 md:order-1 md:border-r-2 border-gray-300 md:pl-10">
+            <Image
+              src="/images/maisonminelogo.png"
+              alt="Maison Mine Logo"
+              width={200}
+              height={200}
+              style={{
+                width: "auto",
+                height: "auto",
+              }}
+              priority
+            />
+            <p className="text-xs text-gray-800">
+              © 2023 MAISON MINE
+              <br />
+              TOUS DROITS RÉSERVÉS
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 items-center gap-y-6 mx-6 md:mx-10 order-1 md:order-2">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="font-semibold text-sm text-gray-600 hover:text-gray-800 cursor-pointer border-l-2 border-gray-300 pl-1"
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push(item.href);
+                }}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
           <div className="flex flex-row gap-2 justify-center items-center order-2 md:order-3 md:border-l-2 border-gray-300 md:pl-10">
             <a
               href="https://instagram.com/maison_mine_/"
@@ -54,41 +89,6 @@ export default function Footer() {
                 />
               </svg>
             </a>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2 items-center gap-y-6 mx-6 md:mx-10 order-1">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="font-semibold text-sm text-gray-600 hover:text-gray-800 cursor-pointer border-l-2 border-gray-300 pl-1"
-                onClick={(e) => {
-                  e.preventDefault();
-                  router.push(item.href);
-                }}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
-          <div className="flex flex-col space-y-4 items-center order-3 md:order-1 md:border-r-2 border-gray-300">
-            <Image
-              src="/images/maisonminelogo.png"
-              alt="Maison Mine Logo"
-              width={200}
-              height={200}
-              style={{
-                width: "auto",
-                height: "auto",
-              }}
-              priority
-            />
-            <p className="text-xs text-gray-800">
-              © 2023 MAISON MINE
-              <br />
-              TOUS DROITS RÉSERVÉS
-            </p>
           </div>
         </div>
       </div>
