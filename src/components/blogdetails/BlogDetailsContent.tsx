@@ -62,7 +62,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
         <div
           className={`fixed flex justify-center inset-0 bg-white z-20 transform ${
             isTitleOpen ? "translate-x-0" : "-translate-x-full"
-          } transition-transform duration-300 ease-in-out md:hidden overflow-y-auto`}
+          } transition-transform duration-700 ease-in-out md:hidden overflow-y-auto`}
         >
           <div className="pt-24 px-4 h-full">
             <div className="flex flex-col gap-6 mt-32">
