@@ -53,7 +53,7 @@ export default function ContactContent() {
   };
 
   return (
-    <div className="mt-48 md:mt-64 flex justify-center mx-4">
+    <div className="flex justify-center mx-4">
       <form ref={form} onSubmit={handleSubmit}>
         <h1 className="text-2xl font-semibold mb-4">
           UN PROJET DE RESTAURATION ? UNE IDÉE, UNE ENVIE, UNE QUESTION ?

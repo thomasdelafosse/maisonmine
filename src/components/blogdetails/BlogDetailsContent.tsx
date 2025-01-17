@@ -4,6 +4,7 @@ import { CollectionType } from "@/types/collectionType";
 import Link from "next/link";
 import DOMPurify from "dompurify";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 type BlogDetailsContentProps = {
   slug: string;
@@ -43,12 +44,18 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
   return (
     <div className={isTitleOpen ? "h-screen overflow-hidden z-50" : ""}>
       <button
-        className="relative -top-32 left-4 z-40 md:hidden p-2 mb-10"
+        className="relative left-4 z-40 md:hidden p-2 "
         onClick={() => setIsTitleOpen(!isTitleOpen)}
       >
-        <div className="w-6 h-0.5 bg-black mb-1"></div>
-        <div className="w-6 h-0.5 bg-black mb-1"></div>
-        <div className="w-6 h-0.5 bg-black"></div>
+        <Image
+          src={isTitleOpen ? "/svg/rarrow4.svg" : "/svg/larrow.svg"}
+          alt="Menu"
+          width={40}
+          height={40}
+          className={`transition-transform duration-700 ${
+            isTitleOpen ? "rotate-180" : "-rotate-180"
+          }`}
+        />
       </button>
 
       <div className="mx-4 md:mx-64 flex flex-row">

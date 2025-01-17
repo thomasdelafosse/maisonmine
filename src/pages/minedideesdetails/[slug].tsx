@@ -26,14 +26,8 @@ export default function Page() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow mt-48 md:mt-64">
-        {!router.isReady ? (
-          <div className="flex justify-center items-center min-h-[50vh]">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
-          </div>
-        ) : (
-          <MineDetailsContent slug={slug as string} />
-        )}
+      <main className="flex-grow">
+        <MineDetailsContent slug={slug} />
       </main>
       <Footer />
     </div>

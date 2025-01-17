@@ -54,7 +54,7 @@ const items = [
 export default function TarifsContent() {
   return (
     <>
-      <div className="mt-48 mx-4 md:mx-32 md:mt-64 border-l-2 border-gray-300 pl-3">
+      <div className="mx-4 md:mx-32 border-l-2 border-gray-300 pl-3">
         <h2 className="font-semibold">ON PARLE DE VOTRE PROJET ?</h2>
         <div className="flex flex-col gap-6 text-gray-500 mt-2">
           <span>

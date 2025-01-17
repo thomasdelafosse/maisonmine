@@ -15,7 +15,7 @@ export default function ModelsSection() {
     };
 
   return (
-    <div className="mt-48 md:mt-72">
+    <div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-4 md:mx-20">
         <div className="h-[600px] flex items-center justify-center relative">
           <ModelLoader loading={loadingStates.chaisechably} />

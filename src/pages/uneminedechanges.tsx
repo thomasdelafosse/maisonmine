@@ -19,7 +19,7 @@ export default function UneminedeChangements() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow mt-48 md:mt-64">
+      <main className="flex-grow">
         <UneminedeChangesContent />
       </main>
       <Footer />

@@ -19,7 +19,7 @@ export default function CoteMeuble() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow mt-48 md:mt-64 relative z-0">
+      <main className="flex-grow relative z-0">
         <MeubleCollectionContent />
       </main>
       <Footer />
