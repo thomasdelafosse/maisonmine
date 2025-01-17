@@ -6,26 +6,6 @@ import { useRouter } from "next/router";
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
-  // @TODO: add the viewport meta tag to the head
-  useEffect(() => {
-    const viewport = document.querySelector("meta[name=viewport]");
-    if (isMenuOpen) {
-      document.documentElement.classList.add("overflow-hidden");
-      document.body.classList.add("overflow-hidden");
-      if (viewport) {
-        viewport.setAttribute(
-          "content",
-          "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-        );
-      }
-    } else {
-      document.documentElement.classList.remove("overflow-hidden");
-      document.body.classList.remove("overflow-hidden");
-      if (viewport) {
-        viewport.setAttribute("content", "width=device-width, initial-scale=1");
-      }
-    }
-  }, [isMenuOpen]);
 
   const navigation = [
     { name: "COTÉ SIÈGE", href: "/cotesiege" },
