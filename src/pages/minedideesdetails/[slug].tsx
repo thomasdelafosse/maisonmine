@@ -27,7 +27,7 @@ export default function Page() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
-        <MineDetailsContent slug={slug} />
+        <MineDetailsContent slug={slug as string} />
       </main>
       <Footer />
     </div>
