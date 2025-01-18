@@ -1,24 +1,38 @@
 import { useGLTF } from "@react-three/drei";
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 import { Group } from "three";
 
 type ModelProps = {
   modelPath: string;
   onLoadingChange?: (loading: boolean) => void;
+  position?: [number, number, number];
+  isRotating?: boolean;
 };
 
-export default function Model({ modelPath, onLoadingChange }: ModelProps) {
-  const group = useRef<Group>(null);
-  const { nodes, materials, scene } = useGLTF(modelPath);
+export default function Model({
+  modelPath,
+  onLoadingChange,
+  position = [0, 0, 0],
+  isRotating = true,
+}: ModelProps) {
+  const { scene } = useGLTF(modelPath);
+  const groupRef = useRef<Group>(null);
+
+  useFrame(() => {
+    if (groupRef.current && isRotating) {
+      groupRef.current.rotation.y += 0.01;
+    }
+  });
 
   useEffect(() => {
-    if (scene && onLoadingChange) {
+    if (onLoadingChange) {
       onLoadingChange(false);
     }
-  }, [scene, onLoadingChange]);
+  }, [onLoadingChange]);
 
   return (
-    <group ref={group}>
+    <group ref={groupRef} position={position}>
       <primitive object={scene} />
     </group>
   );
