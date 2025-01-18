@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:mt-10">
           <div className="flex flex-col space-y-4 items-center order-3 md:order-1 md:border-r-2 border-gray-300 md:pl-10">
             <Image
-              src="/images/maisonminelogo.png"
+              src="/images/Logomaisonmine.png"
               alt="Maison Mine Logo"
               width={200}
               height={200}

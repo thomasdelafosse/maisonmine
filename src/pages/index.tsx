@@ -6,14 +6,12 @@ import dynamic from "next/dynamic";
 
 const ModelsSection = dynamic(() => import("@/components/ModelsSection"), {
   loading: () => (
-    <div className="mt-48 md:mt-72">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-4 md:mx-20">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="h-[600px] flex items-center justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
-          </div>
-        ))}
-      </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-4 md:mx-20">
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="h-[600px] flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+        </div>
+      ))}
     </div>
   ),
   ssr: false,
@@ -21,10 +19,10 @@ const ModelsSection = dynamic(() => import("@/components/ModelsSection"), {
 
 export default function Home() {
   return (
-    <div>
+    <div className="pt-4">
       <Navbar />
       <ModelsSection />
-      <div className="flex flex-col items-center mt-10 mx-4 md:flex-row md:justify-center md:mt-20 md:mx-32 ">
+      <div className="flex flex-col items-center mt-10 mx-4 md:flex-row md:justify-center md:mt-20 md:mx-32  ">
         <div className="md:flex-1/3 md:flex-shrink-0">
           <Image
             src="/images/moi.jpg"

@@ -23,7 +23,7 @@ const Logo = () => (
   <Link href="/" aria-label="go to the home page">
     <Image
       alt="Logo Maison Mine"
-      src="/images/maisonminelogo.png"
+      src="/images/Logomaisonmine.png"
       width={250}
       height={250}
       style={{
@@ -39,7 +39,7 @@ const DesktopNav = () => {
   const router = useRouter();
 
   return (
-    <div className="hidden md:flex md:items-center md:justify-center md:gap-x-8">
+    <div className="hidden md:flex md:items-center md:justify-center md:gap-x-8 md:mt-2">
       {navigation.map((item) => (
         <Link
           key={item.name}
@@ -83,7 +83,7 @@ const MobileNav = () => {
         )}
       </button>
       <div
-        className={`fixed inset-0 bg-white transition-transform duration-700 ease-in-out md:hidden ${
+        className={`fixed inset-0 bg-white transition-transform duration-700 ease-in-out md:hidden border-2 border-red-500 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ zIndex: 40 }}
