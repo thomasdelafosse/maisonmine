@@ -44,7 +44,7 @@ const DesktopNav = () => {
         <Link
           key={item.name}
           href={item.href}
-          className={`font-semibold text-gray-600 hover:text-black transition-colors ${
+          className={`font-semibold text-gray-600 hover:text-black transition-colors  ${
             router.pathname === item.href ? "underline underline-offset-4" : ""
           }`}
           onClick={(e) => {
@@ -83,7 +83,7 @@ const MobileNav = () => {
         )}
       </button>
       <div
-        className={`fixed inset-0 bg-white transition-transform duration-700 ease-in-out md:hidden border-2 border-red-500 ${
+        className={`fixed inset-0 bg-white transition-transform duration-700 ease-in-out md:hidden ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ zIndex: 40 }}
@@ -159,7 +159,7 @@ const MobileNav = () => {
 
 function NavBar() {
   return (
-    <header className="relative z-50 mb-4 md:mb-8">
+    <header className="relative z-50 mb-4 md:mb-8 pt-4">
       <div className="flex flex-col items-center justify-center w-full px-4 py-1">
         <Logo />
         <DesktopNav />
