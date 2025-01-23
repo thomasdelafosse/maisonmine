@@ -24,28 +24,28 @@ export default function Home() {
             className="rounded-lg object-contain md:w-[200px] md:h-[250px] "
           />
         </div>
-        <div className="flex flex-col text-1xl text-gray-500 font-light mr-4 md:ml-8 ">
-          <div className="mt-4 border-l-2 border-gray-300 flex flex-col gap-2 pl-4 md:mt-0">
+        <div className="flex flex-col text-base md:text-lg text-gray-500 font-light mr-4 md:ml-8 ">
+          <div className="mt-4 border-l-2 border-gray-300 flex flex-col gap-2 pl-4 md:mt-0 font-medium">
             <p>
-              J'AVAIS À COEUR D'APPRENDRE LES TECHNIQUES ARTISANALES DE CE
-              MÉTIER POUR RESTAURER DIFFÉRENTS STYLE DE SIÈGES DANS LES RÈGLES
-              DE L'ART.
+              J'avais à coeur d'apprendre les techniques artisanales de ce
+              métier pour restaurer différents style de sièges dans les règles
+              de l'art.
             </p>
             <p>
-              AUSSI, MODESTEMENT, JE FAIS VIVRE CE MÉTIER D'ART EN REPRODUISANT
-              AVEC ATTENTION ET MINUTIE LES GESTES ENSEIGNÉS, APPLICATION D'UN
-              SAVOIR-FAIRE À L'ANCIENNE.
+              Aussi, modestement, je fais vivre ce métier d'art en reproduisant
+              avec attention et minutie les gestes enseignés, application d'un
+              savoir-faire à l'ancienne.
             </p>
             <p>
-              JE PRIVILÉGIE UNE RÉFECTION TRADITIONNELLE EN ÉTANT ATTENTIVE AUX
-              CHOIX DES MATÉRIAUX UTILISÉS; MATÉRIAUX NATURELS ET DE QUALITÉ,
-              GAGE DE DURABILITÉ.
+              Je privilégie une réfection traditionnelle en étant attentive aux
+              choix des matériaux utilisés; matériaux naturels et de qualité,
+              gage de durabilité.
             </p>
             <p>
-              MON LEITMOTIV C'EST PRENDRE LE TEMPS DE LA RÉFLEXION POUR REDONNER
-              SON UTILITÉ À L'OBJET ET L'ADAPTER À SON NOUVEL ENVIRONNEMENT,
-              PRENDRE LE TEMPS DE LA RESTAURATION ET AVOIR LA SATISFACTION D'UN
-              TRAVAIL DE QUALITÉ À PARTAGER ET À TRANSMETTRE.
+              Mon leitmotiv c'est prendre le temps de la réflexion pour redonner
+              son utilité à l'objet et l'adapter à son nouvel environnement,
+              prendre le temps de la restauration et avoir la satisfaction d'un
+              travail de qualité à partager et à transmettre.
             </p>
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function Home() {
         </div>
         <div className="mt-4 border-l-2 border-gray-300 flex flex-col gap-4 pl-4 md:mr-8 md:border-r-2 md:border-l-0 md:pr-4">
           <Link href="/blogdetails/5db2fabea4e7efb593472b25">
-            <h1 className=" flex gap-2 text-xl font-semibold text-black hover:text-red-900 group  p-2">
+            <h1 className="flex gap-2 text-xl font-semibold text-black hover:text-red-900 group p-2">
               METHODE TRADITIONNELLE OU MÉTHODE CONTEMPORAINE ?
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -78,33 +78,40 @@ export default function Home() {
               </svg>
             </h1>
           </Link>
-          <div className="flex flex-col gap-6 text-gray-500 ">
-            <p className="mt-6">
-              POUR MOI C'EST UNE ÉVIDENCE : JE DÉLAISSE LES COLLES, AGRAFES ET
-              MOUSSE AU BÉNÉFICE DE MATÉRIAUX NATURELS ET DE QUALITÉ, GAGE DE
-              DURABILITÉ. DURABILITÉ.
+          <div className="flex flex-col gap-6 text-base md:text-lg text-gray-500">
+            <p className="">
+              Pour moi c'est une évidence : je délaisse les colles, agrafes et
+              mousse au bénéfice de matériaux naturels et de qualité, gage de
+              durabilité.
             </p>
             <p>
-              + <u className="text-gray-800 ">SANGLES ET TOILES EN JUTE</u> : LE
-              JUTE EST UNE PLANTE QUI NÉCESSITE PEU DE RESSOURCES POUR POUSSER,
-              C'EST DONC UN MATÉRIAU ÉCOLOGIQUE;
+              +{" "}
+              <u className="text-gray-800 underline-offset-2">
+                Sangles et toiles en jute
+              </u>{" "}
+              : le jute est une plante qui nécessite peu de ressources pour
+              pousser, c'est donc un matériau écologique;
             </p>
             <p>
-              + <u className="text-gray-800">ÉLANCRIN</u> UTILISÉ POUR LA
-              GARNITURE : FIBRES NATURELLES ISSUES DE LA BOURRE DE LA NOIX DE
-              COCO;
+              + <u className="text-gray-800 underline-offset-2">Élancrin</u>{" "}
+              utilisé pour la garniture : fibres naturelles issues de la bourre
+              de la noix de coco;
             </p>
             <p>
-              + <u className="text-gray-800">CRIN ANIMAL</u> (ISSU DE LA
-              CRINIÈRE ET DE LA QUEUE DE CHEVAL) QUI APPORTE SOUPLESSE ET
-              CONFORT À LA GARNITURE;
+              + <u className="text-gray-800 underline-offset-2">Crin animal</u>{" "}
+              (issu de la crinière et de la queue de cheval) qui apporte
+              souplesse et confort à la garniture;
             </p>
             <p>
-              + <u className="text-gray-800">TOILES BLANCHE 100% COTON</u>
+              +{" "}
+              <u className="text-gray-800 underline-offset-2">
+                Toiles blanche 100% coton
+              </u>
             </p>
             <p>
-              + <u className="text-gray-800">OUATE EN COTON</u> POUR LE
-              REMBOURRAGE
+              +{" "}
+              <u className="text-gray-800 underline-offset-2">Ouate en coton</u>{" "}
+              pour le rembourrage
             </p>
           </div>
         </div>
@@ -120,44 +127,52 @@ export default function Home() {
             className="rounded-lg object-contain"
           />
         </div>
-        <div className="flex flex-col mt-4 text-1xl text-gray-500 font-light border-l-2  border-gray-300 pl-4 md:m-8 ">
-          <h1 className="text-xl font-semibold text-black">
+        <div className="flex flex-col mt-4 text-base md:text-lg text-gray-500 font-light border-l-2 border-gray-300 pl-4 md:m-8">
+          <h1 className="text-xl font-medium text-black">
             QUELLES SONT LES ÉTAPES DE RESTAURATION D'UN SIÈGE ?
           </h1>
-          <div className="  flex flex-col gap-6 text-gray-500 ">
+          <div className="flex flex-col gap-6 text-base md:text-lg text-gray-500">
             <p className="mt-6">
-              TOUTE RESTAURATION COMPORTE LES MÊMES ÉTAPES :
+              Toute restauration comporte les mêmes étapes :
             </p>
             <p>
-              + LE <u className="text-gray-800">DÉGARNISSAGE</u> ET LA{" "}
-              <u className="text-gray-800">PRÉPARATION</u> DU BOIS DE LA
-              CARCASSE, AVEC LES RÉPARATIONS QUI PEUVENT S'AVÉRER NÉCESSAIRES ET
-              UNE NOUVELLE <u className="text-gray-800">PATINE</u>;
+              + Le{" "}
+              <u className="text-gray-800 underline-offset-2">dégarnissage</u>{" "}
+              et la{" "}
+              <u className="text-gray-800 underline-offset-2">préparation</u> du
+              bois de la carcasse, avec les réparations qui peuvent s'avérer
+              nécessaires et une nouvelle{" "}
+              <u className="text-gray-800 underline-offset-2">patine</u>;
             </p>
             <p>
-              + LE <u className="text-gray-800">SANGLAGE</u> AVEC DES SANGLES DE
-              JUTE, QUI FORME LE FOND DU SIÈGE;
+              + Le <u className="text-gray-800 underline-offset-2">sanglage</u>{" "}
+              avec des sangles de jute, qui forme le fond du siège;
             </p>
             <p>
-              + LE <u className="text-gray-800">GUINDAGE</u> (LA POSE DES
-              RESSORTS COUSUS SUR LES SANGLES) ET LA POSE DE LA TOILE FORTE;
+              + Le <u className="text-gray-800 underline-offset-2">guindage</u>{" "}
+              (la pose des ressorts cousus sur les sangles) et la pose de la
+              toile forte;
             </p>
             <p>
-              + LA <u className="text-gray-800">MISE EN CRIN</u> ET LE PIQUAGE
-              DES POINTS (POUR DONNER LA FORME À LA GARNITURE);
+              + La{" "}
+              <u className="text-gray-800 underline-offset-2">mise en crin</u>{" "}
+              et le piquage des points (pour donner la forme à la garniture);
             </p>
             <p>
-              + LA <u className="text-gray-800">MISE EN BLANC</u>, ÉTAPE QUI
-              PERMET D'APPORTER DU CONFORT PUISQU'UNE FINE COUCHE DE CRIN ANIMAL
-              EST AJOUTÉE AVANT DE LA RECOUVRIR PAR UNE TOILE BLANCHE ET UNE
-              COUCHE DE OUATE COTON;
+              + La{" "}
+              <u className="text-gray-800 underline-offset-2">mise en blanc</u>,
+              étape qui permet d'apporter du confort puisqu'une fine couche de
+              crin animal est ajoutée avant de la recouvrir par une toile
+              blanche et une couche de ouate coton;
             </p>
             <p>
-              + LA <u className="text-gray-800">COUVERTURE</u> AVEC LA POSE DU
-              TISSU;
+              + La{" "}
+              <u className="text-gray-800 underline-offset-2">couverture</u>{" "}
+              avec la pose du tissu;
             </p>
             <p>
-              + LES <u className="text-gray-800">FINITIONS</u>.
+              + Les{" "}
+              <u className="text-gray-800 underline-offset-2">finitions</u>.
             </p>
           </div>
         </div>
@@ -185,16 +200,16 @@ export default function Home() {
             className="rounded-lg object-contain md:w-[300px] md:h-[300px]"
           />
         </div>
-        <div className="flex flex-col mt-4 text-1xl text-gray-500 font-light">
-          <div className="pl-4 border-l-2 md:border-l-0 md:border-r-2  md:border-gray-300 md:mx-8 md:px-8">
+        <div className="flex flex-col mt-4 text-base md:text-lg text-gray-500 font-light">
+          <div className="pl-4 border-l-2 md:border-l-0 md:border-r-2 md:border-gray-300 md:mx-8 md:px-8">
             <h1 className="text-xl font-semibold text-black">
               GERMINATION D'IDÉES : D'AUTRES SIÈGES SONT DISPONIBLES !
             </h1>
-            <div className="flex flex-col gap-6 text-gray-500">
+            <div className="flex flex-col gap-6 text-base md:text-lg text-gray-500">
               <p className="mt-6">
-                D'AUTRES SIÈGES ATTENDENT LEUR RÉNOVATION SELON MES
-                INSPIRATIONS... OU LES VÔTRES. UN PROJET VOUS TENTE ?
-                CONTACTEZ-MOI !
+                D'autres sièges attendent leur rénovation selon mes
+                inspirations... ou les vôtres. Un projet vous tente ?
+                Contactez-moi !
               </p>
             </div>
           </div>
