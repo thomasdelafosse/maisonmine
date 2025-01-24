@@ -24,7 +24,7 @@ export default function Home() {
             className="rounded-lg object-contain md:w-[200px] md:h-[250px] "
           />
         </div>
-        <div className="flex flex-col text-base md:text-lg text-gray-500 font-light mr-4 md:ml-8 ">
+        <div className="flex flex-col text-base text-gray-500 font-light mr-4 md:ml-8 ">
           <div className="mt-4 border-l-2 border-gray-300 flex flex-col gap-2 pl-4 md:mt-0 font-medium">
             <p>
               J'avais à coeur d'apprendre les techniques artisanales de ce
@@ -63,7 +63,7 @@ export default function Home() {
         </div>
         <div className="mt-4 border-l-2 border-gray-300 flex flex-col gap-4 pl-4 md:mr-8 md:border-r-2 md:border-l-0 md:pr-4">
           <Link href="/blogdetails/5db2fabea4e7efb593472b25">
-            <h1 className="flex gap-2 text-xl font-semibold text-black hover:text-red-900 group p-2">
+            <h1 className="flex gap-2 text-base font-medium text-black hover:text-red-900 group p-2">
               METHODE TRADITIONNELLE OU MÉTHODE CONTEMPORAINE ?
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ export default function Home() {
               </svg>
             </h1>
           </Link>
-          <div className="flex flex-col gap-6 text-base md:text-lg text-gray-500">
+          <div className="flex flex-col gap-6 text-base text-gray-500">
             <p className="">
               Pour moi c'est une évidence : je délaisse les colles, agrafes et
               mousse au bénéfice de matériaux naturels et de qualité, gage de
@@ -127,11 +127,11 @@ export default function Home() {
             className="rounded-lg object-contain"
           />
         </div>
-        <div className="flex flex-col mt-4 text-base md:text-lg text-gray-500 font-light border-l-2 border-gray-300 pl-4 md:m-8">
-          <h1 className="text-xl font-medium text-black">
+        <div className="flex flex-col mt-4 text-base text-gray-500 font-light border-l-2 border-gray-300 pl-4 md:m-8">
+          <h1 className="text-base font-medium text-black">
             QUELLES SONT LES ÉTAPES DE RESTAURATION D'UN SIÈGE ?
           </h1>
-          <div className="flex flex-col gap-6 text-base md:text-lg text-gray-500">
+          <div className="flex flex-col gap-6 text-base text-gray-500">
             <p className="mt-6">
               Toute restauration comporte les mêmes étapes :
             </p>
@@ -179,12 +179,12 @@ export default function Home() {
       </div>
       <div className="flex flex-col items-center md:flex-row md:justify-evenly mt-6 gap-4 mx-4 md:mx-32 font-light mb-6">
         <Link href="/cotesiege">
-          <button className="w-full px-2 py-2 bg-white text-gray-500 rounded-lg text-base md:text-lg hover:bg-gray-200 border-2 border-gray-400">
+          <button className="w-full px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400">
             DÉCOUVRIR LE CÔTÉ SIÈGE
           </button>
         </Link>
         <Link href="/cotemeuble">
-          <button className="w-full px-2 py-2 bg-white text-gray-500 rounded-lg text-base md:text-lg hover:bg-gray-200 border-2 border-gray-400">
+          <button className="w-full px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400">
             DÉCOUVRIR LE CÔTÉ MEUBLE
           </button>
         </Link>
@@ -200,12 +200,12 @@ export default function Home() {
             className="rounded-lg object-contain md:w-[300px] md:h-[300px]"
           />
         </div>
-        <div className="flex flex-col mt-4 text-base md:text-lg text-gray-500 font-light">
+        <div className="flex flex-col mt-4 text-base text-gray-500 font-light">
           <div className="pl-4 border-l-2 md:border-l-0 md:border-r-2 md:border-gray-300 md:mx-8 md:px-8">
-            <h1 className="text-xl font-semibold text-black">
+            <h1 className="text-base font-medium text-black">
               GERMINATION D'IDÉES : D'AUTRES SIÈGES SONT DISPONIBLES !
             </h1>
-            <div className="flex flex-col gap-6 text-base md:text-lg text-gray-500">
+            <div className="flex flex-col text-base text-gray-500">
               <p className="mt-6">
                 D'autres sièges attendent leur rénovation selon mes
                 inspirations... ou les vôtres. Un projet vous tente ?
@@ -215,17 +215,17 @@ export default function Home() {
           </div>
           <div className="flex flex-col md:flex-row justify-center md:justify-evenly items-center mt-10 gap-4 font-light mb-10">
             <Link href="/uneminedidees">
-              <button className="h-fit px-2 py-2 bg-white text-gray-500 rounded-lg text-base md:text-lg hover:bg-gray-200 border-2 border-gray-400">
+              <button className="h-fit px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400">
                 DÉCOUVRIR LES MINES D'IDÉES
               </button>
             </Link>
             <Link href="/tarifs">
-              <button className="h-fit px-2 py-2 bg-white text-gray-500 rounded-lg text-base md:text-lg hover:bg-gray-200 border-2 border-gray-400">
+              <button className="h-fit px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400">
                 LES TARIFS
               </button>
             </Link>
             <Link href="/contact">
-              <button className="h-fit px-2 py-2 bg-white text-gray-500 rounded-lg text-base md:text-lg hover:bg-gray-200 border-2 border-gray-400">
+              <button className="h-fit px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400">
                 DEMANDER UN DEVIS
               </button>
             </Link>

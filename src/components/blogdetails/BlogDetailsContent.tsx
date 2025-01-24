@@ -94,7 +94,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
                     onClick={() => setIsTitleOpen(false)}
                   >
                     <div className="flex flex-row cursor-pointer p-2">
-                      <div className="font-semibold">
+                      <div className="font-medium border-2 border-red-500">
                         <h1
                           className={
                             item.fieldData.slug === slug ? "underline" : ""
@@ -106,7 +106,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
                         >
                           {item.fieldData.name}
                         </h1>
-                        <span className="text-sm font-extralight text-gray-400">
+                        <span className="text-sm font-light text-gray-400">
                           {formattedDate}
                         </span>
                       </div>
@@ -143,7 +143,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
             return (
               <Link href={`/blogdetails/${item.fieldData.slug}`} key={item.id}>
                 <div className="flex flex-row cursor-pointer hover:text-red-900">
-                  <div className="font-semibold">
+                  <div className="font-medium">
                     <h1
                       className={
                         item.fieldData.slug === slug ? "underline" : ""
@@ -155,7 +155,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
                     >
                       {item.fieldData.name}
                     </h1>
-                    <span className="text-sm font-extralight text-gray-400">
+                    <span className="text-sm font-light text-gray-400">
                       {formattedDate}
                     </span>
                   </div>
@@ -169,7 +169,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
         <div className="flex flex-col items-start gap-4 flex-1">
           <h1 className="text-3xl font-light">{item.fieldData.name}</h1>
           <div
-            className="text-gray-500"
+            className="text-gray-500 lowercase font-medium"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(item.fieldData["blog-content"] || ""),
             }}

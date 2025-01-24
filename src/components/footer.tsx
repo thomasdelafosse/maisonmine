@@ -28,7 +28,7 @@ export default function Footer() {
               priority
             />
             <p className="text-xs text-gray-800">
-              © 2023 MAISON MINE
+              © 2025 MAISON MINE
               <br />
               TOUS DROITS RÉSERVÉS
             </p>
@@ -39,7 +39,7 @@ export default function Footer() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="font-semibold text-sm text-gray-600 hover:text-gray-800 cursor-pointer border-l-2 border-gray-300 pl-1"
+                className="font-medium text-sm text-gray-600 hover:text-gray-800 cursor-pointer border-l-2 border-gray-300 pl-1"
                 onClick={(e) => {
                   e.preventDefault();
                   router.push(item.href);

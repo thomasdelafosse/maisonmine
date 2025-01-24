@@ -134,14 +134,14 @@ export default function SiegeDetailsContent({
           <div className="flex flex-col mt-4 mx-4 md:ml-10 md:mr-36 md:mt-8">
             <div className="md:border-l-2 md:border-gray-300 md:pl-2">
               <div
-                className="text-xl font-semibold text-center md:text-left"
+                className="text-xl font-medium text-center md:text-left"
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(item.fieldData["name"]),
                 }}
               />
               <div
                 style={{ fontSize: "20px", lineHeight: "24px" }}
-                className="text-base mt-4 text-gray-500"
+                className="text-base mt-4 text-gray-500 font-light lowercase"
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(
                     item.fieldData["blog-content"] || ""

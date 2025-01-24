@@ -55,12 +55,12 @@ export default function ContactContent() {
   return (
     <div className="flex justify-center mx-4">
       <form ref={form} onSubmit={handleSubmit}>
-        <h1 className="text-2xl font-semibold mb-4">
+        <h1 className="text-2xl font-medium mb-4">
           UN PROJET DE RESTAURATION ? UNE IDÉE, UNE ENVIE, UNE QUESTION ?
           CONTACTEZ-MOI !
         </h1>
         <div className="mb-4">
-          <label className="block text-gray-600 text-sm font-semibold mb-2">
+          <label className="block text-gray-600 text-sm font-medium mb-2">
             VOS NOMS & PRÉNOMS
           </label>
           <input
@@ -72,7 +72,7 @@ export default function ContactContent() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-600 text-sm font-bold mb-2">
+          <label className="block text-gray-600 text-sm font-medium mb-2">
             VOTRE ADRESSE MAIL
           </label>
           <input
@@ -84,7 +84,7 @@ export default function ContactContent() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-600 text-sm font-bold mb-2">
+          <label className="block text-gray-600 text-sm font-medium mb-2">
             VOS COORDONNÉES TÉLÉPHONIQUES
           </label>
           <input
@@ -96,7 +96,7 @@ export default function ContactContent() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-600 text-sm font-bold mb-2">
+          <label className="block text-gray-600 text-sm font-medium mb-2">
             VOTRE MESSAGE PARLANT DE VOTRE PROJET
           </label>
           <select
@@ -122,7 +122,7 @@ export default function ContactContent() {
         </div>
         <div className="flex items-center justify-center md:justify-start">
           <button
-            className="bg-white text-gray-500 text-lg py-1 px-3 rounded border-2 border-gray-400 hover:bg-gray-200 focus:outline-none focus:shadow-outline disabled:opacity-50"
+            className="bg-white text-gray-500 py-1 px-3 rounded border-2 border-gray-400 hover:bg-gray-200 focus:outline-none focus:shadow-outline disabled:opacity-50"
             type="submit"
             disabled={isSubmitting}
           >

@@ -55,27 +55,27 @@ export default function TarifsContent() {
   return (
     <>
       <div className="mx-4 md:mx-32 border-l-2 border-gray-300 pl-3">
-        <h2 className="font-semibold">ON PARLE DE VOTRE PROJET ?</h2>
-        <div className="flex flex-col gap-6 text-gray-500 mt-2">
+        <h2 className="font-medium">ON PARLE DE VOTRE PROJET ?</h2>
+        <div className="flex flex-col gap-6 text-gray-500 mt-2 leading-6">
           <span>
-            POUR VOUS PERMETTRE D'AVOIR UNE IDÉE DU BUDGET À Y CONSACRER VOICI,
-            À TITRE INDICATIF, QUELQUES EXEMPLES DE TARIFS POUR UNE SIMPLE{" "}
-            <u className="text-gray-800">COUVERTURE*</u> (CHANGEMENT DU TISSU)
-            OU UNE RÉFECTION COMPLÈTE EN MÉTHODE{" "}
-            <u className="text-gray-800">TRADITIONNELLE**</u> (EN CRIN VÉGÉTAL
-            PIQUÉ SUR RESSORTS).
+            Pour vous permettre d'avoir une idée du budget à y consacrer voici,
+            à titre indicatif, quelques exemples de tarifs pour une simple{" "}
+            <u className="text-gray-800 underline-offset-2">couverture*</u>{" "}
+            (changement du tissu) ou une réfection complète en méthode{" "}
+            <u className="text-gray-800 underline-offset-2">traditionnelle**</u>{" "}
+            (en crin végétal piqué sur ressorts).
           </span>
           <p>
-            <u className="text-gray-800">COUVERTURE:</u> ENLÈVEMENT DE L'ANCIEN
-            TISSU, POSE DU NOUVEAU TISSU EN FINITION GALONNÉE (FINITION CLOUTÉE
-            SUR DEVIS).
+            <u className="text-gray-800 underline-offset-2">Couverture*:</u>{" "}
+            Enlèvement de l'ancien tissu, pose du nouveau tissu en finition
+            galonnée (finition cloutée sur devis).
             <br />
-            <u className="text-gray-800">
-              RÉFECTION COMPLÈTE TRADITIONNELLE:
+            <u className="text-gray-800 underline-offset-2">
+              Réfection complète traditionnelle**:
             </u>{" "}
-            RÉFECTION DE L'ENSEMBLE DU SIÈGE: ASSISE, DOSSIER ET MANCHETTES,
-            REMPLACEMENT DES SANGLES, RESSORTS, GARNITURE ET POSE DU NOUVEAU
-            TISSU. NOTE : TVA NON APPLICABLE EN VERTU DE L'ARTICLE 293 B DU CGI.
+            Réfection de l'ensemble du siège: assise, dossier et manchettes,
+            remplacement des sangles, ressorts, garniture et pose du nouveau
+            tissu. Note : TVA non applicable en vertu de l'article 293 B du CGI.
           </p>
         </div>
       </div>
@@ -89,11 +89,11 @@ export default function TarifsContent() {
                 alt={item.alt}
                 width={500}
                 height={500}
-                className="mx-auto rounded-3xl "
+                className="mx-auto rounded-full"
               />
             </div>
-            <h2 className="mt-4 font-bold">{item.title}</h2>
-            <div className="text-gray-500">
+            <h2 className="mt-4 font-medium">{item.title}</h2>
+            <div className="text-gray-500 leading-6">
               <p className="italic">{item.subtitle}</p>
               <p>Couverture: {item.coverage} €</p>
               <p className="mb-6 ">
@@ -105,31 +105,41 @@ export default function TarifsContent() {
       </div>
 
       <div className=" mx-4 md:mx-32 mt-2 border-l-2 border-gray-300 pl-3">
-        <div className="flex flex-col gap-6 text-gray-500">
+        <div className="flex flex-col gap-6 text-gray-500 leading-6">
           <p>
-            LE PRIX DE RÉFECTION D'UN SIÈGE DÉPEND DE NOMBREUX PARAMÈTRES. IL
-            DÉPEND DE SON STYLE, DE SON ÉTAT, DES MATÉRIAUX UTILISÉS ET BIEN
-            ÉVIDEMMENT DU TEMPS NÉCESSAIRE POUR LE RÉALISER. LE TEMPS DE TRAVAIL
-            PEUT VARIER SENSIBLEMENT SELON LE TYPE DE FAUTEUIL (DE PROPORTIONS
-            DIFFÉRENTES SELON LES ÉPOQUES ET LES STYLES) LE TRAVAIL SE RÉALISE
-            AVEC UN TYPE PARTICULIER DE GARNITURES AINSI QU'UN NOMBRE DE POINTS
-            DE COUTURE SPÉCIFIQUE : CES DIFFÉRENTS FACTEURS SONT PRIS EN COMPTE
-            LORS DE LA PRÉPARATION DU DEVIS.
+            Le prix de réfection d'un siège dépend de nombreux paramètres. Il
+            dépend de son style, de son état, des matériaux utilisés et bien
+            évidemment du temps nécessaire pour le réaliser. Le temps de travail
+            peut varier sensiblement selon le type de fauteuil (de proportions
+            différentes selon les époques et les styles) le travail se réalise
+            avec un type particulier de garnitures ainsi qu'un nombre de points
+            de couture spécifique : ces différents facteurs sont pris en compte
+            lors de la préparation du devis.
           </p>
           <p>
-            POUR PROPOSER UN SERVICE ADAPTÉ, IL EST NÉCESSAIRE D'ÉVALUER LE
-            SIÈGE ET D'ÉCHANGER SUR VOTRE PROJET AVANT DE FORMALISER UN DEVIS.
+            Pour proposer un service adapté, il est nécessaire d'évaluer le
+            siège et d'échanger sur votre projet avant de formaliser un devis.
+          </p>
+          <p className="flex flex-col">
+            Ces tarifs incluent les fournitures et s'entendent :
+            <span>
+              - <u className="text-gray-800 underline-offset-2">hors tissu</u>{" "}
+              et <u className="text-gray-800 underline-offset-2">finition</u>{" "}
+              (clous ou passementeries)
+            </span>
+            <span>
+              -{" "}
+              <u className="text-gray-800 underline-offset-2">
+                travaux nécessaires sur les bois
+              </u>{" "}
+              (tels que recollage, décapage, finitions etc…)
+            </span>
           </p>
           <p>
-            CES TARIFS INCLUENT LES FOURNITURES ET S'ENTENDENT : - HORS TISSU ET
-            FINITION (CLOUS OU PASSEMENTERIES) - HORS TRAVAUX NÉCESSAIRES SUR
-            LES BOIS (TELS QUE RECOLLAGE, DÉCAPAGE, FINITIONS ETC…)
-          </p>
-          <p>
-            L'ATELIER NE TRAVAILLE QU'AVEC DES TISSUS QU'IL FOURNIT. SI VOUS
-            FOURNISSEZ LE TISSU CES TARIFS FONT L'OBJET D'UNE MAJORATION DE 20%.
-            L'ATELIER NE SERA PAS TENU POUR RESPONSABLE DE LA TENUE DANS LE
-            TEMPS DU TISSU SUIVANT LES CONDITIONS GÉNÉRALES DE VENTE.
+            L'atelier ne travaille qu'avec des tissus qu'il fournit. Si vous
+            fournissez le tissu ces tarifs font l'objet d'une majoration de 20%.
+            L'atelier ne sera pas tenu pour responsable de la tenue dans le
+            temps du tissu suivant les conditions générales de vente.
           </p>
         </div>
       </div>

@@ -39,12 +39,12 @@ const DesktopNav = () => {
   const router = useRouter();
 
   return (
-    <div className="hidden md:flex md:items-center md:justify-center md:gap-x-8 md:mt-2">
+    <div className="hidden md:flex md:items-center md:justify-center md:gap-x-8 md:mt-6">
       {navigation.map((item) => (
         <Link
           key={item.name}
           href={item.href}
-          className={`font-semibold text-gray-600 hover:text-black transition-colors  ${
+          className={`font-medium text-gray-600 hover:text-black transition-colors  ${
             router.pathname === item.href ? "underline underline-offset-4" : ""
           }`}
           onClick={(e) => {
@@ -115,7 +115,7 @@ const MobileNav = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`font-semibold text-gray-600 hover:text-black transition-colors ${
+                className={`font-medium text-gray-600 hover:text-black transition-colors ${
                   router.pathname === item.href
                     ? "underline underline-offset-4"
                     : ""

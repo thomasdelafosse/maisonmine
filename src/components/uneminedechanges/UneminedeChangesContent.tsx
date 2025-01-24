@@ -49,9 +49,9 @@ export default function UneminedeChangesContent() {
         return (
           <Link href={`/blogdetails/${item?.fieldData?.slug}`} key={item.id}>
             <div className="flex flex-col cursor-pointer text-gray-500 hover:text-gray-950 group md:flex-row">
-              <div className="w-full md:w-1/4 font-semibold">
+              <div className="w-full md:w-1/4 font-medium">
                 <div className="flex justify-between md:block mb-4 md:mb-0">
-                  <h1 className="font-semibold text-gray-600 group-hover:text-gray-950">
+                  <h1 className="font-medium text-gray-600 group-hover:text-gray-950">
                     {item.fieldData.name}
                   </h1>
                   <span className="text-sm font-extralight text-gray-400">
@@ -60,7 +60,7 @@ export default function UneminedeChangesContent() {
                 </div>
               </div>
               <div className="border-l border-gray-300 mx-4 hidden md:block"></div>
-              <div className="w-full md:w-3/4">
+              <div className="w-full md:w-3/4 lowercase">
                 <p>{item.fieldData["blog-post-summary"]}</p>
               </div>
             </div>
