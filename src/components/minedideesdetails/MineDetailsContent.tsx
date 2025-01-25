@@ -2,6 +2,7 @@ import { useItem } from "@/hooks/use-item";
 import DOMPurify from "dompurify";
 import MinedideesCollection from "@/components/minedideescollection";
 import Scene from "@/components/Scene";
+import Link from "next/link";
 
 type MineDetailsContentProps = {
   slug: string;
@@ -69,6 +70,13 @@ export default function MineDetailsContent({ slug }: MineDetailsContentProps) {
                   ),
                 }}
               />
+              <div className="flex justify-center md:justify-start">
+                <Link href="/contact">
+                  <button className="h-fit px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400 mt-4">
+                    DEMANDER UN DEVIS
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
