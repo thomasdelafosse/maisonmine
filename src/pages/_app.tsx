@@ -1,11 +1,16 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { useState, createContext } from "react";
+import { useState, createContext, Dispatch, SetStateAction } from "react";
 
-export const MenuContext = createContext({
+type MenuContextType = {
+  isMenuOpen: boolean;
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
+};
+
+export const MenuContext = createContext<MenuContextType>({
   isMenuOpen: false,
-  setIsMenuOpen: (value: boolean) => {},
+  setIsMenuOpen: () => {},
 });
 
 export default function App({ Component, pageProps }: AppProps) {

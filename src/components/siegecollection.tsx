@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState, ReactElement, useEffect } from "react";
-import DOMPurify from "dompurify";
 import Image from "next/image";
 import { client } from "@/sanity/client";
 import { PortableText, type SanityDocument } from "next-sanity";
@@ -8,7 +7,7 @@ import imageUrlBuilder from '@sanity/image-url'
 
 const builder = imageUrlBuilder(client)
 
-function urlFor(source: any) {
+function urlFor(source: { asset: { _id: string; url: string } }) {
   return builder.image(source)
 }
 
@@ -20,7 +19,6 @@ type SiegeCollectionProps = {
   showInnerText?: boolean;
   svgElement?: ReactElement;
   priceClassName?: string;
-  slug: string;
 };
 
 export default function SiegeCollection({
@@ -31,7 +29,6 @@ export default function SiegeCollection({
   showInnerText = true,
   svgElement,
   priceClassName = "",
-  slug,
 }: SiegeCollectionProps) {
   const [sieges, setSieges] = useState<SanityDocument[]>([]);
   const [loading, setLoading] = useState(true);
