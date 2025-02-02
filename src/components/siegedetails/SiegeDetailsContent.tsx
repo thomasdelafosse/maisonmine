@@ -9,14 +9,11 @@ import "swiper/css/pagination";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
-import { PortableText, type SanityDocument } from "next-sanity";
+import { PortableText, type SanityDocument, PortableTextBlock } from "next-sanity";
 import imageUrlBuilder from '@sanity/image-url'
+import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 const builder = imageUrlBuilder(client)
-
-function urlFor(source: any) {
-  return builder.image(source)
-}
 
 type ImageWithLegend = {
   image: {
@@ -38,6 +35,18 @@ type SanityImage = {
   legend?: string;
 };
 
+type SiegeData = {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  image: SanityImage;
+  imagesWithLegends?: ImageWithLegend[];
+  price?: string;
+  bodyOnHover?: PortableTextBlock[];
+  body: PortableTextBlock[];
+  position?: number;
+}
+
 type SiegeDetailsContentProps = {
   slug: string;
 };
@@ -45,7 +54,7 @@ type SiegeDetailsContentProps = {
 export default function SiegeDetailsContent({
   slug,
 }: SiegeDetailsContentProps) {
-  const [siege, setSiege] = useState<SanityDocument | null>(null);
+  const [siege, setSiege] = useState<SiegeData | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeLegend, setActiveLegend] = useState<string | undefined>(undefined);
   const swiperRef = useRef<SwiperType | null>(null);
@@ -80,7 +89,7 @@ export default function SiegeDetailsContent({
         position
       }`;
 
-      const result = await client.fetch<SanityDocument>(query, { slug });
+      const result = await client.fetch<SiegeData>(query, { slug });
       setSiege(result);
       setLoading(false);
     };
