@@ -1,33 +1,46 @@
+import { type SanityDocument } from "next-sanity";
+import { client } from "@/sanity/client";
+import { GetStaticProps, GetStaticPaths } from "next";
+import MineDetailsContent from "@/components/minedideesdetails/MineDetailsContent";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
 
-type MineDetailsContentProps = {
-  slug: string;
+const MINEDIDEE_QUERY = `*[_type == "minedidees" && slug.current == $slug][0]`;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = await client.fetch(
+    `*[_type == "minedidees" && defined(slug.current)][].slug.current`
+  );
+
+  return {
+    paths: paths.map((slug: string) => ({ params: { slug } })),
+    fallback: "blocking",
+  };
 };
 
-const MineDetailsContent = dynamic<MineDetailsContentProps>(
-  () => import("@/components/minedideesdetails/MineDetailsContent"),
-  {
-    loading: () => (
-      <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
-      </div>
-    ),
-    ssr: false,
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const minedidee = await client.fetch(MINEDIDEE_QUERY, params);
+
+  if (!minedidee) {
+    return {
+      notFound: true,
+    };
   }
-);
 
-export default function Page() {
-  const router = useRouter();
-  const { slug } = router.query;
+  return {
+    props: {
+      minedidee,
+    },
+    revalidate: 30,
+  };
+};
 
+export default function MinedideesDetailsPage({ minedidee }: { minedidee: SanityDocument }) {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
-        <MineDetailsContent slug={slug as string} />
+        <MineDetailsContent slug={minedidee.slug.current} />
       </main>
       <Footer />
     </div>

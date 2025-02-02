@@ -1,93 +1,124 @@
 import Link from "next/link";
-import { useCollection } from "@/hooks/use-collection";
-import { CollectionType } from "@/types/collectionType";
-import { useState, ReactElement } from "react";
+import { useState, ReactElement, useEffect } from "react";
 import DOMPurify from "dompurify";
 import Image from "next/image";
+import { client } from "@/sanity/client";
+import { PortableText, type SanityDocument } from "next-sanity";
+import imageUrlBuilder from '@sanity/image-url'
+
+const builder = imageUrlBuilder(client)
+
+function urlFor(source: any) {
+  return builder.image(source)
+}
 
 type MinedideesCollectionProps = {
-  className: string;
-  innerDivClassName: string;
-  showInnerText: boolean;
-  imageClassName: string;
-  nameClassName: string;
-  collectionId: string;
-  slug?: string;
+  className?: string;
+  innerDivClassName?: string;
+  showInnerText?: boolean;
+  imageClassName?: string;
+  nameClassName?: string;
   svgElement?: ReactElement;
   priceClassName?: string;
 };
 
 export default function MinedideesCollection({
-  className,
-  innerDivClassName,
+  className = "",
+  innerDivClassName = "",
   showInnerText = true,
-  imageClassName,
-  nameClassName,
+  imageClassName = "",
+  nameClassName = "",
   svgElement,
-  priceClassName,
-  collectionId,
+  priceClassName = "",
 }: MinedideesCollectionProps) {
-  const collection = useCollection(
-    collectionId || process.env.NEXT_PUBLIC_MINE_DIDEES_COLLECTION_ID || ""
-  );
+  const [minedidees, setMinedidees] = useState<SanityDocument[]>([]);
+  const [loading, setLoading] = useState(true);
   const [visibleTextIds, setVisibleTextIds] = useState<{
     [key: string]: boolean;
   }>({});
 
+  useEffect(() => {
+    const fetchMinedidees = async () => {
+      const query = `*[_type == "minedidees" && defined(slug.current)] {
+        _id,
+        title,
+        slug,
+        image {
+          asset->{
+            _id,
+            url
+          },
+          alt
+        },
+        price,
+        bodyOnHover[],
+        body[],
+        position
+      }`;
+
+      const result = await client.fetch<SanityDocument[]>(query);
+      console.log('Fetched minedidees:', result); // Debug log
+      
+      const sortedMinedidees = [...result].sort((a, b) => {
+        const positionA = Number(a.position) || Infinity;
+        const positionB = Number(b.position) || Infinity;
+        return positionB - positionA;  
+      });
+      setMinedidees(sortedMinedidees);
+      setLoading(false);
+    };
+
+    fetchMinedidees();
+  }, []);
+
   const toggleTextVisibility = (id: string) =>
     setVisibleTextIds((prevState) => ({ ...prevState, [id]: !prevState[id] }));
 
-  const sortedCollection = [...(collection as CollectionType[])].sort(
-    (a, b) => {
-      const rankingA = Number(a.fieldData.ranking) || Infinity;
-      const rankingB = Number(b.fieldData.ranking) || Infinity;
-      return rankingA - rankingB;
-    }
-  );
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[50vh]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+      </div>
+    );
+  }
 
   return (
     <div className={className}>
-      {sortedCollection.map((item: CollectionType) => (
-        <div key={item.id} className="collection-item relative cursor-pointer">
+      {minedidees.map((minedidee) => (
+        <div key={minedidee._id} className="collection-item relative cursor-pointer">
           {svgElement && (
             <div
               className="absolute top-0 right-0 m-2 z-50 block md:hidden"
-              onClick={() => toggleTextVisibility(item.id)}
+              onClick={() => toggleTextVisibility(minedidee._id)}
             >
               {svgElement}
             </div>
           )}
-          <Link href={`/minedideesdetails/${item?.fieldData?.slug}`}>
+          <Link href={`/minedideesdetails/${minedidee.slug.current}`}>
             <div className="relative group">
-              {item.fieldData["thumbnail-image"] && (
+              {minedidee.image && (
                 <Image
-                  src={item.fieldData["thumbnail-image"].url}
-                  alt={item.fieldData["thumbnail-image"].alt || "Image"}
-                  width={1000}
-                  height={1000}
-                  className={` ${imageClassName} object-cover `}
+                  src={minedidee.image.asset.url}
+                  alt={minedidee.image.alt || minedidee.title}
+                  width={500}
+                  height={500}
+                  className={`${imageClassName} -z-10`}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               )}
-
               <div
                 className={`${innerDivClassName} ${
-                  visibleTextIds[item.id] ? "opacity-100" : "opacity-0"
+                  visibleTextIds[minedidee._id] ? "opacity-100" : "opacity-0"
                 } transition-opacity`}
               >
-                {showInnerText && (
-                  <div
-                    className="mx-4"
-                    dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(item.fieldData["texte"] || ""),
-                    }}
-                  />
+                {showInnerText && minedidee.bodyOnHover && (
+                  <div className="mx-4 [&>p]:mb-4 last:[&>p]:mb-0">
+                    <PortableText value={minedidee.bodyOnHover} />
+                  </div>
                 )}
               </div>
             </div>
-            <p className={nameClassName}>{item.fieldData.name}</p>
-            {item.fieldData.price && (
-              <p className={priceClassName}>{item.fieldData.price}€</p>
-            )}
+            <p className={nameClassName}>{minedidee.title}</p>
           </Link>
         </div>
       ))}

@@ -18,7 +18,6 @@ export default function MinedideesCollectionContent() {
     <div className="relative -z-50">
       <MinedideesCollection
         slug="Minedidees"
-        collectionId={process.env.NEXT_PUBLIC_MINE_DIDEES_COLLECTION_ID || ""}
         className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-10 mx-4 md:mx-36 mb-12"
         imageClassName="rounded-lg shadow-xl"
         nameClassName="text-1xl font-light text-gray-500 text-center mt-2"
