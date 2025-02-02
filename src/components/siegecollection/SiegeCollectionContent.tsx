@@ -1,24 +1,11 @@
 import SiegeCollection from "@/components/siegecollection";
-import { useCollection } from "@/hooks/use-collection";
 
 export default function SiegeCollectionContent() {
-  const collection = useCollection(
-    process.env.NEXT_PUBLIC_SIEGE_COLLECTION_ID || ""
-  );
-
-  if (!collection.length) {
-    return (
-      <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
-      </div>
-    );
-  }
-
+ 
   return (
     <div className="relative -z-50">
       <SiegeCollection
         slug="Cotesiege"
-        collectionId={process.env.NEXT_PUBLIC_SIEGE_COLLECTION_ID || ""}
         className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-10 mx-4 md:mx-36 mb-12"
         imageClassName="rounded-lg shadow-xl"
         nameClassName="text-1xl font-light text-gray-500 text-center mt-2"
