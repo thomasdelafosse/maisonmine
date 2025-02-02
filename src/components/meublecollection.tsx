@@ -1,88 +1,120 @@
-import { useCollection } from "@/hooks/use-collection";
-import { CollectionType } from "@/types/collectionType";
+import Link from "next/link";
+import { useState, ReactElement, useEffect } from "react";
 import DOMPurify from "dompurify";
-import { useState, ReactElement } from "react";
 import Image from "next/image";
+import { client } from "@/sanity/client";
+import { type SanityDocument } from "next-sanity";
+import imageUrlBuilder from '@sanity/image-url'
+import { PortableText } from "@portabletext/react";
+
+const builder = imageUrlBuilder(client)
+
+function urlFor(source: any) {
+  return builder.image(source)
+}
 
 type MeubleCollectionProps = {
-  className: string;
-  nameClassName: string;
-  innerDivClassName: string;
-  imageClassName: string;
-  collectionId: string;
-  slug: string;
-  showInnerText: boolean;
+  className?: string;
+  nameClassName?: string;
+  innerDivClassName?: string;
+  imageClassName?: string;
+  showInnerText?: boolean;
   svgElement?: ReactElement;
   priceClassName?: string;
 };
 
 export default function MeubleCollection({
-  className,
-  nameClassName,
-  innerDivClassName,
-  imageClassName,
-  collectionId,
+  className = "",
+  nameClassName = "",
+  innerDivClassName = "",
+  imageClassName = "",
   showInnerText = true,
   svgElement,
-  priceClassName,
+  priceClassName = "",
 }: MeubleCollectionProps) {
-  const collection = useCollection(collectionId);
+  const [meubles, setMeubles] = useState<SanityDocument[]>([]);
+  const [loading, setLoading] = useState(true);
   const [visibleTextIds, setVisibleTextIds] = useState<{
     [key: string]: boolean;
   }>({});
+
+  useEffect(() => {
+    const fetchMeubles = async () => {
+      const query = `*[_type == "coteMeuble" && defined(slug.current)]{
+        _id,
+        title,
+        slug,
+        image {
+          asset->{
+            _id,
+            url
+          },
+          alt
+        },
+        price,
+        bodyOnHover,
+        position
+      }`;
+
+      const result = await client.fetch<SanityDocument[]>(query);
+      
+      const sortedMeubles = [...result].sort((a, b) => {
+        const positionA = Number(a.position) || Infinity;
+        const positionB = Number(b.position) || Infinity;
+        return positionB - positionA;  
+      });
+      setMeubles(sortedMeubles);
+      setLoading(false);
+    };
+
+    fetchMeubles();
+  }, []);
 
   const toggleTextVisibility = (id: string) =>
     setVisibleTextIds((prevState) => ({ ...prevState, [id]: !prevState[id] }));
 
   return (
     <div className={className}>
-      {collection.map((item: CollectionType) => (
-        <div key={item.id} className="collection-item relative cursor-pointer">
+      {meubles.map((meuble) => (
+        <div key={meuble._id} className="collection-item relative cursor-pointer">
           {svgElement && (
             <div
               className="absolute top-0 right-0 m-2 z-50 block md:hidden"
-              onClick={() => toggleTextVisibility(item.id)}
+              onClick={() => toggleTextVisibility(meuble._id)}
             >
               {svgElement}
             </div>
           )}
-          {item.fieldData["floorplan"] && (
             <div className="relative group aspect-[3/4]">
-              <Image
-                src={item.fieldData["floorplan"].url}
-                alt={item.fieldData["floorplan"].alt || "Floorplan"}
-                fill
-                className={`${imageClassName} object-cover rounded-lg`}
-                priority
-              />
+              {meuble.image && (
+                <Image
+                  src={meuble.image.asset.url}
+                  alt={meuble.image.alt || meuble.title}
+                  fill
+                  className={`${imageClassName} object-cover rounded-lg`}
+                  priority
+                />
+              )}
               <div
-                className={`${innerDivClassName} ${
-                  visibleTextIds[item.id] ? "opacity-100" : "opacity-0"
-                } transition-opacity`}
+                className={`${innerDivClassName} absolute inset-0 bg-black/50 md:group-hover:opacity-100 ${
+                  visibleTextIds[meuble._id] ? "opacity-100" : "opacity-0"
+                } transition-opacity flex items-center justify-center`}
               >
-                {showInnerText && (
-                  <div
-                    className="mx-4"
-                    dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(
-                        item.fieldData["property-description"] || ""
-                      ),
-                    }}
-                  />
+                {showInnerText && meuble.bodyOnHover && (
+                  <div className="mx-4 text-white [&>p]:mb-4 last:[&>p]:mb-0">
+                    <PortableText value={meuble.bodyOnHover} />
+                  </div>
                 )}
               </div>
             </div>
-          )}
-          <p className={nameClassName}>{item.fieldData.name}</p>
-          {item.fieldData.price && (
+            <p className={nameClassName}>{meuble.title}</p>
             <p className={priceClassName}>
-              {Number(item.fieldData.price) === 1 ? (
+              {!meuble.price || Number(meuble.price) === 0 || meuble.price === "0" ? (
                 <i>NON DISPONIBLE</i>
               ) : (
-                `${item.fieldData.price}€`
+                `${meuble.price}€`
               )}
             </p>
-          )}
         </div>
       ))}
     </div>
