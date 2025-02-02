@@ -19,6 +19,7 @@ type SiegeCollectionProps = {
   showInnerText?: boolean;
   svgElement?: ReactElement;
   priceClassName?: string;
+  slug?: string;
 };
 
 export default function SiegeCollection({
@@ -29,6 +30,7 @@ export default function SiegeCollection({
   showInnerText = true,
   svgElement,
   priceClassName = "",
+  slug,
 }: SiegeCollectionProps) {
   const [sieges, setSieges] = useState<SanityDocument[]>([]);
   const [loading, setLoading] = useState(true);
