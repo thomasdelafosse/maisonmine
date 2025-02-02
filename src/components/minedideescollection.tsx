@@ -14,22 +14,24 @@ function urlFor(source: any) {
 
 type MinedideesCollectionProps = {
   className?: string;
-  innerDivClassName?: string;
-  showInnerText?: boolean;
-  imageClassName?: string;
   nameClassName?: string;
+  innerDivClassName?: string;
+  imageClassName?: string;
+  showInnerText?: boolean;
   svgElement?: ReactElement;
   priceClassName?: string;
+  slug: string;
 };
 
 export default function MinedideesCollection({
   className = "",
-  innerDivClassName = "",
-  showInnerText = true,
-  imageClassName = "",
   nameClassName = "",
+  innerDivClassName = "",
+  imageClassName = "",
+  showInnerText = true,
   svgElement,
   priceClassName = "",
+  slug,
 }: MinedideesCollectionProps) {
   const [minedidees, setMinedidees] = useState<SanityDocument[]>([]);
   const [loading, setLoading] = useState(true);

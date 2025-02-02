@@ -21,6 +21,7 @@ type MeubleCollectionProps = {
   showInnerText?: boolean;
   svgElement?: ReactElement;
   priceClassName?: string;
+  slug: string;
 };
 
 export default function MeubleCollection({
@@ -31,6 +32,7 @@ export default function MeubleCollection({
   showInnerText = true,
   svgElement,
   priceClassName = "",
+  slug,
 }: MeubleCollectionProps) {
   const [meubles, setMeubles] = useState<SanityDocument[]>([]);
   const [loading, setLoading] = useState(true);

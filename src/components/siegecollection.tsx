@@ -14,22 +14,24 @@ function urlFor(source: any) {
 
 type SiegeCollectionProps = {
   className?: string;
-  innerDivClassName?: string;
-  showInnerText?: boolean;
-  imageClassName?: string;
   nameClassName?: string;
+  innerDivClassName?: string;
+  imageClassName?: string;
+  showInnerText?: boolean;
   svgElement?: ReactElement;
   priceClassName?: string;
+  slug: string;
 };
 
 export default function SiegeCollection({
   className = "",
-  innerDivClassName = "",
-  showInnerText = true,
-  imageClassName = "",
   nameClassName = "",
+  innerDivClassName = "",
+  imageClassName = "",
+  showInnerText = true,
   svgElement,
   priceClassName = "",
+  slug,
 }: SiegeCollectionProps) {
   const [sieges, setSieges] = useState<SanityDocument[]>([]);
   const [loading, setLoading] = useState(true);
