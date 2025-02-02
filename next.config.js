@@ -9,6 +9,14 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/sanity/:path*',
+        destination: 'https://qi23uqs6.api.sanity.io/:path*',
+      },
+    ];
+  },
 }
 
 module.exports = nextConfig
