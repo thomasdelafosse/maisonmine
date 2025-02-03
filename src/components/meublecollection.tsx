@@ -76,7 +76,7 @@ export default function MeubleCollection({
   return (
     <div className={className}>
       {meubles.map((meuble) => (
-        <div key={meuble._id} className="collection-item relative cursor-pointer">
+        <div key={meuble._id} className="collection-item relative">
           {svgElement && (
             <div
               className="absolute top-0 right-0 m-2 z-50 block md:hidden"
