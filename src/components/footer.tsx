@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Footer() {
   const router = useRouter();
   const navigation = [
-    { name: "À PROPOS", href: "blogdetails/67708628addfdfaeccc04198" },
+    { name: "À PROPOS", href: "blogdetails/a-propos-de-moi" },
     { name: "MENTIONS LÉGALES & CGV", href: "/mentionslegales" },
     { name: "TARIFS", href: "/tarifs" },
     { name: "LA CHARTE", href: "/charte" },
