@@ -1,5 +1,4 @@
 import MinedideesCollection from "@/components/minedideescollection";
-import { useCollection } from "@/hooks/use-collection";
 
 export default function MinedideesCollectionContent() {
   
