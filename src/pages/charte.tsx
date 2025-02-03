@@ -11,10 +11,10 @@ export default function Charte() {
   return (
     <>
       <NavBar />
-      <main className="pt-40 md:mt-10">
+      <main className="">
         <div className="w-full px-8 py-8">
           <div className="space-y-6 text-justify text-gray-600">
-            <h1 className="text-2xl font-bold text-center mt-10 mb-8">
+            <h1 className="text-2xl font-bold text-center  mb-8">
               CHARTE SUR LE RESPECT DE LA VIE PRIVÉE
             </h1>
 

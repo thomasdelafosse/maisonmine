@@ -11,9 +11,9 @@ export default function Mentionslegales() {
   return (
     <>
       <NavBar />
-      <main className="pt-40 md:mt-10">
+      <main className="">
         <div className="w-full px-8 py-8">
-          <h1 className="text-3xl font-bold text-center mt-10 mb-12">
+          <h1 className="text-3xl font-bold text-center  mb-12">
             CONDITIONS GÉNÉRALES DE VENTE
           </h1>
 
