@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import ModelLoader from "@/components/ModelLoader";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, ContactShadows } from "@react-three/drei";
@@ -16,6 +16,7 @@ export default function ModelsSection() {
     chaiseZebre: true,
     clubArtDeco: true,
   });
+  const [currentModelIndex, setCurrentModelIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isRotating, setIsRotating] = useState(true);
 
@@ -28,6 +29,16 @@ export default function ModelsSection() {
     resetView,
     changeView,
   } = useCamera();
+
+  const models = ['chaiseZebre', 'chaisechably', 'clubArtDeco'];
+
+  const navigateModel = (direction: 'left' | 'right') => {
+    const newIndex = direction === 'left'
+      ? (currentModelIndex - 1 + models.length) % models.length
+      : (currentModelIndex + 1) % models.length;
+    setCurrentModelIndex(newIndex);
+    focusOnModel(models[newIndex] as keyof LoadingStates);
+  };
 
   useTouchScroll();
 
@@ -57,23 +68,22 @@ export default function ModelsSection() {
       )}
 
       <ModelControls
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
         isRotating={isRotating}
         setIsRotating={setIsRotating}
         resetView={resetView}
         changeView={changeView}
         focusOnModel={focusOnModel}
+        navigateModel={navigateModel}
       />
 
-      <div className="cursor-pointer h-full w-full">
+      <div className="h-full w-full">
         <Canvas
           key={key}
           camera={{ position: cameraPosition, fov: 10 }}
           shadows
         >
           <color attach="background" args={["#E5E5E5"]} />
-          <ambientLight intensity={0.3} />
+          <ambientLight intensity={4} />
           <OrbitControls
             enableZoom={false}
             enablePan={true}
@@ -84,7 +94,7 @@ export default function ModelsSection() {
             dampingFactor={0.1}
             rotateSpeed={0.3}
             screenSpacePanning={true}
-            enableRotate={true}
+            enableRotate={false}
             autoRotate={false}
             target={cameraTarget}
             minAzimuthAngle={-Math.PI / 4}
@@ -92,33 +102,45 @@ export default function ModelsSection() {
             maxDistance={10}
             minDistance={2}
           />
-          <directionalLight position={[0, 10, 0]} intensity={0.4} castShadow />
+          <directionalLight position={[0, 0, 5]} intensity={0.003} castShadow />
+          <directionalLight position={[0, 0, -5]} intensity={0.003} castShadow />
+          <directionalLight position={[0, 5, 0]} intensity={0.003} castShadow />
+          <directionalLight position={[-5, 0, 0]} intensity={0.003} castShadow />
+          <directionalLight position={[5, 0, 0]} intensity={0.003} castShadow />
           <Suspense fallback={null}>
             <group>
-              <Model
-                modelPath="/3Dmodels/3Dzebre.glb"
-                onLoadingChange={handleLoadingChange("chaiseZebre")}
-                position={[-1.5, 0, 0]}
-                isRotating={isRotating}
-              />
-              <Model
-                modelPath="/3Dmodels/3Dchably.glb"
-                onLoadingChange={handleLoadingChange("chaisechably")}
-                position={[0, 0, 0]}
-                isRotating={isRotating}
-              />
-              <Model
-                modelPath="/3Dmodels/clubartdeco3D.glb"
-                onLoadingChange={handleLoadingChange("clubArtDeco")}
-                position={[1.5, 0, 0]}
-                isRotating={isRotating}
-              />
+              <group position={[-1.5, 0, 0]}>
+                <Model
+                  modelPath="/3Dmodels/3Dzebre.glb"
+                  onLoadingChange={handleLoadingChange("chaiseZebre")}
+                  position={[0, 0, 0]}
+                  isRotating={isRotating}
+                />
+              </group>
+
+              <group position={[0, 0, 0]}>
+                <Model
+                  modelPath="/3Dmodels/3Dchably.glb"
+                  onLoadingChange={handleLoadingChange("chaisechably")}
+                  position={[0, 0, 0]}
+                  isRotating={isRotating}
+                />
+              </group>
+
+              <group position={[1.5, 0, 0]}>
+                <Model
+                  modelPath="/3Dmodels/clubartdeco3D.glb"
+                  onLoadingChange={handleLoadingChange("clubArtDeco")}
+                  position={[0, 0, 0]}
+                  isRotating={isRotating}
+                />
+              </group>
             </group>
           </Suspense>
-          <Environment preset="studio" background={false} />
+          <Environment preset="sunset" background={false} />
           <ContactShadows
             position={[0, -0.6, 0]}
-            opacity={0.75}
+            opacity={0.4}
             scale={20}
             blur={2}
             far={4}
