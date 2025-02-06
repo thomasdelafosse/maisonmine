@@ -98,7 +98,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
         onClick={() => setIsTitleOpen(!isTitleOpen)}
       >
         <Image
-          src={isTitleOpen ? "/svg/rarrow4.svg" : "/svg/larrow.svg"}
+          src={isTitleOpen ? "/svg/larrow.svg" : "/svg/rarrow4.svg"}
           alt="Menu"
           width={40}
           height={40}
