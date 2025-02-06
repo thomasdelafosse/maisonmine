@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   transpilePackages: ["three"],
   images: {
-    domains: ["cdn.prod.website-files.com"],
+    domains: ["cdn.prod.website-files.com", "cdn.sanity.io"],
   },
 };
 
