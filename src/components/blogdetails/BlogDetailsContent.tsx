@@ -102,9 +102,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
           alt="Menu"
           width={40}
           height={40}
-          className={`transition-transform duration-700 ${
-            isTitleOpen ? "rotate-180" : "-rotate-180"
-          }`}
+          className=""
         />
       </button>
 
@@ -124,7 +122,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
                   onClick={() => setIsTitleOpen(false)}
                 >
                   <div className="flex flex-row cursor-pointer p-2">
-                    <div className="font-medium border-2 border-red-500">
+                    <div className="font-medium">
                       <h1
                         className={
                           blog.slug.current === slug ? "underline" : ""
