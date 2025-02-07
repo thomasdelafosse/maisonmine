@@ -90,7 +90,7 @@ export default function SiegeCollection({
         >
           {svgElement && (
             <div
-              className="absolute top-0 right-0 m-2 z-50 block md:hidden"
+              className="absolute top-2 right-2 z-50 block md:hidden p-2 transition-colors"
               onClick={() => toggleTextVisibility(siege._id)}
             >
               {svgElement}
@@ -110,10 +110,12 @@ export default function SiegeCollection({
               )}
               <div
                 className={`${innerDivClassName} ${
-                  visibleTextIds[siege._id] ? "opacity-100" : "opacity-0"
-                } transition-opacity`}
+                  visibleTextIds[siege._id]
+                    ? "opacity-100 md:opacity-0"
+                    : "opacity-0"
+                } md:group-hover:opacity-100 transition-opacity`}
               >
-                {showInnerText && (
+                {showInnerText && siege.bodyOnHover && (
                   <div className="mx-4">
                     <PortableText value={siege.bodyOnHover} />
                   </div>

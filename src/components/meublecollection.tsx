@@ -79,7 +79,7 @@ export default function MeubleCollection({
         <div key={meuble._id} className="collection-item relative">
           {svgElement && (
             <div
-              className="absolute top-0 right-0 m-2 z-50 block md:hidden"
+              className="absolute top-2 right-2 z-50 block md:hidden p-2 transition-colors"
               onClick={() => toggleTextVisibility(meuble._id)}
             >
               {svgElement}
@@ -96,9 +96,11 @@ export default function MeubleCollection({
               />
             )}
             <div
-              className={`${innerDivClassName} absolute inset-0 bg-black/50 md:group-hover:opacity-100 ${
-                visibleTextIds[meuble._id] ? "opacity-100" : "opacity-0"
-              } transition-opacity flex items-center justify-center`}
+              className={`${innerDivClassName} ${
+                visibleTextIds[meuble._id]
+                  ? "opacity-100 md:opacity-0"
+                  : "opacity-0"
+              } md:group-hover:opacity-100 transition-opacity`}
             >
               {showInnerText && meuble.bodyOnHover && (
                 <div className="mx-4 [&>p]:mb-4 last:[&>p]:mb-0">

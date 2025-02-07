@@ -3,12 +3,12 @@ import { useState, ReactElement, useEffect } from "react";
 import Image from "next/image";
 import { client } from "@/sanity/client";
 import { PortableText, type SanityDocument } from "next-sanity";
-import imageUrlBuilder from '@sanity/image-url'
+import imageUrlBuilder from "@sanity/image-url";
 
-const builder = imageUrlBuilder(client)
+const builder = imageUrlBuilder(client);
 
 function urlFor(source: { asset: { _id: string; url: string } }) {
-  return builder.image(source)
+  return builder.image(source);
 }
 
 type MinedideesCollectionProps = {
@@ -58,12 +58,11 @@ export default function MinedideesCollection({
       }`;
 
       const result = await client.fetch<SanityDocument[]>(query);
-      console.log('Fetched minedidees:', result); // Debug log
-      
+
       const sortedMinedidees = [...result].sort((a, b) => {
         const positionA = Number(a.position) || Infinity;
         const positionB = Number(b.position) || Infinity;
-        return positionB - positionA;  
+        return positionB - positionA;
       });
       setMinedidees(sortedMinedidees);
       setLoading(false);
@@ -86,10 +85,13 @@ export default function MinedideesCollection({
   return (
     <div className={className}>
       {minedidees.map((minedidee) => (
-        <div key={minedidee._id} className="collection-item relative cursor-pointer">
+        <div
+          key={minedidee._id}
+          className="collection-item relative cursor-pointer"
+        >
           {svgElement && (
             <div
-              className="absolute top-0 right-0 m-2 z-50 block md:hidden"
+              className="absolute top-2 right-2 z-50 block md:hidden p-2 transition-colors"
               onClick={() => toggleTextVisibility(minedidee._id)}
             >
               {svgElement}
@@ -109,8 +111,10 @@ export default function MinedideesCollection({
               )}
               <div
                 className={`${innerDivClassName} ${
-                  visibleTextIds[minedidee._id] ? "opacity-100" : "opacity-0"
-                } transition-opacity`}
+                  visibleTextIds[minedidee._id]
+                    ? "opacity-100 md:opacity-0"
+                    : "opacity-0"
+                } md:group-hover:opacity-100 transition-opacity`}
               >
                 {showInnerText && minedidee.bodyOnHover && (
                   <div className="mx-4 [&>p]:mb-4 last:[&>p]:mb-0">
