@@ -30,12 +30,13 @@ export default function ModelsSection() {
     changeView,
   } = useCamera();
 
-  const models = ['chaiseZebre', 'chaisechably', 'clubArtDeco'];
+  const models = ["chaiseZebre", "chaisechably", "clubArtDeco"];
 
-  const navigateModel = (direction: 'left' | 'right') => {
-    const newIndex = direction === 'left'
-      ? (currentModelIndex - 1 + models.length) % models.length
-      : (currentModelIndex + 1) % models.length;
+  const navigateModel = (direction: "left" | "right") => {
+    const newIndex =
+      direction === "left"
+        ? (currentModelIndex - 1 + models.length) % models.length
+        : (currentModelIndex + 1) % models.length;
     setCurrentModelIndex(newIndex);
     focusOnModel(models[newIndex] as keyof LoadingStates);
   };
@@ -103,9 +104,17 @@ export default function ModelsSection() {
             minDistance={2}
           />
           <directionalLight position={[0, 0, 5]} intensity={0.003} castShadow />
-          <directionalLight position={[0, 0, -5]} intensity={0.003} castShadow />
+          <directionalLight
+            position={[0, 0, -5]}
+            intensity={0.003}
+            castShadow
+          />
           <directionalLight position={[0, 5, 0]} intensity={0.003} castShadow />
-          <directionalLight position={[-5, 0, 0]} intensity={0.003} castShadow />
+          <directionalLight
+            position={[-5, 0, 0]}
+            intensity={0.003}
+            castShadow
+          />
           <directionalLight position={[5, 0, 0]} intensity={0.003} castShadow />
           <Suspense fallback={null}>
             <group>

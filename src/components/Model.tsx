@@ -19,6 +19,12 @@ export default function Model({
   const { scene } = useGLTF(modelPath);
   const groupRef = useRef<Group>(null);
 
+  useEffect(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y = -Math.PI / 2;
+    }
+  }, []);
+
   useFrame(() => {
     if (groupRef.current && isRotating) {
       groupRef.current.rotation.y += 0.01;

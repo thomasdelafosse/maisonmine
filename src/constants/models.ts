@@ -13,7 +13,7 @@ export const DEFAULT_CAMERA = {
 
 export const VIEW_POSITIONS: ViewPositions = {
   front: {
-    position: [0, 1, 10],
+    position: [0, 1, 6],
     target: [0, 0, 0],
   },
   top: {
