@@ -10,8 +10,8 @@ type NavigationItem = {
 };
 
 const navigation: NavigationItem[] = [
-  { name: "COTÉ SIÈGE", href: "/cotesiege" },
-  { name: "COTÉ MEUBLE", href: "/cotemeuble" },
+  { name: "CÔTÉ SIÈGE", href: "/cotesiege" },
+  { name: "CÔTÉ MEUBLE", href: "/cotemeuble" },
   { name: "UNE MINE D'IDÉES", href: "/uneminedidees" },
   { name: "UNE MINE D'ÉCHANGES", href: "/uneminedechanges" },
   { name: "UNE MINE DE SAVOIR-FAIRE", href: "/techniqueetsavoirfaire" },
