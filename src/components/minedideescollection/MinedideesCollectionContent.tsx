@@ -1,16 +1,15 @@
 import MinedideesCollection from "@/components/minedideescollection";
 
 export default function MinedideesCollectionContent() {
-  
   return (
     <div className="relative -z-50">
       <MinedideesCollection
         slug="Minedidees"
-        className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-10 mx-4 md:mx-36 mb-12"
-        imageClassName="rounded-lg shadow-xl"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-4 md:mx-36 mb-12"
+        imageClassName="rounded-lg shadow-lg object-cover transition-all duration-500 group-hover:scale-[1.02]"
         nameClassName="text-1xl font-light text-gray-500 text-center mt-2"
         showInnerText={true}
-        innerDivClassName="absolute inset-0 bg-black bg-opacity-50 text-white text-center text-sm md:text-2xl text-bold flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"
+        innerDivClassName="absolute inset-0 bg-black/0 group-hover:bg-black/60 text-white text-1xl text-center font-semibold flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-lg"
         priceClassName="text-1xl font-light text-gray-500 text-center mt-2"
         svgElement={
           <svg

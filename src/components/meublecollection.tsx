@@ -2,13 +2,13 @@ import { useState, ReactElement, useEffect } from "react";
 import Image from "next/image";
 import { client } from "@/sanity/client";
 import { type SanityDocument } from "next-sanity";
-import imageUrlBuilder from '@sanity/image-url'
+import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "@portabletext/react";
 
-const builder = imageUrlBuilder(client)
+const builder = imageUrlBuilder(client);
 
 function urlFor(source: { asset: { _id: string; url: string } }) {
-  return builder.image(source)
+  return builder.image(source);
 }
 
 type MeubleCollectionProps = {
@@ -57,11 +57,11 @@ export default function MeubleCollection({
       }`;
 
       const result = await client.fetch<SanityDocument[]>(query);
-      
+
       const sortedMeubles = [...result].sort((a, b) => {
         const positionA = Number(a.position) || Infinity;
         const positionB = Number(b.position) || Infinity;
-        return positionB - positionA;  
+        return positionB - positionA;
       });
       setMeubles(sortedMeubles);
       setLoading(false);
@@ -85,36 +85,38 @@ export default function MeubleCollection({
               {svgElement}
             </div>
           )}
-            <div className="relative group aspect-[3/4]">
-              {meuble.image && (
-                <Image
-                  src={meuble.image.asset.url}
-                  alt={meuble.image.alt || meuble.title}
-                  fill
-                  className={`${imageClassName} object-cover rounded-lg`}
-                  priority
-                />
+          <div className="relative group aspect-[3/4]">
+            {meuble.image && (
+              <Image
+                src={meuble.image.asset.url}
+                alt={meuble.image.alt || meuble.title}
+                fill
+                className={`${imageClassName} object-cover rounded-lg`}
+                priority
+              />
+            )}
+            <div
+              className={`${innerDivClassName} absolute inset-0 bg-black/50 md:group-hover:opacity-100 ${
+                visibleTextIds[meuble._id] ? "opacity-100" : "opacity-0"
+              } transition-opacity flex items-center justify-center`}
+            >
+              {showInnerText && meuble.bodyOnHover && (
+                <div className="mx-4 [&>p]:mb-4 last:[&>p]:mb-0">
+                  <PortableText value={meuble.bodyOnHover} />
+                </div>
               )}
-              <div
-                className={`${innerDivClassName} absolute inset-0 bg-black/50 md:group-hover:opacity-100 ${
-                  visibleTextIds[meuble._id] ? "opacity-100" : "opacity-0"
-                } transition-opacity flex items-center justify-center`}
-              >
-                {showInnerText && meuble.bodyOnHover && (
-                  <div className="mx-4 text-white [&>p]:mb-4 last:[&>p]:mb-0">
-                    <PortableText value={meuble.bodyOnHover} />
-                  </div>
-                )}
-              </div>
             </div>
-            <p className={nameClassName}>{meuble.title}</p>
-            <p className={priceClassName}>
-              {!meuble.price || Number(meuble.price) === 0 || meuble.price === "0" ? (
-                <i>NON DISPONIBLE</i>
-              ) : (
-                `${meuble.price}€`
-              )}
-            </p>
+          </div>
+          <p className={nameClassName}>{meuble.title}</p>
+          <p className={priceClassName}>
+            {!meuble.price ||
+            Number(meuble.price) === 0 ||
+            meuble.price === "0" ? (
+              <i>NON DISPONIBLE</i>
+            ) : (
+              `${meuble.price}€`
+            )}
+          </p>
         </div>
       ))}
     </div>

@@ -3,12 +3,12 @@ import { useState, ReactElement, useEffect } from "react";
 import Image from "next/image";
 import { client } from "@/sanity/client";
 import { PortableText, type SanityDocument } from "next-sanity";
-import imageUrlBuilder from '@sanity/image-url'
+import imageUrlBuilder from "@sanity/image-url";
 
-const builder = imageUrlBuilder(client)
+const builder = imageUrlBuilder(client);
 
 function urlFor(source: { asset: { _id: string; url: string } }) {
-  return builder.image(source)
+  return builder.image(source);
 }
 
 type SiegeCollectionProps = {
@@ -57,11 +57,11 @@ export default function SiegeCollection({
       }`;
 
       const result = await client.fetch<SanityDocument[]>(query);
-      
+
       const sortedSieges = [...result].sort((a, b) => {
         const positionA = Number(a.position) || Infinity;
         const positionB = Number(b.position) || Infinity;
-        return positionB - positionA;  
+        return positionB - positionA;
       });
       setSieges(sortedSieges);
       setLoading(false);
@@ -84,7 +84,10 @@ export default function SiegeCollection({
   return (
     <div className={className}>
       {sieges.map((siege) => (
-        <div key={siege._id} className="collection-item relative cursor-pointer">
+        <div
+          key={siege._id}
+          className="collection-item relative cursor-pointer"
+        >
           {svgElement && (
             <div
               className="absolute top-0 right-0 m-2 z-50 block md:hidden"
