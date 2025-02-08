@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const MinedideesCollectionContent = dynamic(
   () => import("@/components/minedideescollection/MinedideesCollectionContent"),
@@ -21,11 +22,18 @@ export default function Uneminedidees() {
       <Navbar />
       <main className="flex-grow relative z-0">
         <div className="container mx-auto px-4 py-8">
-          <p className="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 mb-4 text-center max-w-3xl mx-auto">
             Nos sièges sont présentés dans leur jus ou avec leur structure mise
             à nue. Chaque carcasse peut être retapissée et personnalisée selon
             vos goûts pour correspondre parfaitement à vos préférences et à
             votre intérieur.
+          </p>
+          <p className="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">
+            D'autres sièges attendent leur rénovation selon mes inspirations...
+            ou les vôtres. Un projet vous tente ?{" "}
+            <Link href="/contact" className="text-gray-800 cursor-pointer">
+              Contactez-moi !
+            </Link>
           </p>
         </div>
         <MinedideesCollectionContent />

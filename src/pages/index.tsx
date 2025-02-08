@@ -19,9 +19,9 @@ export default function Home() {
           <Image
             src="/images/moi2.jpg"
             alt="savoirfaire"
-            width={250}
-            height={333}
-            className="rounded-lg object-cover w-[250px] h-[333px] md:w-[250px] md:h-[333px]"
+            width={450}
+            height={450}
+            className="rounded-lg object-cover w-full h-auto max-w-[500px] md:w-[250px] md:h-[333px]"
           />
         </div>
         <div className="flex flex-col text-base text-gray-500 font-light mr-4 md:ml-8 ">
