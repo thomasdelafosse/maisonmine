@@ -19,8 +19,8 @@ export default function Footer() {
             <Image
               src="/images/Logomaisonmine.png"
               alt="Maison Mine Logo"
-              width={200}
-              height={200}
+              width={150}
+              height={150}
               style={{
                 width: "auto",
                 height: "auto",

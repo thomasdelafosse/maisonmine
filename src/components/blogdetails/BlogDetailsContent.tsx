@@ -16,7 +16,6 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
 
   useEffect(() => {
     const fetchData = async () => {
-      
       const blogQuery = `*[_type == "blogs" && slug.current == $slug][0]{
         _id,
         title,
@@ -27,7 +26,6 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
 
       }`;
 
-      
       const allBlogsQuery = `*[_type == "blogs" && defined(slug.current)]|order(publishedAt desc){
         _id,
         title,
@@ -107,7 +105,6 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
       </button>
 
       <div className="mx-4 md:mx-64 flex flex-row">
-      
         <div
           className={`fixed flex justify-center inset-0 bg-white z-20 transform ${
             isTitleOpen ? "translate-x-0" : "-translate-x-full"
@@ -145,7 +142,6 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
           </div>
         </div>
 
-      
         <div className="hidden md:flex flex-col gap-6 w-1/5">
           {allBlogs.map((blog) => (
             <Link href={`/blogdetails/${blog.slug.current}`} key={blog._id}>
@@ -168,12 +164,12 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
             </Link>
           ))}
         </div>
-      
+
         <div className="hidden md:block md:border-r-2 md:border-gray-300 md:mx-2"></div>
 
         <div className="flex flex-col items-start gap-4 flex-1">
           <h1 className="text-3xl font-light">{currentBlog.title}</h1>
-          <div className="text-gray-500 font-medium [&>p]:mb-4 last:[&>p]:mb-0">
+          <div className="text-gray-500 font-base [&>p]:mb-4 last:[&>p]:mb-0">
             <PortableText value={currentBlog.body} />
           </div>
         </div>

@@ -17,15 +17,15 @@ export default function Home() {
       <div className="flex flex-col items-center mt-10 mx-4 md:flex-row md:justify-center md:mt-20 md:mx-32  ">
         <div className="md:flex-1/3 md:flex-shrink-0">
           <Image
-            src="/images/moi.jpg"
+            src="/images/moi2.jpg"
             alt="savoirfaire"
-            width={450}
-            height={450}
-            className="rounded-lg object-contain md:w-[200px] md:h-[250px] "
+            width={250}
+            height={333}
+            className="rounded-lg object-cover w-[250px] h-[333px] md:w-[250px] md:h-[333px]"
           />
         </div>
         <div className="flex flex-col text-base text-gray-500 font-light mr-4 md:ml-8 ">
-          <div className="mt-4 border-l-2 border-gray-300 flex flex-col gap-2 pl-4 md:mt-0 font-medium">
+          <div className="mt-4 border-l-2 border-gray-300 flex flex-col gap-2 pl-4 md:mt-0 ">
             <p>
               J'avais à coeur d'apprendre les techniques artisanales de ce
               métier pour restaurer différents style de sièges dans les règles
@@ -85,33 +85,26 @@ export default function Home() {
               durabilité.
             </p>
             <p>
-              +{" "}
-              <u className="text-gray-800 underline-offset-2">
-                Sangles et toiles en jute
-              </u>{" "}
+              + <span className="text-gray-800">Sangles et toiles en jute</span>{" "}
               : le jute est une plante qui nécessite peu de ressources pour
               pousser, c'est donc un matériau écologique;
             </p>
             <p>
-              + <u className="text-gray-800 underline-offset-2">Élancrin</u>{" "}
-              utilisé pour la garniture : fibres naturelles issues de la bourre
-              de la noix de coco;
+              + <span className="text-gray-800">Élancrin</span> utilisé pour la
+              garniture : fibres naturelles issues de la bourre de la noix de
+              coco;
             </p>
             <p>
-              + <u className="text-gray-800 underline-offset-2">Crin animal</u>{" "}
-              (issu de la crinière et de la queue de cheval) qui apporte
-              souplesse et confort à la garniture;
+              + <span className="text-gray-800">Crin animal</span> (issu de la
+              crinière et de la queue de cheval) qui apporte souplesse et
+              confort à la garniture;
             </p>
             <p>
-              +{" "}
-              <u className="text-gray-800 underline-offset-2">
-                Toiles blanche 100% coton
-              </u>
+              + <span className="text-gray-800">Toiles blanche 100% coton</span>
             </p>
             <p>
-              +{" "}
-              <u className="text-gray-800 underline-offset-2">Ouate en coton</u>{" "}
-              pour le rembourrage
+              + <span className="text-gray-800">Ouate en coton</span> pour le
+              rembourrage
             </p>
           </div>
         </div>
@@ -136,43 +129,36 @@ export default function Home() {
               Toute restauration comporte les mêmes étapes :
             </p>
             <p>
-              + Le{" "}
-              <u className="text-gray-800 underline-offset-2">dégarnissage</u>{" "}
-              et la{" "}
-              <u className="text-gray-800 underline-offset-2">préparation</u> du
-              bois de la carcasse, avec les réparations qui peuvent s'avérer
-              nécessaires et une nouvelle{" "}
-              <u className="text-gray-800 underline-offset-2">patine</u>;
+              + Le <span className="text-gray-800">dégarnissage</span> et la{" "}
+              <span className="text-gray-800">préparation</span> du bois de la
+              carcasse, avec les réparations qui peuvent s'avérer nécessaires et
+              une nouvelle
+              <span className="text-gray-800">patine</span>;
             </p>
             <p>
-              + Le <u className="text-gray-800 underline-offset-2">sanglage</u>{" "}
-              avec des sangles de jute, qui forme le fond du siège;
+              + Le <span className="text-gray-800">sanglage</span> avec des
+              sangles de jute, qui forme le fond du siège;
             </p>
             <p>
-              + Le <u className="text-gray-800 underline-offset-2">guindage</u>{" "}
-              (la pose des ressorts cousus sur les sangles) et la pose de la
-              toile forte;
+              + Le <span className="text-gray-800">guindage</span> (la pose des
+              ressorts cousus sur les sangles) et la pose de la toile forte;
             </p>
             <p>
-              + La{" "}
-              <u className="text-gray-800 underline-offset-2">mise en crin</u>{" "}
-              et le piquage des points (pour donner la forme à la garniture);
+              + La <span className="text-gray-800">mise en crin</span> et le
+              piquage des points (pour donner la forme à la garniture);
             </p>
             <p>
-              + La{" "}
-              <u className="text-gray-800 underline-offset-2">mise en blanc</u>,
-              étape qui permet d'apporter du confort puisqu'une fine couche de
-              crin animal est ajoutée avant de la recouvrir par une toile
-              blanche et une couche de ouate coton;
+              + La <span className="text-gray-800">mise en blanc</span>, étape
+              qui permet d'apporter du confort puisqu'une fine couche de crin
+              animal est ajoutée avant de la recouvrir par une toile blanche et
+              une couche de ouate coton;
             </p>
             <p>
-              + La{" "}
-              <u className="text-gray-800 underline-offset-2">couverture</u>{" "}
-              avec la pose du tissu;
+              + La <span className="text-gray-800">couverture</span> avec la
+              pose du tissu;
             </p>
             <p>
-              + Les{" "}
-              <u className="text-gray-800 underline-offset-2">finitions</u>.
+              + Les <span className="text-gray-800">finitions</span>.
             </p>
           </div>
         </div>

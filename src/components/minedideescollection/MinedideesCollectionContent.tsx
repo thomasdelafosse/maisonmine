@@ -9,7 +9,7 @@ export default function MinedideesCollectionContent() {
         imageClassName="rounded-lg shadow-lg object-cover transition-all duration-500 group-hover:scale-[1.02]"
         nameClassName="text-1xl font-light text-gray-500 text-center mt-2"
         showInnerText={true}
-        innerDivClassName="absolute inset-0 bg-white/80 text-black text-1xl text-center font-semibold flex flex-col justify-center items-center transition-all duration-500 rounded-lg"
+        innerDivClassName="absolute inset-0 bg-white/80 text-black text-1xl text-center font-medium flex flex-col justify-center items-center transition-all duration-500 rounded-lg"
         priceClassName="text-1xl font-light text-gray-500 text-center mt-2"
         svgElement={
           <svg

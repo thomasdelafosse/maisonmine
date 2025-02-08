@@ -40,7 +40,7 @@ export default function UneminedeChangesContent() {
       {blogs.map((blog) => (
         <Link href={`/blogdetails/${blog.slug.current}`} key={blog._id}>
           <div className="flex flex-col cursor-pointer text-gray-500 hover:text-gray-950 group md:flex-row">
-            <div className="w-full md:w-1/4 font-medium">
+            <div className="w-full md:w-1/4 font-base">
               <div className="flex justify-between md:block mb-4 md:mb-0">
                 <h1 className="font-medium text-gray-600 group-hover:text-gray-950">
                   {blog.title}

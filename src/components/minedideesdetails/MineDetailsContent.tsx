@@ -107,8 +107,8 @@ export default function MineDetailsContent({ slug }: MineDetailsContentProps) {
       <div className="my-10 border-t-2 border-gray-300 mx-20 md:my-20 md:mx-36" />
       <MinedideesCollection
         slug="Minedidees"
-        className="mt-16 grid grid-cols-3 gap-4 mx-4 md:grid-cols-6 md:mx-28"
-        nameClassName="font-light text-sm text-center"
+        className=" grid grid-cols-2 gap-4 mx-4 md:grid-cols-6 md:mx-28"
+        nameClassName="font-light text-xs text-center"
         imageClassName="w-full rounded-lg"
         innerDivClassName="hidden"
         showInnerText={false}

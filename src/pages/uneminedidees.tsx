@@ -20,6 +20,14 @@ export default function Uneminedidees() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow relative z-0">
+        <div className="container mx-auto px-4 py-8">
+          <p className="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">
+            Nos sièges sont présentés dans leur jus ou avec leur structure mise
+            à nue. Chaque carcasse peut être retapissée et personnalisée selon
+            vos goûts pour correspondre parfaitement à vos préférences et à
+            votre intérieur.
+          </p>
+        </div>
         <MinedideesCollectionContent />
       </main>
       <Footer />

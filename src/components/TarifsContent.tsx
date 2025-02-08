@@ -60,19 +60,19 @@ export default function TarifsContent() {
           <span>
             Pour vous permettre d'avoir une idée du budget à y consacrer voici,
             à titre indicatif, quelques exemples de tarifs pour une simple{" "}
-            <u className="text-gray-800 underline-offset-2">couverture*</u>{" "}
-            (changement du tissu) ou une réfection complète en méthode{" "}
-            <u className="text-gray-800 underline-offset-2">traditionnelle**</u>{" "}
-            (en crin végétal piqué sur ressorts).
+            <span className="text-gray-800">couverture*</span> (changement du
+            tissu) ou une réfection complète en méthode{" "}
+            <span className="text-gray-800">traditionnelle**</span> (en crin
+            végétal piqué sur ressorts).
           </span>
           <p>
-            <u className="text-gray-800 underline-offset-2">Couverture*:</u>{" "}
-            Enlèvement de l'ancien tissu, pose du nouveau tissu en finition
-            galonnée (finition cloutée sur devis).
+            <span className="text-gray-800">Couverture*:</span> Enlèvement de
+            l'ancien tissu, pose du nouveau tissu en finition galonnée (finition
+            cloutée sur devis).
             <br />
-            <u className="text-gray-800 underline-offset-2">
+            <span className="text-gray-800">
               Réfection complète traditionnelle**:
-            </u>{" "}
+            </span>{" "}
             Réfection de l'ensemble du siège: assise, dossier et manchettes,
             remplacement des sangles, ressorts, garniture et pose du nouveau
             tissu. Note : TVA non applicable en vertu de l'article 293 B du CGI.
@@ -123,15 +123,15 @@ export default function TarifsContent() {
           <p className="flex flex-col">
             Ces tarifs incluent les fournitures et s'entendent :
             <span>
-              - <u className="text-gray-800 underline-offset-2">hors tissu</u>{" "}
-              et <u className="text-gray-800 underline-offset-2">finition</u>{" "}
-              (clous ou passementeries)
+              - <span className="text-gray-800">hors tissu</span> et{" "}
+              <span className="text-gray-800">finition</span> (clous ou
+              passementeries)
             </span>
             <span>
               -{" "}
-              <u className="text-gray-800 underline-offset-2">
+              <span className="text-gray-800">
                 travaux nécessaires sur les bois
-              </u>{" "}
+              </span>{" "}
               (tels que recollage, décapage, finitions etc…)
             </span>
           </p>

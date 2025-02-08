@@ -2,17 +2,21 @@ import { client } from "@/sanity/client";
 import SiegeCollection from "@/components/siegecollection";
 import DOMPurify from "dompurify";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Mousewheel, Zoom } from "swiper/modules";
+import { Navigation, Mousewheel, Zoom } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
-import { PortableText, type SanityDocument, PortableTextBlock } from "next-sanity";
-import imageUrlBuilder from '@sanity/image-url'
+import {
+  PortableText,
+  type SanityDocument,
+  PortableTextBlock,
+} from "next-sanity";
+import imageUrlBuilder from "@sanity/image-url";
 
-const builder = imageUrlBuilder(client)
+const builder = imageUrlBuilder(client);
 
 type ImageWithLegend = {
   image: {
@@ -44,7 +48,7 @@ type SiegeData = {
   bodyOnHover?: PortableTextBlock[];
   body: PortableTextBlock[];
   position?: number;
-}
+};
 
 type SiegeDetailsContentProps = {
   slug: string;
@@ -55,7 +59,9 @@ export default function SiegeDetailsContent({
 }: SiegeDetailsContentProps) {
   const [siege, setSiege] = useState<SiegeData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [activeLegend, setActiveLegend] = useState<string | undefined>(undefined);
+  const [activeLegend, setActiveLegend] = useState<string | undefined>(
+    undefined
+  );
   const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
@@ -116,15 +122,15 @@ export default function SiegeDetailsContent({
     );
   }
 
-  const allImages = siege.imagesWithLegends 
+  const allImages = siege.imagesWithLegends
     ? [
-        { ...siege.image, legend: siege.image.legend }, 
+        { ...siege.image, legend: siege.image.legend },
         ...siege.imagesWithLegends.map((img: ImageWithLegend) => ({
           asset: img.image.asset,
           alt: img.image.alt,
-          legend: img.legend
-        }))
-      ] 
+          legend: img.legend,
+        })),
+      ]
     : [{ ...siege.image, legend: siege.image.legend }];
   const filteredImages = allImages.filter((img) => img?.asset?.url);
 
@@ -153,7 +159,7 @@ export default function SiegeDetailsContent({
 
           .swiper-slide-legend {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 20px;
             font-style: italic;
             color: gray;
             padding: 0 10px;
@@ -177,9 +183,6 @@ export default function SiegeDetailsContent({
       </style>
       <div className="md:flex md:mx-44 mx-4">
         <div className="w-full md:w-1/3">
-          <p className="hidden md:block text-sm text-gray-500 mb-2 text-center italic">
-            Double-cliquez pour zoomer & slide pour naviguer
-          </p>
           <Swiper
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
@@ -191,12 +194,8 @@ export default function SiegeDetailsContent({
             }}
             spaceBetween={50}
             slidesPerView={1}
-            modules={[Pagination, Mousewheel, Zoom, Navigation]}
+            modules={[Mousewheel, Zoom, Navigation]}
             navigation={true}
-            pagination={{ 
-              clickable: true,
-              el: '.swiper-pagination'
-            }}
             loop={true}
             mousewheel
             zoom={true}
@@ -206,7 +205,7 @@ export default function SiegeDetailsContent({
               (image: SanityImage, index: number) =>
                 image && (
                   <SwiperSlide key={index}>
-                    <div className="flex flex-col h-[500px]">
+                    <div className="flex flex-col h-[450px]">
                       <div className="flex justify-center items-center relative swiper-zoom-container h-[450px] md:h-[450px] max-w-[500px]">
                         <Image
                           src={image.asset.url}
@@ -221,9 +220,11 @@ export default function SiegeDetailsContent({
                   </SwiperSlide>
                 )
             )}
-            <div className="swiper-pagination" />
+            <p className="hidden md:block text-xs text-gray-500 mt-4 mb-2 text-center italic">
+              Double-cliquez pour zoomer & slide pour naviguer
+            </p>
             <div className="swiper-slide-legend min-h-[10px]">
-              {activeLegend || '\u00A0'}
+              {activeLegend || "\u00A0"}
             </div>
           </Swiper>
         </div>
@@ -238,7 +239,8 @@ export default function SiegeDetailsContent({
               />
               <div
                 style={{ fontSize: "20px", lineHeight: "24px" }}
-                className="text-base mt-4 text-gray-500 font-light [&>p]:mb-4 last:[&>p]:mb-0">
+                className="text-xs mt-4 text-gray-500 font-light [&>p]:mb-4 last:[&>p]:mb-0"
+              >
                 <PortableText value={siege.body} />
               </div>
             </div>
@@ -248,8 +250,8 @@ export default function SiegeDetailsContent({
 
       <div className="my-10 border-t-2 border-gray-300 mx-20 md:my-20 md:mx-36" />
       <SiegeCollection
-        className="mt-16 grid grid-cols-3 gap-4 mx-4 md:grid-cols-6 md:mx-28"
-        nameClassName="font-light text-sm text-center"
+        className="mt-16 grid grid-cols-2 gap-4 mx-4 md:grid-cols-6 md:mx-28 "
+        nameClassName="font-light text-xs text-center mt-1"
         imageClassName="w-full rounded-lg"
         innerDivClassName="hidden"
         showInnerText={false}
