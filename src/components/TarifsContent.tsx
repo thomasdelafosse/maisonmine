@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const items = [
   {
-    src: "/images/chaiseTarif.png",
+    src: "/images/tarifs/chaiseTarif.png",
     alt: "chaise",
     title: "CHAISE",
     subtitle: "ASSISE SIMPLE",
@@ -10,7 +10,7 @@ const items = [
     refection: 350,
   },
   {
-    src: "/images/fauteuilcabrioletTarif.png",
+    src: "/images/tarifs/cabrioletTarif.png",
     alt: "fauteuil cabriolet",
     title: "FAUTEUIL CABRIOLET",
     subtitle: "SIÈGE AVEC DOSSIER ET ACCOTOIRS",
@@ -18,7 +18,7 @@ const items = [
     refection: 980,
   },
   {
-    src: "/images/fauteuilcabrioletaveccoussinTarif.png",
+    src: "/images/tarifs/fauteuilcabrioletaveccoussinTarif.png",
     alt: "fauteuil cabriolet avec coussin",
     title: "FAUTEUIL CABRIOLET",
     subtitle: "AVEC COUSSIN",
@@ -26,7 +26,7 @@ const items = [
     refection: 1520,
   },
   {
-    src: "/images/anglaisTarif.png",
+    src: "/images/tarifs/anglaisTarif.png",
     alt: "fauteuil anglais",
     title: "FAUTEUIL ANGLAIS",
     subtitle: "LARGE ASSISE CONFORTABLE",
@@ -34,7 +34,7 @@ const items = [
     refection: 1720,
   },
   {
-    src: "/images/crapaudTarif.png",
+    src: "/images/tarifs/crapaudTarif.png",
     alt: "fauteuil crapaud",
     title: "FAUTEUIL CRAPAUD",
     subtitle: "FAUTEUIL À BOIS RECOUVERT",
@@ -42,7 +42,7 @@ const items = [
     refection: 1720,
   },
   {
-    src: "/images/bergeremedailloncoussinTarif.png",
+    src: "/images/tarifs/bergeremedailloncoussinTarif.png",
     alt: "bergere médaillon",
     title: "BERGERE MÉDAILLON",
     subtitle: "ASSISE AVEC COUSSIN",
@@ -65,18 +65,6 @@ export default function TarifsContent() {
             <span className="text-gray-800">traditionnelle**</span> (en crin
             végétal piqué sur ressorts).
           </span>
-          <p>
-            <span className="text-gray-800">Couverture*:</span> Enlèvement de
-            l'ancien tissu, pose du nouveau tissu en finition galonnée (finition
-            cloutée sur devis).
-            <br />
-            <span className="text-gray-800">
-              Réfection complète traditionnelle**:
-            </span>{" "}
-            Réfection de l'ensemble du siège: assise, dossier et manchettes,
-            remplacement des sangles, ressorts, garniture et pose du nouveau
-            tissu. Note : TVA non applicable en vertu de l'article 293 B du CGI.
-          </p>
         </div>
       </div>
 
@@ -135,12 +123,30 @@ export default function TarifsContent() {
               (tels que recollage, décapage, finitions etc…)
             </span>
           </p>
+          <p className="text-base italic">
+            Note : TVA non applicable en vertu de l'article 293 B du CGI.
+          </p>
           <p>
             L'atelier ne travaille qu'avec des tissus qu'il fournit. Si vous
             fournissez le tissu ces tarifs font l'objet d'une majoration de 20%.
             L'atelier ne sera pas tenu pour responsable de la tenue dans le
             temps du tissu suivant les conditions générales de vente.
           </p>
+          <div className="text-sm space-y-4">
+            <p>
+              <span className="text-gray-800">Couverture*:</span> Enlèvement de
+              l'ancien tissu, pose du nouveau tissu en finition galonnée
+              (finition cloutée sur devis).
+            </p>
+            <p>
+              <span className="text-gray-800">
+                Réfection complète traditionnelle**:
+              </span>{" "}
+              Réfection de l'ensemble du siège: assise, dossier et manchettes,
+              remplacement des sangles, ressorts, garniture et pose du nouveau
+              tissu.
+            </p>
+          </div>
         </div>
       </div>
     </>
