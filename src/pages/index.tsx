@@ -17,7 +17,7 @@ export default function Home() {
       <div className="flex flex-col items-center mt-10 mx-4 md:flex-row md:justify-center md:mt-20 md:mx-32  ">
         <div className="md:flex-1/3 md:flex-shrink-0">
           <Image
-            src="/images/moi2.jpg"
+            src="/images/portfolio/moi2.jpg"
             alt="savoirfaire"
             width={450}
             height={450}
@@ -54,7 +54,7 @@ export default function Home() {
       <div className="flex flex-col items-center mt-10 mx-4 md:flex-row-reverse md:justify-center md:mt-20 md:mx-32 ">
         <div className="md:flex-1/3 md:flex-shrink-0">
           <Image
-            src="/images/savoirfaire.jpeg"
+            src="/images/portfolio/savoirfaire.jpeg"
             alt="test"
             width={450}
             height={450}
@@ -113,7 +113,7 @@ export default function Home() {
       <div className="flex flex-col items-center mt-10 mx-4 md:flex-row md:justify-center md:mt-20 md:mx-32  ">
         <div className="md:flex-1/3 ">
           <Image
-            src="/images/methodtradi.png"
+            src="/images/portfolio/methodtradi.png"
             alt="methodtradi"
             width={600}
             height={600}
@@ -176,30 +176,19 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="flex flex-col  mt-10 mx-4 md:flex-row-reverse md:justify-start md:mt-20 md:mx-32 ">
-        <div className=" flex justify-center ">
-          <Image
-            src="/images/tamponmaisonmine.jpeg"
-            alt="methodtradi"
-            width={400}
-            height={400}
-            className="rounded-lg object-contain md:w-[300px] md:h-[300px]"
-          />
-        </div>
-        <div className="flex flex-col mt-4 text-base text-gray-500 font-light">
-          <div className="pl-4 border-l-2 md:border-l-0 md:border-r-2 md:border-gray-300 md:mx-8 md:px-8">
+      <div className="flex flex-col mt-10 mx-4 md:flex-row md:mt-20 md:mx-32 rounded-lg md:p-6">
+        <div className="order-2 md:order-1 md:w-2/3 flex flex-col mt-4 text-base text-gray-500 font-light">
+          <div className="flex flex-col border-l-2 md:border-l-0 border-gray-300 pl-4 md:border-r-2 md:pr-8">
             <h1 className="text-base font-medium text-black">
               GERMINATION D'IDÉES : D'AUTRES SIÈGES SONT DISPONIBLES !
             </h1>
-            <div className="flex flex-col text-base text-gray-500">
-              <p className="mt-6">
-                D'autres sièges attendent leur rénovation selon mes
-                inspirations... ou les vôtres. Un projet vous tente ?
-                Contactez-moi !
-              </p>
-            </div>
+            <p className="mt-6">
+              D'autres sièges attendent leur rénovation selon mes
+              inspirations... ou les vôtres. Un projet vous tente ?
+              Contactez-moi !
+            </p>
           </div>
-          <div className="flex flex-col md:flex-row justify-center md:justify-evenly items-center mt-10 gap-4 font-light mb-10">
+          <div className="flex flex-col items-center md:flex-row md:justify-evenly gap-4 font-light mt-10">
             <Link href="/uneminedidees">
               <button className="h-fit px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400">
                 DÉCOUVRIR LES MINES D'IDÉES
@@ -216,6 +205,15 @@ export default function Home() {
               </button>
             </Link>
           </div>
+        </div>
+        <div className="order-1 md:order-2 md:w-1/3 md:ml-8 w-full">
+          <Image
+            src="/images/portfolio/tamponmaisonmine.jpeg"
+            alt="methodtradi"
+            width={400}
+            height={400}
+            className="rounded-lg object-cover w-full h-[400px] md:w-[500px] md:h-[300px]"
+          />
         </div>
       </div>
       <Footer />
