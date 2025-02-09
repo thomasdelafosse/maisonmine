@@ -2,7 +2,7 @@ import { client } from "@/sanity/client";
 import SiegeCollection from "@/components/siegecollection";
 import DOMPurify from "dompurify";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Mousewheel, Zoom } from "swiper/modules";
+import { Navigation, Mousewheel, Zoom, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -171,12 +171,27 @@ export default function SiegeDetailsContent({
             position: relative;
             bottom: 0 !important;
             margin-top: 10px;
+            display: none;
+          }
+
+          .swiper-pagination-bullet {
+            background-color: black;
+            opacity: 0.5;
+          }
+
+          .swiper-pagination-bullet-active {
+            background-color: black;
+            opacity: 1;
           }
 
           @media (max-width: 768px) {
             .swiper-button-next,
             .swiper-button-prev {
               display: none !important;
+            }
+
+            .swiper-pagination {
+              display: block;
             }
           }
         `}
@@ -194,8 +209,9 @@ export default function SiegeDetailsContent({
             }}
             spaceBetween={50}
             slidesPerView={1}
-            modules={[Mousewheel, Zoom, Navigation]}
+            modules={[Mousewheel, Zoom, Navigation, Pagination]}
             navigation={true}
+            pagination={{ clickable: true }}
             loop={true}
             mousewheel
             zoom={true}
