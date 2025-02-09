@@ -61,7 +61,7 @@ export default function ModelsSection() {
     Object.values(loadingStates).some((state) => state) || isResetting;
 
   return (
-    <div className="relative h-[650px] md:h-[700px] w-full">
+    <div className="relative h-[550px] md:h-[700px] w-full">
       {isLoading && (
         <div className="absolute inset-0 z-20 flex items-center justify-center bg-gray-100/80">
           <ModelLoader loading={true} />
