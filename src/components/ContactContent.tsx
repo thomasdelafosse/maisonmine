@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { fetchEmail } from "@/lib/fetch-email";
+import emailjs from "@emailjs/browser";
 
 export default function ContactContent() {
   const form = useRef<HTMLFormElement>(null);
@@ -41,9 +41,27 @@ export default function ContactContent() {
         throw new Error("Format de numéro de téléphone invalide");
       }
 
-      await fetchEmail(JSON.stringify(emailData));
-      alert("Message envoyé avec succès!");
-      form.current.reset();
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          to_name: emailData.to_name,
+          from_name: emailData.from_name,
+          phone: emailData.phone,
+          projectType: emailData.projectType,
+          message: emailData.message,
+          reply_to: emailData.from_name,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      if (result.status === 200) {
+        alert("Message envoyé avec succès!");
+        form.current.reset();
+      } else {
+        throw new Error("Échec de l'envoi du message");
+      }
     } catch (error) {
       console.error("Failed to send email:", error);
       alert("Échec de l'envoi du message. Veuillez réessayer.");
