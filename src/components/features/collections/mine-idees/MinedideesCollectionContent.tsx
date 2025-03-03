@@ -1,15 +1,15 @@
-import SiegeCollection from "@/components/siegecollection";
+import MinedideesCollection from "@/components/features/collections/mine-idees/MineIdeesCollection";
 
-export default function SiegeCollectionContent() {
+export default function MinedideesCollectionContent() {
   return (
     <div className="relative -z-50">
-      <SiegeCollection
-        slug="Cotesiege"
+      <MinedideesCollection
+        slug="Minedidees"
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-4 md:mx-36 mb-12"
-        imageClassName="rounded-lg shadow-lg object-cover w-full h-full transition-all duration-500 group-hover:scale-[1.02]"
+        imageClassName="rounded-lg shadow-lg object-cover transition-all duration-500 group-hover:scale-[1.02]"
         nameClassName="text-1xl font-light text-gray-500 text-center mt-2"
         showInnerText={true}
-        innerDivClassName="absolute inset-0 bg-white/80 text-black text-1xl text-center font-medium text-1xl flex flex-col justify-center items-center transition-all duration-500 rounded-lg"
+        innerDivClassName="absolute inset-0 bg-white/80 text-black text-1xl text-center font-medium flex flex-col justify-center items-center transition-all duration-500 rounded-lg"
         priceClassName="text-1xl font-light text-gray-500 text-center mt-2"
         svgElement={
           <svg

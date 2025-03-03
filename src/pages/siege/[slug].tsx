@@ -1,10 +1,10 @@
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
+import Navbar from "@/components/common/layout/navigation/Navbar";
+import Footer from "@/components/common/layout/footer/Footer";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 const SiegeDetailsContent = dynamic(
-  () => import("@/components/siegedetails/SiegeDetailsContent"),
+  () => import("@/components/features/details/siege/SiegeDetailsContent"),
   {
     loading: () => (
       <div className="flex justify-center items-center min-h-[50vh]">

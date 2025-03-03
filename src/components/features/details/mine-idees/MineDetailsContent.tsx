@@ -2,22 +2,13 @@ import { useState, useEffect } from "react";
 import { client } from "@/sanity/client";
 import { type SanityDocument } from "next-sanity";
 import { PortableText } from "@portabletext/react";
-import MinedideesCollection from "@/components/minedideescollection";
-import Scene from "@/components/Scene";
+import MinedideesCollection from "@/components/features/collections/mine-idees/MineIdeesCollection";
 import Link from "next/link";
 import Image from "next/image";
 
 type MineDetailsContentProps = {
   slug: string;
 };
-
-const modelMap: { [key: string]: string } = {
-  "bergere-medaillon": "/3Dmodels/3Dcarcassemedaillon.glb",
-};
-
-function getModelPath(slug: string): string {
-  return modelMap[slug];
-}
 
 export default function MineDetailsContent({ slug }: MineDetailsContentProps) {
   const [minedidee, setMinedidee] = useState<SanityDocument | null>(null);
@@ -59,25 +50,19 @@ export default function MineDetailsContent({ slug }: MineDetailsContentProps) {
     );
   }
 
-  const modelPath = getModelPath(slug);
-
   return (
     <>
       <div className="md:flex md:mx-44">
         <div className="w-full md:w-1/3">
           {minedidee.image && (
             <div className="flex justify-center items-center relative rounded-lg h-[550px]">
-              {modelMap[slug] ? (
-                <Scene modelPath={modelPath} />
-              ) : (
-                <Image
-                  src={minedidee.image.asset.url}
-                  alt={minedidee.image.alt || minedidee.title}
-                  fill
-                  className="object-contain rounded-lg"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              )}
+              <Image
+                src={minedidee.image.asset.url}
+                alt={minedidee.image.alt || minedidee.title}
+                fill
+                className="object-contain rounded-lg"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </div>
           )}
         </div>

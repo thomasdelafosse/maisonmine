@@ -1,4 +1,4 @@
-import MeubleCollection from "@/components/meublecollection";
+import MeubleCollection from "@/components/features/collections/meuble/MeubleCollection";
 
 export default function MeubleCollectionContent() {
   return (

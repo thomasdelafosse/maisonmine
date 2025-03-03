@@ -97,7 +97,7 @@ export default function MinedideesCollection({
               {svgElement}
             </div>
           )}
-          <Link href={`/minedideesdetails/${minedidee.slug.current}`}>
+          <Link href={`/uneminedidees/${minedidee.slug.current}`}>
             <div className="relative group">
               {minedidee.image && (
                 <Image

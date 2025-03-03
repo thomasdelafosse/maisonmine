@@ -1,5 +1,5 @@
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
+import Navbar from "@/components/common/layout/navigation/Navbar";
+import Footer from "@/components/common/layout/footer/Footer";
 import Image from "next/image";
 
 export default function TechniqueEtSavoirFaire() {

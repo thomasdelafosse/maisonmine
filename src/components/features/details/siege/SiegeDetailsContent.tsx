@@ -1,5 +1,5 @@
 import { client } from "@/sanity/client";
-import SiegeCollection from "@/components/siegecollection";
+import SiegeCollection from "@/components/features/collections/siege/SiegeCollection";
 import DOMPurify from "dompurify";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Mousewheel, Zoom, Pagination } from "swiper/modules";

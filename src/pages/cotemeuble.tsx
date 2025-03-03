@@ -1,11 +1,12 @@
 import React from "react";
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
+import Navbar from "@/components/common/layout/navigation/Navbar";
+import Footer from "@/components/common/layout/footer/Footer";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
 const MeubleCollectionContent = dynamic(
-  () => import("@/components/meublecollection/MeubleCollectionContent"),
+  () =>
+    import("@/components/features/collections/meuble/MeubleCollectionContent"),
   {
     loading: () => (
       <div className="flex justify-center items-center min-h-[50vh]">

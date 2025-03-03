@@ -1,9 +1,9 @@
 import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
 import { GetStaticProps, GetStaticPaths } from "next";
-import MineDetailsContent from "@/components/minedideesdetails/MineDetailsContent";
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
+import MineDetailsContent from "@/components/features/details/mine-idees/MineDetailsContent";
+import Navbar from "@/components/common/layout/navigation/Navbar";
+import Footer from "@/components/common/layout/footer/Footer";
 
 const MINEDIDEE_QUERY = `*[_type == "minedidees" && slug.current == $slug][0]`;
 

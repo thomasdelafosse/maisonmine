@@ -114,7 +114,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
             <div className="flex flex-col gap-6 mt-32">
               {allBlogs.map((blog) => (
                 <Link
-                  href={`/blogdetails/${blog.slug.current}`}
+                  href={`/uneminedechanges/${blog.slug.current}`}
                   key={blog._id}
                   onClick={() => setIsTitleOpen(false)}
                 >
@@ -144,7 +144,10 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
 
         <div className="hidden md:flex flex-col gap-6 w-1/5">
           {allBlogs.map((blog) => (
-            <Link href={`/blogdetails/${blog.slug.current}`} key={blog._id}>
+            <Link
+              href={`/uneminedechanges/${blog.slug.current}`}
+              key={blog._id}
+            >
               <div className="flex flex-row cursor-pointer hover:text-red-900">
                 <div className="font-medium">
                   <h1

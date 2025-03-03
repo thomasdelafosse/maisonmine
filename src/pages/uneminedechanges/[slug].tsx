@@ -1,9 +1,9 @@
 import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
 import { GetStaticProps, GetStaticPaths } from "next";
-import BlogDetailsContent from "@/components/blogdetails/BlogDetailsContent";
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
+import BlogDetailsContent from "@/components/features/details/mine-dechanges/BlogDetailsContent";
+import Navbar from "@/components/common/layout/navigation/Navbar";
+import Footer from "@/components/common/layout/footer/Footer";
 
 const BLOG_QUERY = `*[_type == "blogs" && slug.current == $slug][0]`;
 

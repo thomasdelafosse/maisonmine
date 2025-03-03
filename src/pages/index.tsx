@@ -1,13 +1,16 @@
 import Link from "next/link";
-import Navbar from "@/components/layout/navbar";
+import Navbar from "@/components/common/layout/navigation/Navbar";
 import Image from "next/image";
-import Footer from "@/components/layout/footer";
+import Footer from "@/components/common/layout/footer/Footer";
 import dynamic from "next/dynamic";
 
-const ModelsSection = dynamic(() => import("@/components/ModelsSection"), {
-  loading: () => <div className="h-[600px] md:h-[800px]"></div>,
-  ssr: false,
-});
+const ModelsSection = dynamic(
+  () => import("@/components/3d/sections/ModelsSection"),
+  {
+    loading: () => <div className="h-[600px] md:h-[800px]"></div>,
+    ssr: false,
+  }
+);
 
 export default function Home() {
   return (
@@ -62,7 +65,7 @@ export default function Home() {
           />
         </div>
         <div className="mt-4 border-l-2 border-gray-300 flex flex-col gap-4 pl-4 md:mr-8 md:border-r-2 md:border-l-0 md:pr-4">
-          <Link href="/blogdetails/un-savoir-faire">
+          <Link href="/uneminedechanges/un-savoir-faire">
             <h1 className="flex gap-2 text-base font-medium text-black hover:text-red-900 group p-2">
               METHODE TRADITIONNELLE OU MÉTHODE CONTEMPORAINE ?
               <svg

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import ModelLoader from "@/components/3d/ModelLoader";
+import ModelLoader from "@/components/common/ui/loaders/ModelLoader";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, ContactShadows } from "@react-three/drei";
-import Model from "@/components/3d/Model";
+import Model from "@/components/3d/models/Model";
 import { Suspense } from "react";
 import { useCamera } from "@/hooks/useCamera";
 import { useTouchScroll } from "@/hooks/useTouchScroll";
-import ModelControls from "@/components/3d/ModelControls";
+import ModelControls from "@/components/3d/controls/ModelControls";
 import { LoadingStates } from "@/types/modelsType";
 
 export default function ModelsSection() {

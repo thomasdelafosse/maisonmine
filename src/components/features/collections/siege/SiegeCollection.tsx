@@ -96,7 +96,7 @@ export default function SiegeCollection({
               {svgElement}
             </div>
           )}
-          <Link href={`/siegedetails/${siege.slug.current}`}>
+          <Link href={`/siege/${siege.slug.current}`}>
             <div className="relative group">
               {siege.image && (
                 <Image

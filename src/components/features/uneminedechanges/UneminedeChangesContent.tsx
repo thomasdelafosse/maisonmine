@@ -38,7 +38,7 @@ export default function UneminedeChangesContent() {
   return (
     <div className="flex flex-col gap-10 mx-4 md:mx-72">
       {blogs.map((blog) => (
-        <Link href={`/blogdetails/${blog.slug.current}`} key={blog._id}>
+        <Link href={`/uneminedechanges/${blog.slug.current}`} key={blog._id}>
           <div className="flex flex-col cursor-pointer text-gray-500 hover:text-gray-950 group md:flex-row">
             <div className="w-full md:w-1/4 font-base">
               <div className="flex justify-between md:block mb-4 md:mb-0">
