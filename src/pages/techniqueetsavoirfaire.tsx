@@ -1,6 +1,7 @@
 import Navbar from "@/components/common/layout/navigation/Navbar";
 import Footer from "@/components/common/layout/footer/Footer";
 import Image from "next/image";
+import DescriptionBlock from "@/components/common/ui/text/DescriptionBlock";
 
 export default function TechniqueEtSavoirFaire() {
   const images = [
@@ -121,7 +122,7 @@ export default function TechniqueEtSavoirFaire() {
       <main className="flex-grow">
         <div className="flex flex-col gap-10 mx-4 md:mx-72">
           <div>
-            <p className="text-lg text-gray-700 border-l-2 border-gray-300 pl-4">
+            <DescriptionBlock>
               Découvrez les résultats de notre savoir-faire artisanal à travers
               cette galerie d'images. De la restauration de fauteuils anciens à
               la création de pièces contemporaines, chaque projet reflète notre
@@ -129,7 +130,7 @@ export default function TechniqueEtSavoirFaire() {
               témoignent d'un travail minutieux, où chaque détail est
               soigneusement pensé pour donner une seconde vie aux sièges tout en
               préservant leur caractère unique.
-            </p>
+            </DescriptionBlock>
           </div>
         </div>
         <div className="container mx-auto px-4 mt-8">

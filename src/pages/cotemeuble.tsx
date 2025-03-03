@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "@/components/common/layout/navigation/Navbar";
 import Footer from "@/components/common/layout/footer/Footer";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import DescriptionBlock from "@/components/common/ui/text/DescriptionBlock";
 
 const MeubleCollectionContent = dynamic(
   () =>
@@ -24,7 +24,7 @@ export default function CoteMeuble() {
       <main className="flex-grow relative z-0">
         <div className="flex flex-col gap-10 mx-4 md:mx-72">
           <div>
-            <p className="text-lg text-gray-700 border-l-2 border-gray-300 pl-4">
+            <DescriptionBlock>
               L'atelier vous propose de sublimer vos meubles anciens grâce à
               notre expertise en restauration. Nous redonnons vie à vos pièces
               avec des patines soigneusement sélectionnées, respectant l'âme et
@@ -32,17 +32,11 @@ export default function CoteMeuble() {
               transformation complète, nous mettons notre savoir-faire au
               service de vos trésors familiaux pour leur offrir une seconde
               jeunesse.
-            </p>
-            <p className="text-lg text-gray-700 mt-4 border-l-2 border-gray-300 pl-4">
+            </DescriptionBlock>
+            <DescriptionBlock className="mt-4" showContactLink>
               Disponibles à la vente, des pièces uniques dont certaines
-              n'attendent que de trouver leur place dans votre intérieur.{" "}
-              <Link
-                href="/contact"
-                className="text-gray-900 hover:text-gray-600 transition-colors"
-              >
-                Contactez-moi !
-              </Link>
-            </p>
+              n'attendent que de trouver leur place dans votre intérieur.
+            </DescriptionBlock>
           </div>
         </div>
         <div className="relative -z-50 mt-8">
