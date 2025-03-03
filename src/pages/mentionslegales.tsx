@@ -1,5 +1,5 @@
-import NavBar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
 
 export default function Mentionslegales() {
   const lastModified = new Date().toLocaleDateString("fr-FR", {
@@ -10,7 +10,7 @@ export default function Mentionslegales() {
 
   return (
     <>
-      <NavBar />
+      <Navbar />
       <main className="">
         <div className="w-full px-8 py-8">
           <h1 className="text-3xl font-bold text-center  mb-12">

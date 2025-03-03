@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
-import ModelLoader from "@/components/ModelLoader";
+import ModelLoader from "@/components/3d/ModelLoader";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, ContactShadows } from "@react-three/drei";
-import Model from "./Model";
+import Model from "@/components/3d/Model";
 import { Suspense } from "react";
 import { useCamera } from "@/hooks/useCamera";
 import { useTouchScroll } from "@/hooks/useTouchScroll";
-import ModelControls from "./ModelControls";
+import ModelControls from "@/components/3d/ModelControls";
 import { LoadingStates } from "@/types/modelsType";
 
 export default function ModelsSection() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [loadingStates, setLoadingStates] = useState<LoadingStates>({
     chaisechably: true,
     chaiseZebre: true,

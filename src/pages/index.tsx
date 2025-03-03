@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Navbar from "../components/navbar";
+import Navbar from "@/components/layout/navbar";
 import Image from "next/image";
-import Footer from "../components/footer";
+import Footer from "@/components/layout/footer";
 import dynamic from "next/dynamic";
 
 const ModelsSection = dynamic(() => import("@/components/ModelsSection"), {

@@ -1,5 +1,5 @@
-import NavBar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
 
 export default function Charte() {
   const lastModified = new Date().toLocaleDateString("fr-FR", {
@@ -10,7 +10,7 @@ export default function Charte() {
 
   return (
     <>
-      <NavBar />
+      <Navbar />
       <main className="">
         <div className="w-full px-8 py-8">
           <div className="space-y-6 text-justify text-gray-600">

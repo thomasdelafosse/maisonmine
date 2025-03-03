@@ -2,8 +2,8 @@ import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
 import { GetStaticProps, GetStaticPaths } from "next";
 import MineDetailsContent from "@/components/minedideesdetails/MineDetailsContent";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
 
 const MINEDIDEE_QUERY = `*[_type == "minedidees" && slug.current == $slug][0]`;
 
@@ -35,7 +35,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default function MinedideesDetailsPage({ minedidee }: { minedidee: SanityDocument }) {
+export default function MinedideesDetailsPage({
+  minedidee,
+}: {
+  minedidee: SanityDocument;
+}) {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
