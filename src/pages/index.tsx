@@ -1,7 +1,5 @@
 import Link from "next/link";
-import Navbar from "@/components/common/layout/navigation/Navbar";
 import Image from "next/image";
-import Footer from "@/components/common/layout/footer/Footer";
 import dynamic from "next/dynamic";
 
 const ModelsSection = dynamic(
@@ -14,10 +12,9 @@ const ModelsSection = dynamic(
 
 export default function Home() {
   return (
-    <div>
-      <Navbar />
+    <>
       <ModelsSection />
-      <div className="flex flex-col items-center mt-10 mx-4 md:flex-row md:justify-center md:mt-20 md:mx-32  ">
+      <div className="flex flex-col items-center mt-10 mx-4 md:flex-row md:justify-center md:mt-20 md:mx-32">
         <div className="md:flex-1/3 md:flex-shrink-0">
           <Image
             src="/images/portfolio/moi2.jpg"
@@ -219,7 +216,6 @@ export default function Home() {
           />
         </div>
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }

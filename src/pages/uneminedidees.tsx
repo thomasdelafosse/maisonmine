@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "@/components/common/layout/navigation/Navbar";
-import Footer from "@/components/common/layout/footer/Footer";
 import dynamic from "next/dynamic";
 import DescriptionBlock from "@/components/common/ui/text/DescriptionBlock";
 
@@ -21,28 +19,24 @@ const MinedideesCollectionContent = dynamic(
 
 export default function Uneminedidees() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-grow relative z-0">
-        <div className="flex flex-col gap-10 mx-4 md:mx-72">
-          <div>
-            <DescriptionBlock>
-              Nos sièges sont présentés dans leur jus ou avec leur structure
-              mise à nue. Chaque carcasse peut être retapissée et personnalisée
-              selon vos goûts pour correspondre parfaitement à vos préférences
-              et à votre intérieur.
-            </DescriptionBlock>
-            <DescriptionBlock className="mt-4" showContactLink>
-              D'autres sièges attendent leur rénovation selon mes
-              inspirations... ou les vôtres. Un projet vous tente ?
-            </DescriptionBlock>
-          </div>
+    <main className="flex-grow relative z-0">
+      <div className="flex flex-col gap-10 mx-4 md:mx-72">
+        <div>
+          <DescriptionBlock>
+            Nos sièges sont présentés dans leur jus ou avec leur structure mise
+            à nue. Chaque carcasse peut être retapissée et personnalisée selon
+            vos goûts pour correspondre parfaitement à vos préférences et à
+            votre intérieur.
+          </DescriptionBlock>
+          <DescriptionBlock className="mt-4" showContactLink>
+            D'autres sièges attendent leur rénovation selon mes inspirations...
+            ou les vôtres. Un projet vous tente ?
+          </DescriptionBlock>
         </div>
-        <div className="relative -z-50 mt-8">
-          <MinedideesCollectionContent />
-        </div>
-      </main>
-      <Footer />
-    </div>
+      </div>
+      <div className="relative -z-50 mt-8">
+        <MinedideesCollectionContent />
+      </div>
+    </main>
   );
 }

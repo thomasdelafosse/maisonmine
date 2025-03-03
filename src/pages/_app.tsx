@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useState, createContext, Dispatch, SetStateAction } from "react";
+import Layout from "@/components/common/layout/Layout";
 
 type MenuContextType = {
   isMenuOpen: boolean;
@@ -30,7 +31,9 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <MenuContext.Provider value={{ isMenuOpen, setIsMenuOpen }}>
         <div className={isMenuOpen ? "fixed inset-0 overflow-hidden" : ""}>
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </div>
       </MenuContext.Provider>
     </>

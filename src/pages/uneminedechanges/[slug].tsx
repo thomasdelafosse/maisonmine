@@ -2,8 +2,6 @@ import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
 import { GetStaticProps, GetStaticPaths } from "next";
 import BlogDetailsContent from "@/components/features/details/mine-dechanges/BlogDetailsContent";
-import Navbar from "@/components/common/layout/navigation/Navbar";
-import Footer from "@/components/common/layout/footer/Footer";
 
 const BLOG_QUERY = `*[_type == "blogs" && slug.current == $slug][0]`;
 
@@ -19,7 +17,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const blog = await client.fetch(BLOG_QUERY, params);
+  const blog = await client.fetch(BLOG_QUERY, {
+    slug: params?.slug,
+  });
 
   if (!blog) {
     return {
@@ -31,18 +31,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       blog,
     },
-    revalidate: 30,
+    revalidate: 60,
   };
 };
 
 export default function BlogDetailsPage({ blog }: { blog: SanityDocument }) {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-grow">
-        <BlogDetailsContent slug={blog.slug.current} />
-      </main>
-      <Footer />
-    </div>
+    <main className="flex-grow">
+      <BlogDetailsContent slug={blog.slug.current} />
+    </main>
   );
 }

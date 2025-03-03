@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "@/components/common/layout/navigation/Navbar";
-import Footer from "@/components/common/layout/footer/Footer";
 import dynamic from "next/dynamic";
 
 const UneminedeChangesContent = dynamic(
@@ -18,12 +16,8 @@ const UneminedeChangesContent = dynamic(
 
 export default function UneminedeChangements() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-grow">
-        <UneminedeChangesContent />
-      </main>
-      <Footer />
-    </div>
+    <main className="flex-grow">
+      <UneminedeChangesContent />
+    </main>
   );
 }

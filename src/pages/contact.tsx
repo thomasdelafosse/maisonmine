@@ -1,5 +1,3 @@
-import Navbar from "@/components/common/layout/navigation/Navbar";
-import Footer from "@/components/common/layout/footer/Footer";
 import dynamic from "next/dynamic";
 
 const ContactContent = dynamic(
@@ -14,11 +12,5 @@ const ContactContent = dynamic(
 );
 
 export default function Contact() {
-  return (
-    <div>
-      <Navbar />
-      <ContactContent />
-      <Footer />
-    </div>
-  );
+  return <ContactContent />;
 }

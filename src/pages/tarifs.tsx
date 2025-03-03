@@ -1,5 +1,3 @@
-import Navbar from "@/components/common/layout/navigation/Navbar";
-import Footer from "@/components/common/layout/footer/Footer";
 import dynamic from "next/dynamic";
 
 const TarifsContent = dynamic(
@@ -14,11 +12,5 @@ const TarifsContent = dynamic(
 );
 
 export default function Tarifs() {
-  return (
-    <div>
-      <Navbar />
-      <TarifsContent />
-      <Footer />
-    </div>
-  );
+  return <TarifsContent />;
 }

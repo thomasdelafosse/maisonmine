@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "@/components/common/layout/navigation/Navbar";
-import Footer from "@/components/common/layout/footer/Footer";
 import dynamic from "next/dynamic";
 import DescriptionBlock from "@/components/common/ui/text/DescriptionBlock";
 
@@ -20,7 +18,6 @@ const MeubleCollectionContent = dynamic(
 export default function CoteMeuble() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
       <main className="flex-grow relative z-0">
         <div className="flex flex-col gap-10 mx-4 md:mx-72">
           <div>
@@ -43,7 +40,6 @@ export default function CoteMeuble() {
           <MeubleCollectionContent />
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
