@@ -117,7 +117,7 @@ export default function MinedechangesDetails({
         <div className="flex flex-col items-start gap-4 flex-1">
           <h1 className="text-3xl font-light">{minedechange.title}</h1>
           <div className="text-gray-500 font-base [&>p]:mb-4 last:[&>p]:mb-0">
-            <PortableText value={minedechange.body} />
+            {minedechange.body && <PortableText value={minedechange.body} />}
           </div>
         </div>
       </div>
