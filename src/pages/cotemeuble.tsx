@@ -1,6 +1,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import DescriptionBlock from "@/components/common/ui/text/DescriptionBlock";
+import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
 
 const MeubleCollectionContent = dynamic(
   () =>

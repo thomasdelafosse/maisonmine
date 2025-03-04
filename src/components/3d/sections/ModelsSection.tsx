@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ModelLoader from "@/components/common/ui/loaders/ModelLoader";
+import ModelLoader from "@/components/common/reusable-ui/loaders/ModelLoader";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, ContactShadows } from "@react-three/drei";
 import Model from "@/components/3d/models/Model";

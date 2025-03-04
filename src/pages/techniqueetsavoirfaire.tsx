@@ -1,5 +1,5 @@
 import Image from "next/image";
-import DescriptionBlock from "@/components/common/ui/text/DescriptionBlock";
+import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
 
 export default function TechniqueEtSavoirFaire() {
   const images = [
