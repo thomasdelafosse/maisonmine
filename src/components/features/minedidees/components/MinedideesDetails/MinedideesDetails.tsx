@@ -64,13 +64,11 @@ export default function MinedideesDetails({ slug }: MineDetailsContentProps) {
       </div>
       <div className="my-10 border-t-2 border-gray-300 mx-20 md:my-20 md:mx-36" />
       <MinedideesCollection
-        slug="Minedidees"
         className={VARIANT_STYLES.footer.container}
         nameClassName={VARIANT_STYLES.footer.title}
         imageClassName={VARIANT_STYLES.footer.image}
         innerDivClassName={VARIANT_STYLES.footer.hover}
         showInnerText={false}
-        priceClassName={VARIANT_STYLES.footer.price}
       />
     </>
   );

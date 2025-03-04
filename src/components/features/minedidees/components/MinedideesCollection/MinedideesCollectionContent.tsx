@@ -5,13 +5,11 @@ export default function MinedideesCollectionContent() {
   return (
     <div className="relative -z-50">
       <MinedideesCollection
-        slug="Minedidees"
         className={VARIANT_STYLES.grid.container}
         imageClassName={VARIANT_STYLES.grid.image}
         nameClassName={VARIANT_STYLES.grid.title}
         showInnerText={true}
         innerDivClassName={VARIANT_STYLES.grid.hover}
-        priceClassName={VARIANT_STYLES.grid.price}
         svgElement={
           <svg
             xmlns="http://www.w3.org/2000/svg"
