@@ -3,7 +3,7 @@ import { PortableText } from "next-sanity";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { MinedechangesDetailsProps } from "../../types/mineDechangesType";
-import LoadingSpinner from "@/components/common/reusable-ui/loading/LoadingSpinner";
+import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import { useMinedechangesDetails } from "../../hooks/useMinedechangesDetails";
 import { formatDateToFrench } from "../../utils/dateFormatter";
 

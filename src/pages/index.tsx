@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { Button } from "@/components/common/reusable-ui/buttons";
 
 const ModelsSection = dynamic(
   () => import("@/components/3d/sections/ModelsSection"),
@@ -165,14 +166,14 @@ export default function Home() {
       </div>
       <div className="flex flex-col items-center md:flex-row md:justify-evenly mt-6 gap-4 mx-4 md:mx-32 font-light mb-6">
         <Link href="/cotesiege">
-          <button className="w-full px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400">
+          <Button variant="primary" size="lg">
             DÉCOUVRIR LE CÔTÉ SIÈGE
-          </button>
+          </Button>
         </Link>
         <Link href="/cotemeuble">
-          <button className="w-full px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400">
+          <Button variant="primary" size="lg">
             DÉCOUVRIR LE CÔTÉ MEUBLE
-          </button>
+          </Button>
         </Link>
       </div>
 
@@ -190,19 +191,19 @@ export default function Home() {
           </div>
           <div className="flex flex-col items-center md:flex-row md:justify-evenly gap-4 font-light mt-10">
             <Link href="/uneminedidees">
-              <button className="h-fit px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400">
+              <Button variant="primary" size="lg">
                 DÉCOUVRIR LES MINES D'IDÉES
-              </button>
+              </Button>
             </Link>
             <Link href="/tarifs">
-              <button className="h-fit px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400">
+              <Button variant="primary" size="lg">
                 LES TARIFS
-              </button>
+              </Button>
             </Link>
             <Link href="/contact">
-              <button className="h-fit px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400">
+              <Button variant="primary" size="lg">
                 DEMANDER UN DEVIS
-              </button>
+              </Button>
             </Link>
           </div>
         </div>

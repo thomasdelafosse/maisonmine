@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { useRouter } from "next/router";
 import { MenuContext } from "@/pages/_app";
+import { Button } from "@/components/common/reusable-ui/buttons";
 
 type NavigationItem = {
   name: string;
@@ -65,23 +66,35 @@ const MobileNav = () => {
   const router = useRouter();
   const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext);
 
+  const MenuIcon = !isMenuOpen ? (
+    <Image
+      src="/svg/hamburgermenu.svg"
+      alt=""
+      width={30}
+      height={30}
+      aria-hidden="true"
+    />
+  ) : null;
+
+  const CloseIcon = (
+    <Image
+      src="/svg/delete.svg"
+      alt=""
+      width={25}
+      height={25}
+      aria-hidden="true"
+    />
+  );
+
   return (
     <>
-      <button
+      <Button
+        variant="ghost"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
+        leftIcon={MenuIcon}
+        className="absolute right-4 top-6 md:hidden z-50 p-0"
         aria-label={isMenuOpen ? "close menu" : "open menu"}
-        className="absolute right-4 top-6 md:hidden z-50"
-      >
-        {!isMenuOpen && (
-          <Image
-            src="/svg/hamburgermenu.svg"
-            alt=""
-            width={30}
-            height={30}
-            aria-hidden="true"
-          />
-        )}
-      </button>
+      />
       <div
         className={`fixed inset-0 bg-white transition-transform duration-700 ease-in-out md:hidden ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -94,20 +107,13 @@ const MobileNav = () => {
         <div className="flex flex-col items-center justify-center w-full px-4 pt-4">
           <Logo />
         </div>
-        <button
+        <Button
+          variant="ghost"
           onClick={() => setIsMenuOpen(false)}
-          className="absolute right-4 top-6 p-2"
+          leftIcon={CloseIcon}
+          className="absolute right-4 top-6 z-60 p-0"
           aria-label="close menu"
-          style={{ zIndex: 60 }}
-        >
-          <Image
-            src="/svg/delete.svg"
-            alt=""
-            width={25}
-            height={25}
-            aria-hidden="true"
-          />
-        </button>
+        />
 
         <nav className="flex flex-col items-center mt-8">
           <div className="flex flex-col items-center justify-start gap-6 text-2xl">

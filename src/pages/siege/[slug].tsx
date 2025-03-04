@@ -2,7 +2,8 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 const SiegeDetailsContent = dynamic(
-  () => import("@/features/siege/components/SiegeDetails/siegeDetails"),
+  () =>
+    import("@/components/features/siege/components/SiegeDetails/siegeDetails"),
   {
     loading: () => (
       <div className="flex justify-center items-center min-h-[50vh]">

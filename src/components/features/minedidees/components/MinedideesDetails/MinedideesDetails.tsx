@@ -3,9 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { MineDetailsContentProps } from "../../types/mineDideesType";
 import MinedideesCollection from "../MinedideesCollection/MinedideesCollection";
-import LoadingSpinner from "@/components/common/reusable-ui/loading/LoadingSpinner";
+import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import { useMinedideeDetails } from "../../hooks/useMinedideeDetails";
 import { VARIANT_STYLES } from "../../constants/minedideesConstants";
+import { Button } from "@/components/common/reusable-ui/buttons";
 
 export default function MinedideesDetails({ slug }: MineDetailsContentProps) {
   const { minedidee, loading, error } = useMinedideeDetails(slug);
@@ -50,11 +51,11 @@ export default function MinedideesDetails({ slug }: MineDetailsContentProps) {
               >
                 <PortableText value={minedidee.body} />
               </div>
-              <div className="flex justify-center md:justify-start">
+              <div className="flex justify-center md:justify-start mt-4">
                 <Link href="/contact">
-                  <button className="h-fit px-2 py-2 bg-white text-gray-500 rounded-lg text-base hover:bg-gray-200 border-2 border-gray-400 mt-4">
+                  <Button variant="primary" size="lg">
                     DEMANDER UN DEVIS
-                  </button>
+                  </Button>
                 </Link>
               </div>
             </div>

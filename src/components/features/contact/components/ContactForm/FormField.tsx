@@ -1,5 +1,5 @@
 import React from "react";
-import { ContactFormData } from "@/features/contact/types/contact.types";
+import { ContactFormData } from "@/components/features/contact/types/contact.types";
 
 type FormFieldProps = {
   label: string;

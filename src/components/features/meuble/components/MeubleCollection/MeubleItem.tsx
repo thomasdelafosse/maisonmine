@@ -1,6 +1,7 @@
 import { SanityDocument } from "next-sanity";
 import { PortableText } from "@portabletext/react";
 import MeubleImage from "./Components/MeubleImage";
+import { Button } from "@/components/common/reusable-ui/buttons";
 
 type MeubleItemProps = {
   meuble: SanityDocument;
@@ -28,12 +29,13 @@ export function MeubleItem({
   return (
     <div className="collection-item relative">
       {svgElement && (
-        <div
-          className="absolute top-2 right-2 z-50 block md:hidden p-2 transition-colors"
+        <Button
+          variant="ghost"
           onClick={onToggleVisibility}
-        >
-          {svgElement}
-        </div>
+          leftIcon={svgElement}
+          className="absolute top-2 right-2 z-50 block md:hidden p-2"
+          aria-label="Toggle information"
+        />
       )}
       <div className="relative group aspect-[3/4]">
         <MeubleImage

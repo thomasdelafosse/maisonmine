@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 const MinedechangesCollectionContent = dynamic(
   () =>
     import(
-      "@/features/minedechanges/components/MinedechangesCollection/MinedechangesCollectionContent"
+      "@/components/features/minedechanges/components/MinedechangesCollection/MinedechangesCollectionContent"
     ),
   {
     loading: () => (

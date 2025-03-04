@@ -1,8 +1,8 @@
 import React from "react";
 import { FormField } from "./FormField";
 import { SubmitButton } from "./SubmitButton";
-import { useContactForm } from "@/features/contact/hooks/useContactForm";
-import { ProjectType } from "@/features/contact/types/contact.types";
+import { useContactForm } from "@/components/features/contact/hooks/useContactForm";
+import { ProjectType } from "@/components/features/contact/types/contact.types";
 
 const projectTypes: ProjectType[] = [
   "Je souhaite restaurer un siège",

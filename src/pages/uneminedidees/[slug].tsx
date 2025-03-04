@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { client } from "@/sanity/client";
 import dynamic from "next/dynamic";
-import LoadingSpinner from "@/components/common/reusable-ui/loading/LoadingSpinner";
-import { SANITY_QUERIES } from "@/features/minedidees/constants/minedideesConstants";
+import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
+import { SANITY_QUERIES } from "@/components/features/minedidees/constants/minedideesConstants";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await client.fetch(SANITY_QUERIES.MINEDIDEES_SLUGS);
@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 const MinedideesDetails = dynamic(
   () =>
     import(
-      "@/features/minedidees/components/MinedideesDetails/MinedideesDetails"
+      "@/components/features/minedidees/components/MinedideesDetails/MinedideesDetails"
     ),
   {
     loading: () => <LoadingSpinner />,

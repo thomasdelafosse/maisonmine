@@ -1,9 +1,9 @@
 import React from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { client } from "@/sanity/client";
-import MinedechangesDetails from "@/features/minedechanges/components/MinedechangesDetails/MinedechangesDetails";
-import { SANITY_QUERIES } from "@/features/minedechanges/constants/minedechangesConstants";
-import { MinedechangesDocument } from "@/features/minedechanges/types";
+import MinedechangesDetails from "@/components/features/minedechanges/components/MinedechangesDetails/MinedechangesDetails";
+import { SANITY_QUERIES } from "@/components/features/minedechanges/constants/minedechangesConstants";
+import { MinedechangesDocument } from "@/components/features/minedechanges/types/mineDechangesType";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const blogs = await client.fetch<MinedechangesDocument[]>(

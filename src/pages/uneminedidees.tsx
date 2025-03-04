@@ -1,12 +1,12 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
-import LoadingSpinner from "@/components/common/reusable-ui/loading/LoadingSpinner";
+import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 
 const MinedideesCollectionContent = dynamic(
   () =>
     import(
-      "@/features/minedidees/components/MinedideesCollection/MinedideesCollectionContent"
+      "@/components/features/minedidees/components/MinedideesCollection/MinedideesCollectionContent"
     ),
   {
     loading: () => <LoadingSpinner />,

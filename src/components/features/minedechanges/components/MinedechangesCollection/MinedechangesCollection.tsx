@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PortableText } from "next-sanity";
 import { MinedechangesCollectionProps } from "../../types/mineDechangesType";
-import LoadingSpinner from "@/components/common/reusable-ui/loading/LoadingSpinner";
+import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import { useMinedechangesCollection } from "../../hooks/useMinedechangesCollection";
 import { formatDateToFrench } from "../../utils/dateFormatter";
 

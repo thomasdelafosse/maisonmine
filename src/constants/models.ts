@@ -1,4 +1,8 @@
-import { Vector3, ViewPositions, ModelId } from "@/types/modelsType";
+import {
+  Vector3,
+  ViewPositions,
+  ModelId,
+} from "@/components/3d/types/modelsType";
 
 export const MODEL_POSITIONS: Record<ModelId, Vector3> = {
   chaisechably: [0, 0, 0],

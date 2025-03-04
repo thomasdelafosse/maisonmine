@@ -3,7 +3,8 @@ import dynamic from "next/dynamic";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
 
 const MeubleCollectionContent = dynamic(
-  () => import("@/features/meuble/components/MeubleCollectionContent"),
+  () =>
+    import("@/components/features/meuble/components/MeubleCollectionContent"),
   {
     loading: () => (
       <div className="flex justify-center items-center min-h-[50vh]">

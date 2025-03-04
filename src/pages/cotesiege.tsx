@@ -1,6 +1,6 @@
 import React from "react";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
-import SiegeCollection from "@/features/siege/components/SiegeCollection/SiegeCollection";
+import SiegeCollection from "@/components/features/siege/components/SiegeCollection/SiegeCollection";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 
 export default function Cotesiege() {

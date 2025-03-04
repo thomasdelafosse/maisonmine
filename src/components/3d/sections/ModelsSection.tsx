@@ -7,7 +7,7 @@ import { Suspense } from "react";
 import { useCamera } from "@/hooks/useCamera";
 import { useTouchScroll } from "@/hooks/useTouchScroll";
 import ModelControls from "@/components/3d/controls/ModelControls";
-import { LoadingStates } from "@/types/modelsType";
+import { LoadingStates } from "@/components/3d/types/modelsType";
 
 export default function ModelsSection() {
   const [loadingStates, setLoadingStates] = useState<LoadingStates>({

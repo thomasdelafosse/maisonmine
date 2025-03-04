@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Vector3, ModelId } from "@/types/modelsType";
+import { Vector3, ModelId } from "@/components/3d/types/modelsType";
 import {
   MODEL_POSITIONS,
   DEFAULT_CAMERA,
