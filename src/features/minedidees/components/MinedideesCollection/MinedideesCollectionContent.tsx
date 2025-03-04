@@ -1,16 +1,17 @@
-import MinedideesCollection from "@/components/features/collections/mine-idees/MineIdeesCollection";
+import MinedideesCollection from "./MinedideesCollection";
+import { VARIANT_STYLES } from "../../constants/minedideesConstants";
 
 export default function MinedideesCollectionContent() {
   return (
     <div className="relative -z-50">
       <MinedideesCollection
         slug="Minedidees"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-4 md:mx-36 mb-12"
-        imageClassName="rounded-lg shadow-lg object-cover transition-all duration-500 group-hover:scale-[1.02]"
-        nameClassName="text-1xl font-light text-gray-500 text-center mt-2"
+        className={VARIANT_STYLES.grid.container}
+        imageClassName={VARIANT_STYLES.grid.image}
+        nameClassName={VARIANT_STYLES.grid.title}
         showInnerText={true}
-        innerDivClassName="absolute inset-0 bg-white/80 text-black text-1xl text-center font-medium flex flex-col justify-center items-center transition-all duration-500 rounded-lg"
-        priceClassName="text-1xl font-light text-gray-500 text-center mt-2"
+        innerDivClassName={VARIANT_STYLES.grid.hover}
+        priceClassName={VARIANT_STYLES.grid.price}
         svgElement={
           <svg
             xmlns="http://www.w3.org/2000/svg"

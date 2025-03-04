@@ -1,53 +1,25 @@
-import { useState, useEffect } from "react";
-import { client } from "@/sanity/client";
-import { type SanityDocument } from "next-sanity";
 import { PortableText } from "@portabletext/react";
-import MinedideesCollection from "@/components/features/collections/mine-idees/MineIdeesCollection";
 import Link from "next/link";
 import Image from "next/image";
+import { MineDetailsContentProps } from "../../types/mineDideesType";
+import MinedideesCollection from "../MinedideesCollection/MinedideesCollection";
+import LoadingSpinner from "@/components/common/reusable-ui/loading/LoadingSpinner";
+import { useMinedideeDetails } from "../../hooks/useMinedideeDetails";
+import { VARIANT_STYLES } from "../../constants/minedideesConstants";
 
-type MineDetailsContentProps = {
-  slug: string;
-};
+export default function MinedideesDetails({ slug }: MineDetailsContentProps) {
+  const { minedidee, loading, error } = useMinedideeDetails(slug);
 
-export default function MineDetailsContent({ slug }: MineDetailsContentProps) {
-  const [minedidee, setMinedidee] = useState<SanityDocument | null>(null);
-  const [loading, setLoading] = useState(true);
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
-  useEffect(() => {
-    const fetchMinedidee = async () => {
-      const query = `*[_type == "minedidees" && slug.current == $slug][0]{
-        _id,
-        title,
-        slug,
-        image {
-          asset->{
-            _id,
-            url
-          },
-          alt
-        },
-        price,
-        body,
-        position
-      }`;
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
-      const result = await client.fetch(query, { slug });
-      setMinedidee(result);
-      setLoading(false);
-    };
-
-    if (slug) {
-      fetchMinedidee();
-    }
-  }, [slug]);
-
-  if (loading || !minedidee) {
-    return (
-      <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
-      </div>
-    );
+  if (!minedidee) {
+    return <div>No minedidee found</div>;
   }
 
   return (
@@ -92,12 +64,12 @@ export default function MineDetailsContent({ slug }: MineDetailsContentProps) {
       <div className="my-10 border-t-2 border-gray-300 mx-20 md:my-20 md:mx-36" />
       <MinedideesCollection
         slug="Minedidees"
-        className=" grid grid-cols-2 gap-4 mx-4 md:grid-cols-6 md:mx-28"
-        nameClassName="font-light text-xs text-center"
-        imageClassName="w-full rounded-lg"
-        innerDivClassName="hidden"
+        className={VARIANT_STYLES.footer.container}
+        nameClassName={VARIANT_STYLES.footer.title}
+        imageClassName={VARIANT_STYLES.footer.image}
+        innerDivClassName={VARIANT_STYLES.footer.hover}
         showInnerText={false}
-        priceClassName="hidden"
+        priceClassName={VARIANT_STYLES.footer.price}
       />
     </>
   );

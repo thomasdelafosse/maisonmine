@@ -1,26 +1,10 @@
 import Link from "next/link";
-import { useState, ReactElement, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { client } from "@/sanity/client";
-import { PortableText, type SanityDocument } from "next-sanity";
-import imageUrlBuilder from "@sanity/image-url";
-
-const builder = imageUrlBuilder(client);
-
-function urlFor(source: { asset: { _id: string; url: string } }) {
-  return builder.image(source);
-}
-
-type MinedideesCollectionProps = {
-  className?: string;
-  nameClassName?: string;
-  innerDivClassName?: string;
-  imageClassName?: string;
-  showInnerText?: boolean;
-  svgElement?: ReactElement;
-  priceClassName?: string;
-  slug?: string;
-};
+import { PortableText } from "next-sanity";
+import { MinedideesCollectionProps } from "../../types/mineDideesType";
+import LoadingSpinner from "@/components/common/reusable-ui/loading/LoadingSpinner";
+import { useMinedideesCollection } from "../../hooks/useMinedideesCollection";
 
 export default function MinedideesCollection({
   className = "",
@@ -32,54 +16,20 @@ export default function MinedideesCollection({
   priceClassName = "",
   slug,
 }: MinedideesCollectionProps) {
-  const [minedidees, setMinedidees] = useState<SanityDocument[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [visibleTextIds, setVisibleTextIds] = useState<{
-    [key: string]: boolean;
-  }>({});
-
-  useEffect(() => {
-    const fetchMinedidees = async () => {
-      const query = `*[_type == "minedidees" && defined(slug.current)] {
-        _id,
-        title,
-        slug,
-        image {
-          asset->{
-            _id,
-            url
-          },
-          alt
-        },
-        price,
-        bodyOnHover[],
-        body[],
-        position
-      }`;
-
-      const result = await client.fetch<SanityDocument[]>(query);
-
-      const sortedMinedidees = [...result].sort((a, b) => {
-        const positionA = Number(a.position) || Infinity;
-        const positionB = Number(b.position) || Infinity;
-        return positionB - positionA;
-      });
-      setMinedidees(sortedMinedidees);
-      setLoading(false);
-    };
-
-    fetchMinedidees();
-  }, []);
+  const { minedidees, loading, error } = useMinedideesCollection();
+  const [visibleTextIds, setVisibleTextIds] = useState<Record<string, boolean>>(
+    {}
+  );
 
   const toggleTextVisibility = (id: string) =>
     setVisibleTextIds((prevState) => ({ ...prevState, [id]: !prevState[id] }));
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
-      </div>
-    );
+    return <LoadingSpinner />;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
   }
 
   return (

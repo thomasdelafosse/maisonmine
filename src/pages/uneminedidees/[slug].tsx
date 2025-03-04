@@ -1,48 +1,43 @@
-import { type SanityDocument } from "next-sanity";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { client } from "@/sanity/client";
-import { GetStaticProps, GetStaticPaths } from "next";
-import MineDetailsContent from "@/components/features/details/mine-idees/MineDetailsContent";
-
-const MINEDIDEE_QUERY = `*[_type == "minedidees" && slug.current == $slug][0]`;
+import dynamic from "next/dynamic";
+import LoadingSpinner from "@/components/common/reusable-ui/loading/LoadingSpinner";
+import { SANITY_QUERIES } from "@/features/minedidees/constants/minedideesConstants";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await client.fetch(
-    `*[_type == "minedidees" && defined(slug.current)][].slug.current`
-  );
+  const paths = await client.fetch(SANITY_QUERIES.MINEDIDEES_SLUGS);
 
   return {
     paths: paths.map((slug: string) => ({ params: { slug } })),
-    fallback: "blocking",
+    fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const minedidee = await client.fetch(MINEDIDEE_QUERY, {
-    slug: params?.slug,
-  });
-
-  if (!minedidee) {
-    return {
-      notFound: true,
-    };
-  }
+  const slug = params?.slug as string;
 
   return {
     props: {
-      minedidee,
+      slug,
     },
-    revalidate: 60,
   };
 };
 
-export default function MinedideesDetailsPage({
-  minedidee,
-}: {
-  minedidee: SanityDocument;
-}) {
+const MinedideesDetails = dynamic(
+  () =>
+    import(
+      "@/features/minedidees/components/MinedideesDetails/MinedideesDetails"
+    ),
+  {
+    loading: () => <LoadingSpinner />,
+    ssr: false,
+  }
+);
+
+export default function MinedideesDetailsPage({ slug }: { slug: string }) {
   return (
-    <main className="flex-grow">
-      <MineDetailsContent slug={minedidee.slug.current} />
+    <main className="flex-grow relative z-0">
+      <MinedideesDetails slug={slug} />
     </main>
   );
 }
