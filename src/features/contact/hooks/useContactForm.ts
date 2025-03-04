@@ -3,12 +3,12 @@ import { ContactFormData, ValidationError } from "../types/contact.types";
 import { validateContactForm } from "../utils/validation";
 import { createEmailService } from "../services/emailService";
 
-interface UseContactFormReturn {
+type UseContactFormReturn = {
   form: React.RefObject<HTMLFormElement | null>;
   isSubmitting: boolean;
   errors: ValidationError[];
   handleSubmit: (e: FormEvent) => Promise<void>;
-}
+};
 
 export const useContactForm = (): UseContactFormReturn => {
   const form = useRef<HTMLFormElement | null>(null);
