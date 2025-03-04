@@ -1,6 +1,5 @@
-import { ReactElement } from "react";
 import { SanityDocument } from "next-sanity";
-import { PortableTextBlock } from "next-sanity";
+import { TypedObject } from "@portabletext/types";
 
 export type LoadingStates = {
   chaisechably: boolean;
@@ -24,6 +23,6 @@ export type MinedechangesDocument = SanityDocument & {
   slug: { current: string };
   publishedAt: string;
   blogSummaryBody?: string;
-  body?: PortableTextBlock[];
+  body?: TypedObject | TypedObject[];
   position?: number;
 };
