@@ -1,9 +1,11 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-const UneminedeChangesContent = dynamic(
+const MinedechangesCollectionContent = dynamic(
   () =>
-    import("@/components/features/uneminedechanges/UneminedeChangesContent"),
+    import(
+      "@/features/minedechanges/components/MinedechangesCollection/MinedechangesCollectionContent"
+    ),
   {
     loading: () => (
       <div className="flex justify-center items-center min-h-[50vh]">
@@ -17,7 +19,7 @@ const UneminedeChangesContent = dynamic(
 export default function UneminedeChangements() {
   return (
     <main className="flex-grow">
-      <UneminedeChangesContent />
+      <MinedechangesCollectionContent />
     </main>
   );
 }

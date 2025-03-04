@@ -1,27 +1,29 @@
-import { type SanityDocument } from "next-sanity";
-import { client } from "@/sanity/client";
+import React from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
-import BlogDetailsContent from "@/components/features/details/mine-dechanges/BlogDetailsContent";
-
-const BLOG_QUERY = `*[_type == "blogs" && slug.current == $slug][0]`;
+import { client } from "@/sanity/client";
+import MinedechangesDetails from "@/features/minedechanges/components/MinedechangesDetails/MinedechangesDetails";
+import { SANITY_QUERIES } from "@/features/minedechanges/constants/minedechangesConstants";
+import { MinedechangesDocument } from "@/features/minedechanges/types";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await client.fetch(
-    `*[_type == "blogs" && defined(slug.current)][].slug.current`
+  const blogs = await client.fetch<MinedechangesDocument[]>(
+    SANITY_QUERIES.MINEDECHANGES_COLLECTION
   );
 
+  const paths = blogs.map((blog) => ({
+    params: { slug: blog.slug.current },
+  }));
+
   return {
-    paths: paths.map((slug: string) => ({ params: { slug } })),
-    fallback: "blocking",
+    paths,
+    fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const blog = await client.fetch(BLOG_QUERY, {
-    slug: params?.slug,
-  });
+  const slug = params?.slug as string;
 
-  if (!blog) {
+  if (!slug) {
     return {
       notFound: true,
     };
@@ -29,16 +31,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      blog,
+      slug,
     },
     revalidate: 60,
   };
 };
 
-export default function BlogDetailsPage({ blog }: { blog: SanityDocument }) {
+export default function MinedechangePage({ slug }: { slug: string }) {
   return (
     <main className="flex-grow">
-      <BlogDetailsContent slug={blog.slug.current} />
+      <MinedechangesDetails slug={slug} />
     </main>
   );
 }

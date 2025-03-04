@@ -1,51 +1,18 @@
 import Link from "next/link";
-import { PortableText, type SanityDocument } from "next-sanity";
-import { client } from "@/sanity/client";
-import { useState, useEffect } from "react";
+import { PortableText } from "next-sanity";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { MinedechangesDetailsProps } from "../../types/mineDechangesType";
+import LoadingSpinner from "@/components/common/reusable-ui/loading/LoadingSpinner";
+import { useMinedechangesDetails } from "../../hooks/useMinedechangesDetails";
+import { formatDateToFrench } from "../../utils/dateFormatter";
 
-type BlogDetailsContentProps = {
-  slug: string;
-};
-
-export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
+export default function MinedechangesDetails({
+  slug,
+}: MinedechangesDetailsProps) {
   const [isTitleOpen, setIsTitleOpen] = useState(false);
-  const [currentBlog, setCurrentBlog] = useState<SanityDocument | null>(null);
-  const [allBlogs, setAllBlogs] = useState<SanityDocument[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const blogQuery = `*[_type == "blogs" && slug.current == $slug][0]{
-        _id,
-        title,
-        slug,
-        publishedAt,
-        body,
-        position,
-
-      }`;
-
-      const allBlogsQuery = `*[_type == "blogs" && defined(slug.current)]|order(publishedAt desc){
-        _id,
-        title,
-        slug,
-        publishedAt,
-        position
-      }`;
-
-      const [blog, blogs] = await Promise.all([
-        client.fetch(blogQuery, { slug }),
-        client.fetch<SanityDocument[]>(allBlogsQuery),
-      ]);
-
-      setCurrentBlog(blog);
-      setAllBlogs(blogs);
-      setLoading(false);
-    };
-
-    fetchData();
-  }, [slug]);
+  const { minedechange, allMinedechanges, loading, error } =
+    useMinedechangesDetails(slug);
 
   useEffect(() => {
     if (isTitleOpen) {
@@ -59,35 +26,13 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
     };
   }, [isTitleOpen]);
 
-  if (loading || !currentBlog) {
-    return (
-      <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
-      </div>
-    );
+  if (loading || !minedechange) {
+    return <LoadingSpinner />;
   }
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    const monthNames = [
-      "JANVIER",
-      "FÉVRIER",
-      "MARS",
-      "AVRIL",
-      "MAI",
-      "JUIN",
-      "JUILLET",
-      "AOÛT",
-      "SEPTEMBRE",
-      "OCTOBRE",
-      "NOVEMBRE",
-      "DÉCEMBRE",
-    ];
-    const day = date.getDate();
-    const month = monthNames[date.getMonth()];
-    const year = date.getFullYear();
-    return `${day} ${month} ${year}`;
-  };
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <div className={isTitleOpen ? "h-screen overflow-hidden z-50" : ""}>
@@ -100,7 +45,6 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
           alt="Menu"
           width={40}
           height={40}
-          className=""
         />
       </button>
 
@@ -112,7 +56,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
         >
           <div className="pt-24 px-4 h-full">
             <div className="flex flex-col gap-6 mt-32">
-              {allBlogs.map((blog) => (
+              {allMinedechanges.map((blog) => (
                 <Link
                   href={`/uneminedechanges/${blog.slug.current}`}
                   key={blog._id}
@@ -132,7 +76,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
                         {blog.title}
                       </h1>
                       <span className="text-sm font-light text-gray-400">
-                        {formatDate(blog.publishedAt)}
+                        {formatDateToFrench(blog.publishedAt)}
                       </span>
                     </div>
                   </div>
@@ -143,7 +87,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
         </div>
 
         <div className="hidden md:flex flex-col gap-6 w-1/5">
-          {allBlogs.map((blog) => (
+          {allMinedechanges.map((blog) => (
             <Link
               href={`/uneminedechanges/${blog.slug.current}`}
               key={blog._id}
@@ -160,7 +104,7 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
                     {blog.title}
                   </h1>
                   <span className="text-sm font-light text-gray-400">
-                    {formatDate(blog.publishedAt)}
+                    {formatDateToFrench(blog.publishedAt)}
                   </span>
                 </div>
               </div>
@@ -168,12 +112,12 @@ export default function BlogDetailsContent({ slug }: BlogDetailsContentProps) {
           ))}
         </div>
 
-        <div className="hidden md:block md:border-r-2 md:border-gray-300 md:mx-2"></div>
+        <div className="hidden md:block md:border-r-2 md:border-gray-300 md:mx-2" />
 
         <div className="flex flex-col items-start gap-4 flex-1">
-          <h1 className="text-3xl font-light">{currentBlog.title}</h1>
+          <h1 className="text-3xl font-light">{minedechange.title}</h1>
           <div className="text-gray-500 font-base [&>p]:mb-4 last:[&>p]:mb-0">
-            <PortableText value={currentBlog.body} />
+            <PortableText value={minedechange.body} />
           </div>
         </div>
       </div>
