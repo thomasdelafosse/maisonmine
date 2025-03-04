@@ -1,10 +1,9 @@
-import MeubleCollection from "@/components/features/collections/meuble/MeubleCollection";
+import MeubleCollection from "./MeubleCollection/MeubleCollection";
 
 export default function MeubleCollectionContent() {
   return (
     <div className="relative -z-50">
       <MeubleCollection
-        slug="CoteMeuble"
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-4 md:mx-36 mb-12"
         imageClassName="rounded-lg shadow-lg object-cover w-full h-full transition-all duration-500 group-hover:scale-[1.02]"
         nameClassName="text-1xl font-light text-gray-500 text-center mt-2"
