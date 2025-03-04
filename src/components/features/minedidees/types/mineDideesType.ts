@@ -9,8 +9,6 @@ export type MinedideesCollectionProps = {
   imageClassName?: string;
   showInnerText?: boolean;
   svgElement?: ReactElement;
-  priceClassName?: string;
-  slug?: string;
 };
 
 export type MineDetailsContentProps = {

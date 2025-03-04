@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import { SanityDocument } from "next-sanity";
+import { PortableTextBlock } from "next-sanity";
 
 export type LoadingStates = {
   chaisechably: boolean;
@@ -10,9 +11,7 @@ export type LoadingStates = {
 export type MinedechangesCollectionProps = {
   className?: string;
   nameClassName?: string;
-  innerDivClassName?: string;
   showInnerText?: boolean;
-  svgElement?: ReactElement;
 };
 
 export type MinedechangesDetailsProps = {
@@ -25,6 +24,6 @@ export type MinedechangesDocument = SanityDocument & {
   slug: { current: string };
   publishedAt: string;
   blogSummaryBody?: string;
-  body?: any[];
+  body?: PortableTextBlock[];
   position?: number;
 };

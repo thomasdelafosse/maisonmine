@@ -7,9 +7,7 @@ import { formatDateToFrench } from "@/components/features/minedechanges/utils/da
 export default function MinedechangesCollection({
   className = "flex flex-col gap-10 mx-4 md:mx-72",
   nameClassName = "font-medium text-gray-600 group-hover:text-gray-950 transition-colors duration-200",
-  innerDivClassName = "opacity-0 group-hover:opacity-100 transition-opacity duration-200",
   showInnerText = true,
-  svgElement,
 }: MinedechangesCollectionProps) {
   const { minedechanges, loading, error } = useMinedechangesCollection();
 

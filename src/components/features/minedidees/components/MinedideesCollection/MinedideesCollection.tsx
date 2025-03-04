@@ -13,8 +13,6 @@ export default function MinedideesCollection({
   imageClassName = "",
   showInnerText = true,
   svgElement,
-  priceClassName = "",
-  slug,
 }: MinedideesCollectionProps) {
   const { minedidees, loading, error } = useMinedideesCollection();
   const [visibleTextIds, setVisibleTextIds] = useState<Record<string, boolean>>(
