@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { client } from "@/sanity/client";
-import { MinedechangesDocument } from "../types/mineDechangesType";
-import { SANITY_QUERIES } from "../constants/minedechangesConstants";
+import { MinedechangesDocument } from "@/components/features/minedechanges/types/mineDechangesType";
+import { SANITY_QUERIES } from "@/components/features/minedechanges/constants/minedechangesConstants";
 
 export function useMinedechangesDetails(slug: string | undefined) {
   const [minedechange, setMinedechange] =

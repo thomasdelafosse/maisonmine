@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { client } from "@/sanity/client";
 import { SanityDocument } from "next-sanity";
-import { SANITY_QUERIES } from "../constants/meubleConstants";
+import { SANITY_QUERIES } from "@/components/features/meuble/constants/meubleConstants";
 
 const sortMeubles = (meubles: SanityDocument[]) => {
   return [...meubles].sort((a, b) => {

@@ -1,4 +1,4 @@
-import { TarifItem } from "../types/TarifType";
+import { TarifItem } from "@/components/features/tarifs/types/TarifType";
 
 export const tarifItems: TarifItem[] = [
   {

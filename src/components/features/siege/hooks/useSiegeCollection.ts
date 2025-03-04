@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { client } from "@/sanity/client";
 import { SanityDocument } from "next-sanity";
-import { SANITY_QUERIES } from "../constants/siegeConstants";
+import { SANITY_QUERIES } from "@/components/features/siege/constants/siegeConstants";
 
 const sortSieges = (sieges: SanityDocument[]) => {
   return [...sieges].sort((a, b) => {

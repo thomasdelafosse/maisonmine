@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { PortableText } from "next-sanity";
-import { MinedechangesCollectionProps } from "../../types/mineDechangesType";
+import { MinedechangesCollectionProps } from "@/components/features/minedechanges/types/mineDechangesType";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
-import { useMinedechangesCollection } from "../../hooks/useMinedechangesCollection";
-import { formatDateToFrench } from "../../utils/dateFormatter";
+import { useMinedechangesCollection } from "@/components/features/minedechanges/hooks/useMinedechangesCollection";
+import { formatDateToFrench } from "@/components/features/minedechanges/utils/dateFormatter";
 
 export default function MinedechangesCollection({
   className = "flex flex-col gap-10 mx-4 md:mx-72",

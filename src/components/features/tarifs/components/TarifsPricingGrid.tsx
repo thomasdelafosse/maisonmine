@@ -1,5 +1,5 @@
-import { tarifItems } from "../data/tarifsItems";
-import TarifsPricingItem from "./TarifsPricingItem";
+import { tarifItems } from "@/components/features/tarifs/data/tarifsItems";
+import TarifsPricingItem from "@/components/features/tarifs/components/TarifsPricingItem";
 
 export default function TarifsPricingGrid() {
   return (

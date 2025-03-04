@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Mousewheel, Zoom, Pagination } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
-import { SanityImage } from "../../../types/siegeType";
+import { SanityImage } from "@/components/features/siege/types/siegeType";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";

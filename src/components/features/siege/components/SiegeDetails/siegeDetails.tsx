@@ -1,10 +1,13 @@
 import DOMPurify from "dompurify";
 import { PortableText } from "next-sanity";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
-import { SanityImage, ImageWithLegend } from "../../types/siegeType";
-import { useSiegeDetails } from "../../hooks/useSiegeDetails";
+import {
+  SanityImage,
+  ImageWithLegend,
+} from "@/components/features/siege/types/siegeType";
+import { useSiegeDetails } from "@/components/features/siege/hooks/useSiegeDetails";
 import { ImageGallery } from "./components/ImageGallery";
-import SiegeCollection from "../SiegeCollection/SiegeCollection";
+import SiegeCollection from "@/components/features/siege/components/SiegeCollection/SiegeCollection";
 
 type SiegeDetailsContentProps = {
   slug: string;

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import { MeubleItem } from "./MeubleItem";
-import { MeubleCollectionProps } from "../../types/meubleType";
-import { useMeubleCollection } from "../../hooks/useMeubleCollection";
+import { MeubleCollectionProps } from "@/components/features/meuble/types/meubleType";
+import { useMeubleCollection } from "@/components/features/meuble/hooks/useMeubleCollection";
 
 export default function MeubleCollection({
   className = "",

@@ -1,7 +1,10 @@
 import { FormEvent, useRef, useState } from "react";
-import { ContactFormData, ValidationError } from "../types/contact.types";
-import { validateContactForm } from "../utils/validation";
-import { createEmailService } from "../services/emailService";
+import {
+  ContactFormData,
+  ValidationError,
+} from "@/components/features/contact/types/contact.types";
+import { validateContactForm } from "@/components/features/contact/utils/validation";
+import { createEmailService } from "@/components/features/contact/services/emailService";
 
 type UseContactFormReturn = {
   form: React.RefObject<HTMLFormElement | null>;

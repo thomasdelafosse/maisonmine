@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { TarifItem } from "../types/TarifType";
+import { TarifItem } from "@/components/features/tarifs/types/TarifType";
 
 type TarifsPricingItemProps = {
   item: TarifItem;

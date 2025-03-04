@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { client } from "@/sanity/client";
-import { SiegeData } from "../types/siegeType";
-import { SANITY_QUERIES } from "../constants/siegeConstants";
+import { SiegeData } from "@/components/features/siege/types/siegeType";
+import { SANITY_QUERIES } from "@/components/features/siege/constants/siegeConstants";
 
 export function useSiegeDetails(slug: string | undefined) {
   const [siege, setSiege] = useState<SiegeData | null>(null);

@@ -2,9 +2,9 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
-import { MinedideesCollectionProps } from "../../types/mineDideesType";
+import { MinedideesCollectionProps } from "@/components/features/minedidees/types/mineDideesType";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
-import { useMinedideesCollection } from "../../hooks/useMinedideesCollection";
+import { useMinedideesCollection } from "@/components/features/minedidees/hooks/useMinedideesCollection";
 
 export default function MinedideesCollection({
   className = "",

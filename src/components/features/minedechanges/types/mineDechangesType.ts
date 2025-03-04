@@ -1,6 +1,12 @@
 import { ReactElement } from "react";
 import { SanityDocument } from "next-sanity";
 
+export type LoadingStates = {
+  chaisechably: boolean;
+  chaiseZebre: boolean;
+  clubArtDeco: boolean;
+};
+
 export type MinedechangesCollectionProps = {
   className?: string;
   nameClassName?: string;

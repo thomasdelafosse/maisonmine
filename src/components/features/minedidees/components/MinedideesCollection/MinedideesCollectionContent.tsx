@@ -1,5 +1,5 @@
 import MinedideesCollection from "./MinedideesCollection";
-import { VARIANT_STYLES } from "../../constants/minedideesConstants";
+import { VARIANT_STYLES } from "@/components/features/minedidees/constants/minedideesConstants";
 
 export default function MinedideesCollectionContent() {
   return (

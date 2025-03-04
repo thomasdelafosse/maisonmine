@@ -1,6 +1,6 @@
 import { PortableText, PortableTextBlock } from "next-sanity";
-import { SiegeDisplayVariant } from "../../../types/siegeType";
-import { VARIANT_STYLES } from "../../../constants/siegeConstants";
+import { SiegeDisplayVariant } from "@/components/features/siege/types/siegeType";
+import { VARIANT_STYLES } from "@/components/features/siege/constants/siegeConstants";
 
 type HoverContentProps = {
   isVisible: boolean;

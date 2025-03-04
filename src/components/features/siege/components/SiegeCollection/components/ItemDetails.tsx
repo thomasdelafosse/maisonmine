@@ -1,8 +1,8 @@
-import { SiegeDisplayVariant } from "../../../types/siegeType";
+import { SiegeDisplayVariant } from "@/components/features/siege/types/siegeType";
 import {
   VARIANT_STYLES,
   INFORMATIONS,
-} from "../../../constants/siegeConstants";
+} from "@/components/features/siege/constants/siegeConstants";
 
 type ItemDetailsProps = {
   title: string;

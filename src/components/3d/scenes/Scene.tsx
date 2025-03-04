@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import Model from "./Model";
+import Model from "@/components/3d/models/Model";
 import { Suspense, useEffect, useState } from "react";
 import { Environment, OrbitControls, ContactShadows } from "@react-three/drei";
 

@@ -3,7 +3,7 @@ import {
   ContactFormData,
   EmailResponse,
   EmailServiceConfig,
-} from "../types/contact.types";
+} from "@/components/features/contact/types/contact.types";
 
 export class EmailService {
   private config: EmailServiceConfig;

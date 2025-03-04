@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import { SanityDocument } from "next-sanity";
+import { TypedObject } from "@portabletext/types";
 
 export type MinedideesCollectionProps = {
   className?: string;
@@ -34,13 +35,19 @@ export type MinedideesDocument = SanityDocument & {
   _id: string;
   title: string;
   slug: { current: string };
-  image: ImageWithAsset;
+  image: {
+    asset: {
+      _id: string;
+      url: string;
+    };
+    alt?: string;
+  };
   price?: string;
-  bodyOnHover?: string;
+  bodyOnHover?: TypedObject | TypedObject[];
   position?: number;
 };
 
 export type MinedideesData = MinedideesDocument & {
   imagesWithLegends?: ImageWithLegend[];
-  body?: string;
+  body?: TypedObject | TypedObject[];
 };

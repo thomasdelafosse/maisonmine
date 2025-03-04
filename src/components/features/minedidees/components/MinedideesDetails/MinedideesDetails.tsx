@@ -1,11 +1,11 @@
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import Image from "next/image";
-import { MineDetailsContentProps } from "../../types/mineDideesType";
-import MinedideesCollection from "../MinedideesCollection/MinedideesCollection";
+import { MineDetailsContentProps } from "@/components/features/minedidees/types/mineDideesType";
+import MinedideesCollection from "@/components/features/minedidees/components/MinedideesCollection/MinedideesCollection";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
-import { useMinedideeDetails } from "../../hooks/useMinedideeDetails";
-import { VARIANT_STYLES } from "../../constants/minedideesConstants";
+import { useMinedideeDetails } from "@/components/features/minedidees/hooks/useMinedideeDetails";
+import { VARIANT_STYLES } from "@/components/features/minedidees/constants/minedideesConstants";
 import { Button } from "@/components/common/reusable-ui/buttons";
 
 export default function MinedideesDetails({ slug }: MineDetailsContentProps) {
@@ -49,7 +49,7 @@ export default function MinedideesDetails({ slug }: MineDetailsContentProps) {
                 style={{ fontSize: "20px", lineHeight: "24px" }}
                 className="text-base mt-4 text-gray-500 [&>p]:mb-4 last:[&>p]:mb-0"
               >
-                <PortableText value={minedidee.body} />
+                {minedidee.body && <PortableText value={minedidee.body} />}
               </div>
               <div className="flex justify-center md:justify-start mt-4">
                 <Link href="/contact">
