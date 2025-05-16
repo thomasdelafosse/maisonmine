@@ -20,8 +20,8 @@ const navigation: NavigationItem[] = [
   { name: "CONTACT", href: "/contact" },
 ];
 
-const Logo = () => (
-  <Link href="/" aria-label="go to the home page">
+const Logo = ({ onClick }: { onClick?: () => void }) => (
+  <Link href="/" aria-label="go to the home page" onClick={onClick}>
     <Image
       alt="Logo Maison Mine"
       src="/images/Logomaisonmine.png"
@@ -105,7 +105,7 @@ const MobileNav = () => {
         aria-label="Menu mobile"
       >
         <div className="flex flex-col items-center justify-center w-full px-4 pt-4">
-          <Logo />
+          <Logo onClick={() => setIsMenuOpen(false)} />
         </div>
         <Button
           variant="ghost"
@@ -165,8 +165,8 @@ const MobileNav = () => {
 
 function NavBar() {
   return (
-    <header className="relative z-50 mb-4 md:mb-8 pt-4">
-      <div className="flex flex-col items-center justify-center w-full px-4 py-1">
+    <header className="relative z-50 w-full mb-4 md:mb-8 pt-4">
+      <div className="flex flex-col items-center justify-center w-full px-4 py-1 max-w-7xl mx-auto">
         <Logo />
         <DesktopNav />
         <MobileNav />
