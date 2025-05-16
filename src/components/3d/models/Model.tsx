@@ -25,9 +25,9 @@ export default function Model({
     }
   }, []);
 
-  useFrame(() => {
+  useFrame((state, delta) => {
     if (groupRef.current && isRotating) {
-      groupRef.current.rotation.y += 0.01;
+      groupRef.current.rotation.y += 0.5 * delta;
     }
   });
 
