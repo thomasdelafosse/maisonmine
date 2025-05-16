@@ -12,5 +12,16 @@
 @layer base {
   html {
     font-family: "Montserrat", system-ui, sans-serif;
+    @apply antialiased;
+  }
+
+  body {
+    @apply min-h-screen w-full overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .container-responsive {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }

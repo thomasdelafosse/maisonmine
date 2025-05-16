@@ -12,8 +12,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="py-8">
-      <div className="mx-4 md:mx-20">
+    <footer className="py-8 w-full">
+      <div className="mx-4 md:mx-20 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:mt-10">
           <div className="flex flex-col space-y-4 items-center order-3 md:order-1 md:border-r-2 border-gray-300 md:pl-10">
             <Image
@@ -27,7 +27,7 @@ export default function Footer() {
               }}
               priority
             />
-            <p className="text-xs text-gray-800">
+            <p className="text-xs text-gray-800 text-center">
               © 2025 MAISON MINE
               <br />
               TOUS DROITS RÉSERVÉS
