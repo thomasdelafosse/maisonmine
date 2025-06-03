@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useState, createContext, Dispatch, SetStateAction } from "react";
 import Layout from "@/components/common/layout/Layout";
+import { Analytics } from "@vercel/analytics/react";
 
 type MenuContextType = {
   isMenuOpen: boolean;
@@ -36,6 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
           </Layout>
         </div>
       </MenuContext.Provider>
+      <Analytics />
     </>
   );
 }
