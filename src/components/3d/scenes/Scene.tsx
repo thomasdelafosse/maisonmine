@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import Model from "@/components/3d/models/Model";
 import { Suspense, useEffect, useState } from "react";
-import { Environment, OrbitControls, ContactShadows } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 
 type SceneProps = {
   modelPath: string;

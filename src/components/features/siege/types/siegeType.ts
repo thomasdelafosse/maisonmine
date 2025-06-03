@@ -30,7 +30,7 @@ export type SiegeData = {
   bodyOnHover?: PortableTextBlock[];
   body?: PortableTextBlock[];
   position?: number;
-  modelFile?: any;
+  modelFile?: string | { asset: { url: string } };
 };
 
 export type SiegeDisplayVariant = "grid" | "footer";
