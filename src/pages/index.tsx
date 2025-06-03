@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/common/reusable-ui/buttons";
+import Head from "next/head";
 
 const ModelsSection = dynamic(
   () => import("@/components/3d/sections/ModelsSection"),
@@ -14,6 +15,20 @@ const ModelsSection = dynamic(
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>Maison Mine - Restauration de sièges</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Maison Mine, restauration de sièges"
+        />
+        <meta property="og:title" content="Maison Mine" />
+        <meta
+          property="og:description"
+          content="Maison Mine, restauration de sièges"
+        />
+        <meta property="og:image" content="/images/portfolio/moi2.jpg" />
+      </Head>
       <ModelsSection />
       <div className="flex flex-col items-center mt-10 mx-4 md:flex-row md:justify-center md:mt-20 md:mx-32">
         <div className="md:flex-1/3 md:flex-shrink-0">
