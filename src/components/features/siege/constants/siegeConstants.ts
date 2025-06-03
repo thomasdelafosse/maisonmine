@@ -65,6 +65,12 @@ export const SANITY_QUERIES = {
     price,
     bodyOnHover,
     body,
-    position
+    position,
+    modelFile {
+      asset->{
+        originalFilename,
+        url
+      }
+    }
   }`,
 } as const;

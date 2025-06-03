@@ -23,7 +23,7 @@ export default function Scene({ modelPath, onLoadingChange }: SceneProps) {
   return (
     <div className="cursor-pointer h-full w-full">
       <Canvas camera={{ position: [8, 2, 2.5], fov: 9 }}>
-        <ambientLight intensity={1} />
+        <ambientLight intensity={4} />
         <OrbitControls
           enableZoom={false}
           enablePan={true}
@@ -38,20 +38,12 @@ export default function Scene({ modelPath, onLoadingChange }: SceneProps) {
           screenSpacePanning={true}
           enableRotate={true}
           autoRotate={true}
-          autoRotateSpeed={2}
+          autoRotateSpeed={1}
         />
         <directionalLight position={[0, 5, 5]} intensity={4} />
         <Suspense fallback={null}>
           <Model modelPath={modelPath} onLoadingChange={onLoadingChange} />
         </Suspense>
-        <Environment preset="sunset" />
-        <ContactShadows
-          position={[0, -0.8, 0]}
-          opacity={1}
-          scale={12}
-          blur={30}
-          resolution={512}
-        />
       </Canvas>
     </div>
   );
