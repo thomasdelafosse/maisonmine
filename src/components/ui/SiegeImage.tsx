@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-type SiegeImageProps = {
+type SiegeImageType = {
   image: {
     asset: {
       url: string;
@@ -11,7 +11,7 @@ type SiegeImageProps = {
   className?: string;
 };
 
-export function SiegeImage({ image, title, className }: SiegeImageProps) {
+export function SiegeImage({ image, title, className }: SiegeImageType) {
   return (
     <Image
       src={image.asset.url}

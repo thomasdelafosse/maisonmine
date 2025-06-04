@@ -1,10 +1,8 @@
-import React from "react";
-
-type ModelLoaderProps = {
+type ModelLoaderType = {
   loading?: boolean;
 };
 
-const ModelLoader = ({ loading = true }: ModelLoaderProps) => {
+const ModelLoader = ({ loading = true }: ModelLoaderType) => {
   if (!loading) return null;
 
   return (

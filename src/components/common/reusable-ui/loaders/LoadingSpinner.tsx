@@ -1,10 +1,8 @@
-import React from "react";
-
-type LoadingSpinnerProps = {
+type LoadingSpinnerType = {
   className?: string;
 };
 
-const LoadingSpinner = ({ className }: LoadingSpinnerProps) => {
+const LoadingSpinner = ({ className }: LoadingSpinnerType) => {
   return (
     <div className="flex justify-center items-center min-h-[50vh]">
       <div

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
-import { MinedideesCollectionProps } from "@/components/features/minedidees/types/mineDideesType";
+import { MinedideesCollectionType } from "@/components/features/minedidees/types/mineDideesType";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import { useMinedideesCollection } from "@/components/features/minedidees/hooks/useMinedideesCollection";
 
@@ -13,7 +13,7 @@ export default function MinedideesCollection({
   imageClassName = "",
   showInnerText = true,
   svgElement,
-}: MinedideesCollectionProps) {
+}: MinedideesCollectionType) {
   const { minedidees, loading, error } = useMinedideesCollection();
   const [visibleTextIds, setVisibleTextIds] = useState<Record<string, boolean>>(
     {}

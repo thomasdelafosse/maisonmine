@@ -8,12 +8,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-interface ImageGalleryProps {
+interface ImageGalleryType {
   images: SanityImage[];
   title: string;
 }
 
-export function ImageGallery({ images, title }: ImageGalleryProps) {
+export function ImageGallery({ images, title }: ImageGalleryType) {
   const [activeLegend, setActiveLegend] = useState<string | undefined>(
     undefined
   );

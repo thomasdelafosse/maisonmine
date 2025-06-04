@@ -1,7 +1,6 @@
-import React from "react";
 import { ContactFormData } from "@/components/features/contact/types/contact.types";
 
-type FormFieldProps = {
+type FormFieldType = {
   label: string;
   name: keyof ContactFormData;
   type?: "text" | "email" | "tel" | "select" | "textarea";
@@ -12,7 +11,7 @@ type FormFieldProps = {
   error?: string;
 };
 
-export const FormField: React.FC<FormFieldProps> = ({
+export const FormField: React.FC<FormFieldType> = ({
   label,
   name,
   type = "text",

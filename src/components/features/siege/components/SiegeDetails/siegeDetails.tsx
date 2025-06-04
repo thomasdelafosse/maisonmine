@@ -10,13 +10,11 @@ import { ImageGallery } from "./components/ImageGallery";
 import SiegeCollection from "@/components/features/siege/components/SiegeCollection/SiegeCollection";
 import Scene from "@/components/3d/scenes/Scene";
 
-type SiegeDetailsContentProps = {
+type SiegeDetailsContentType = {
   slug: string;
 };
 
-export default function SiegeDetailsContent({
-  slug,
-}: SiegeDetailsContentProps) {
+export default function SiegeDetailsContent({ slug }: SiegeDetailsContentType) {
   const { siege, loading } = useSiegeDetails(slug);
 
   if (!slug) {

@@ -1,11 +1,10 @@
-import React from "react";
 import { Button } from "@/components/common/reusable-ui/buttons";
 
-interface SubmitButtonProps {
+interface SubmitButtonType {
   isSubmitting: boolean;
 }
 
-export const SubmitButton: React.FC<SubmitButtonProps> = ({ isSubmitting }) => {
+export const SubmitButton: React.FC<SubmitButtonType> = ({ isSubmitting }) => {
   return (
     <div className="flex items-center justify-center md:justify-start">
       <Button type="submit" isLoading={isSubmitting} variant="primary">

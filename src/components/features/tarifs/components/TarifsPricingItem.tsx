@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { TarifItem } from "@/components/features/tarifs/types/TarifType";
 
-type TarifsPricingItemProps = {
+type TarifsPricingItemType = {
   item: TarifItem;
 };
 
-export default function TarifsPricingItem({ item }: TarifsPricingItemProps) {
+export default function TarifsPricingItem({ item }: TarifsPricingItemType) {
   return (
     <div className="text-center">
       <div className="border-2 border-dashed rounded-full p-8 border-gray-500 md:w-64 md:h-64 mx-auto ">

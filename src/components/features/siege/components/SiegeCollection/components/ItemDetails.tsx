@@ -4,7 +4,7 @@ import {
   INFORMATIONS,
 } from "@/components/features/siege/constants/siegeConstants";
 
-type ItemDetailsProps = {
+type ItemDetailsType = {
   title: string;
   price: string | number;
   variant?: SiegeDisplayVariant;
@@ -14,7 +14,7 @@ export function ItemDetails({
   title,
   price,
   variant = "grid",
-}: ItemDetailsProps) {
+}: ItemDetailsType) {
   const styles = VARIANT_STYLES[variant];
 
   return (

@@ -2,11 +2,11 @@ import { ReactNode } from "react";
 import Navbar from "./navigation/Navbar";
 import Footer from "./footer/Footer";
 
-type LayoutProps = {
+type LayoutType = {
   children: ReactNode;
 };
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children }: LayoutType) {
   return (
     <div className="min-h-screen flex flex-col w-full">
       <Navbar />

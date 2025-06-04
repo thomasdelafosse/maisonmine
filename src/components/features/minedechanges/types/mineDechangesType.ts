@@ -7,13 +7,13 @@ export type LoadingStates = {
   clubArtDeco: boolean;
 };
 
-export type MinedechangesCollectionProps = {
+export type MinedechangesCollectionType = {
   className?: string;
   nameClassName?: string;
   showInnerText?: boolean;
 };
 
-export type MinedechangesDetailsProps = {
+export type MinedechangesDetailsType = {
   slug: string;
 };
 

@@ -2,7 +2,7 @@ import { PortableText, PortableTextBlock } from "next-sanity";
 import { SiegeDisplayVariant } from "@/components/features/siege/types/siegeType";
 import { VARIANT_STYLES } from "@/components/features/siege/constants/siegeConstants";
 
-type HoverContentProps = {
+type HoverContentType = {
   isVisible: boolean;
   content: PortableTextBlock[];
   variant?: SiegeDisplayVariant;
@@ -12,7 +12,7 @@ export function HoverContent({
   isVisible,
   content,
   variant = "grid",
-}: HoverContentProps) {
+}: HoverContentType) {
   if (variant !== "grid") return null;
 
   return (

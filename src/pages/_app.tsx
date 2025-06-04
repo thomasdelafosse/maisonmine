@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useState, createContext, Dispatch, SetStateAction } from "react";
+import Head from "next/head";
 import Layout from "@/components/common/layout/Layout";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -19,6 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <MenuContext.Provider value={{ isMenuOpen, setIsMenuOpen }}>
         <div className={isMenuOpen ? "fixed inset-0 overflow-hidden" : ""}>
           <Layout>

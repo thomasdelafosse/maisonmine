@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Group } from "three";
 
-type ModelProps = {
+type ModelType = {
   modelPath: string;
   onLoadingChange?: (loading: boolean) => void;
   position?: [number, number, number];
@@ -15,7 +15,7 @@ export default function Model({
   onLoadingChange,
   position = [0, 0, 0],
   isRotating = true,
-}: ModelProps) {
+}: ModelType) {
   const { scene } = useGLTF(modelPath);
   const groupRef = useRef<Group>(null);
 

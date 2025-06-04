@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import { MeubleItem } from "./MeubleItem";
-import { MeubleCollectionProps } from "@/components/features/meuble/types/meubleType";
+import { MeubleCollectionType } from "@/components/features/meuble/types/meubleType";
 import { useMeubleCollection } from "@/components/features/meuble/hooks/useMeubleCollection";
 
 export default function MeubleCollection({
@@ -12,7 +12,7 @@ export default function MeubleCollection({
   showInnerText = true,
   svgElement,
   priceClassName = "",
-}: MeubleCollectionProps) {
+}: MeubleCollectionType) {
   const { meubles, loading } = useMeubleCollection();
   const [visibleItems, setVisibleItems] = useState<Set<string>>(new Set());
 

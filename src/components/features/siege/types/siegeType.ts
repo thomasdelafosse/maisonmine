@@ -35,7 +35,7 @@ export type SiegeData = {
 
 export type SiegeDisplayVariant = "grid" | "footer";
 
-export type SiegeCollectionProps = {
+export type SiegeCollectionType = {
   variant?: SiegeDisplayVariant;
   className?: string;
   onToggleVisibility?: (id: string) => void;

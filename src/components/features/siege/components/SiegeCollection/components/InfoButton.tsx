@@ -1,10 +1,11 @@
 import { Button } from "@/components/common/reusable-ui/buttons";
+import { MouseEventHandler } from "react";
 
-type InfoButtonProps = {
-  onClick: () => void;
+type InfoButtonType = {
+  onClick: MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
-export function InfoButton({ onClick }: InfoButtonProps) {
+export function InfoButton({ onClick }: InfoButtonType) {
   const InfoIcon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"

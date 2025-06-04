@@ -1,7 +1,6 @@
-import React from "react";
 import Link from "next/link";
 
-type DescriptionBlockProps = {
+type DescriptionBlockType = {
   children: React.ReactNode;
   showContactLink?: boolean;
   className?: string;
@@ -13,7 +12,7 @@ export default function DescriptionBlock({
   showContactLink = false,
   className = "",
   contactLinkText = "Contactez-moi !",
-}: DescriptionBlockProps) {
+}: DescriptionBlockType) {
   return (
     <div
       className={`text-lg text-gray-700 border-l-2 border-gray-300 pl-4 ${className}`}

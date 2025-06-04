@@ -7,7 +7,7 @@ import { InfoButton } from "./components/InfoButton";
 import { HoverContent } from "./components/HoverContent";
 import { ItemDetails } from "./components/ItemDetails";
 
-type SiegeItemProps = {
+type SiegeItemType = {
   siege: SanityDocument;
   isVisible: boolean;
   onToggleVisibility: () => void;
@@ -19,7 +19,7 @@ export function SiegeItem({
   isVisible,
   onToggleVisibility,
   variant = "grid",
-}: SiegeItemProps) {
+}: SiegeItemType) {
   const styles = VARIANT_STYLES[variant];
 
   return (

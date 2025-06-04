@@ -3,12 +3,12 @@ import Model from "@/components/3d/models/Model";
 import { Suspense, useEffect, useState } from "react";
 import { OrbitControls } from "@react-three/drei";
 
-type SceneProps = {
+type SceneType = {
   modelPath: string;
   onLoadingChange?: (loading: boolean) => void;
 };
 
-export default function Scene({ modelPath, onLoadingChange }: SceneProps) {
+export default function Scene({ modelPath, onLoadingChange }: SceneType) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {

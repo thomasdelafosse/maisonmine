@@ -2,14 +2,14 @@ import Link from "next/link";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { MinedechangesDetailsProps } from "@/components/features/minedechanges/types/mineDechangesType";
+import { MinedechangesDetailsType } from "@/components/features/minedechanges/types/mineDechangesType";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import { useMinedechangesDetails } from "@/components/features/minedechanges/hooks/useMinedechangesDetails";
 import { formatDateToFrench } from "@/components/features/minedechanges/utils/dateFormatter";
 
 export default function MinedechangesDetails({
   slug,
-}: MinedechangesDetailsProps) {
+}: MinedechangesDetailsType) {
   const [isTitleOpen, setIsTitleOpen] = useState(false);
   const { minedechange, allMinedechanges, loading, error } =
     useMinedechangesDetails(slug);

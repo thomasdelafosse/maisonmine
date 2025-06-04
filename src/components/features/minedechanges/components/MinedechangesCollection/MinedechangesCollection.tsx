@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MinedechangesCollectionProps } from "@/components/features/minedechanges/types/mineDechangesType";
+import { MinedechangesCollectionType } from "@/components/features/minedechanges/types/mineDechangesType";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import { useMinedechangesCollection } from "@/components/features/minedechanges/hooks/useMinedechangesCollection";
 import { formatDateToFrench } from "@/components/features/minedechanges/utils/dateFormatter";
@@ -8,7 +8,7 @@ export default function MinedechangesCollection({
   className = "flex flex-col gap-10 mx-4 md:mx-72",
   nameClassName = "font-medium text-gray-600 group-hover:text-gray-950 transition-colors duration-200",
   showInnerText = true,
-}: MinedechangesCollectionProps) {
+}: MinedechangesCollectionType) {
   const { minedechanges, loading, error } = useMinedechangesCollection();
 
   if (loading) {

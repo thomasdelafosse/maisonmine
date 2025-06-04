@@ -1,7 +1,7 @@
 import { ModelId } from "@/components/3d/types/modelsType";
 import { Button } from "@/components/common/reusable-ui/buttons";
 
-type ModelControlsProps = {
+type ModelControlsType = {
   isRotating: boolean;
   setIsRotating: (rotating: boolean) => void;
   resetView: () => void;
@@ -14,7 +14,7 @@ export default function ModelControls({
   isRotating,
   setIsRotating,
   navigateModel,
-}: ModelControlsProps) {
+}: ModelControlsType) {
   const LeftArrowIcon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"

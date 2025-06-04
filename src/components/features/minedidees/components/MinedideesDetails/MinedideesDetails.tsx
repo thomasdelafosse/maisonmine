@@ -1,14 +1,14 @@
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import Image from "next/image";
-import { MineDetailsContentProps } from "@/components/features/minedidees/types/mineDideesType";
+import { MineDetailsContentType } from "@/components/features/minedidees/types/mineDideesType";
 import MinedideesCollection from "@/components/features/minedidees/components/MinedideesCollection/MinedideesCollection";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import { useMinedideeDetails } from "@/components/features/minedidees/hooks/useMinedideeDetails";
 import { VARIANT_STYLES } from "@/components/features/minedidees/constants/minedideesConstants";
 import { Button } from "@/components/common/reusable-ui/buttons";
 
-export default function MinedideesDetails({ slug }: MineDetailsContentProps) {
+export default function MinedideesDetails({ slug }: MineDetailsContentType) {
   const { minedidee, loading, error } = useMinedideeDetails(slug);
 
   if (loading) {

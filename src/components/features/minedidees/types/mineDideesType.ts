@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { SanityDocument } from "next-sanity";
 import { TypedObject } from "@portabletext/types";
 
-export type MinedideesCollectionProps = {
+export type MinedideesCollectionType = {
   className?: string;
   nameClassName?: string;
   innerDivClassName?: string;
@@ -11,7 +11,7 @@ export type MinedideesCollectionProps = {
   svgElement?: ReactElement;
 };
 
-export type MineDetailsContentProps = {
+export type MineDetailsContentType = {
   slug: string;
 };
 
