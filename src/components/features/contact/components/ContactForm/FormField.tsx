@@ -22,8 +22,10 @@ export const FormField: React.FC<FormFieldType> = ({
   error,
 }) => {
   const baseClasses =
-    "shadow appearance-none border rounded w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline";
-  const errorClasses = error ? "border-red-500" : "";
+    "appearance-none border border-gray-300 rounded w-full py-2.5 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder-gray-400";
+  const errorClasses = error
+    ? "border-red-500 focus:ring-red-500"
+    : "border-gray-300 focus:ring-indigo-500";
   const classes = `${baseClasses} ${errorClasses}`;
 
   const renderField = () => {
@@ -62,8 +64,8 @@ export const FormField: React.FC<FormFieldType> = ({
   };
 
   return (
-    <div className="mb-4">
-      <label className="block text-gray-600 text-sm font-medium mb-2">
+    <div className="mb-0">
+      <label className="block text-gray-700 text-xs font-medium mb-1.5">
         {label}
       </label>
       {renderField()}
