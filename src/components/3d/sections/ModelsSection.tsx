@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ModelLoader from "@/components/common/reusable-ui/loaders/ModelLoader";
 import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls, ContactShadows } from "@react-three/drei";
+import { Environment, OrbitControls } from "@react-three/drei";
 import Model from "@/components/3d/models/Model";
 import { Suspense } from "react";
 import { useCamera } from "@/hooks/useCamera";

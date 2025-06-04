@@ -3,6 +3,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/common/reusable-ui/buttons";
 import Head from "next/head";
+import { InfiniteSliderBasic } from "@/components/core/infinite-slider-basic";
 
 const ModelsSection = dynamic(
   () => import("@/components/3d/sections/ModelsSection"),
@@ -29,7 +30,9 @@ export default function Home() {
         />
         <meta property="og:image" content="/images/portfolio/moi2.jpg" />
       </Head>
+      <InfiniteSliderBasic />
       <ModelsSection />
+
       <div className="flex flex-col items-center mt-10 mx-4 md:flex-row md:justify-center md:mt-20 md:mx-32">
         <div className="md:flex-1/3 md:flex-shrink-0">
           <Image
