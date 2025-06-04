@@ -13,9 +13,9 @@ export default function Footer() {
 
   return (
     <footer className="py-8 w-full">
-      <div className="mx-4 md:mx-20 max-w-7xl mx-auto">
+      <div className="mx-auto md:mx-20 max-w-7xl ">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:mt-10">
-          <div className="flex flex-col space-y-4 items-center order-3 md:order-1 md:border-r-2 border-gray-300 md:pl-10">
+          <div className="flex flex-col space-y-4 items-center order-1 md:border-r-2 border-gray-300 md:pl-10">
             <Image
               src="/images/Logomaisonmine.png"
               alt="Maison Mine Logo"
@@ -34,7 +34,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-2 items-center gap-y-6 mx-6 md:mx-10 order-1 md:order-2">
+          <div className="grid grid-cols-2 gap-2 items-center gap-y-6 mx-6 md:mx-10 order-3 md:order-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}
