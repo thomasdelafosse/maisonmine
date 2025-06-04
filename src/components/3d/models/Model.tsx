@@ -27,7 +27,7 @@ export default function Model({
 
   useFrame((state, delta) => {
     if (groupRef.current && isRotating) {
-      groupRef.current.rotation.y += 0.5 * delta;
+      groupRef.current.rotation.y += 0.3 * delta;
     }
   });
 

@@ -60,9 +60,9 @@ export default function ModelsSection() {
     Object.values(loadingStates).some((state) => state) || isResetting;
 
   return (
-    <div className="relative h-[550px] md:h-[700px] w-full">
+    <div className="relative h-[550px] md:h-[650px] w-full">
       {isLoading && (
-        <div className="absolute inset-0 z-20 flex items-center justify-center bg-gray-100/80">
+        <div className="absolute inset-0 z-20 flex items-center justify-center ">
           <ModelLoader loading={true} />
         </div>
       )}
@@ -82,7 +82,6 @@ export default function ModelsSection() {
           camera={{ position: cameraPosition, fov: 10 }}
           shadows
         >
-          <color attach="background" args={["#E5E5E5"]} />
           <ambientLight intensity={4} />
           <OrbitControls
             enableZoom={false}
@@ -92,7 +91,7 @@ export default function ModelsSection() {
             maxPolarAngle={Math.PI / 2}
             enableDamping={!isMobile}
             dampingFactor={0.1}
-            rotateSpeed={0.3}
+            rotateSpeed={0.1}
             screenSpacePanning={true}
             enableRotate={false}
             autoRotate={false}
@@ -102,26 +101,13 @@ export default function ModelsSection() {
             maxDistance={10}
             minDistance={2}
           />
-          <directionalLight position={[0, 0, 5]} intensity={0.003} castShadow />
-          <directionalLight
-            position={[0, 0, -5]}
-            intensity={0.003}
-            castShadow
-          />
-          <directionalLight position={[0, 5, 0]} intensity={0.003} castShadow />
-          <directionalLight
-            position={[-5, 0, 0]}
-            intensity={0.003}
-            castShadow
-          />
-          <directionalLight position={[5, 0, 0]} intensity={0.003} castShadow />
           <Suspense fallback={null}>
             <group>
               <group position={[-1.5, 0, 0]}>
                 <Model
-                  modelPath="/3Dmodels/3Dzebre.glb"
+                  modelPath="/3Dmodels/zebre.glb"
                   onLoadingChange={handleLoadingChange("chaiseZebre")}
-                  position={[0, 0, 0]}
+                  position={[0, 0, -1]}
                   isRotating={isRotating}
                 />
               </group>
@@ -137,22 +123,18 @@ export default function ModelsSection() {
 
               <group position={[1.5, 0, 0]}>
                 <Model
-                  modelPath="/3Dmodels/clubartdeco3D.glb"
+                  modelPath="/3Dmodels/clubartdeco.glb"
                   onLoadingChange={handleLoadingChange("clubArtDeco")}
-                  position={[0, 0, 0]}
+                  position={[0, 0, -0.5]}
                   isRotating={isRotating}
                 />
               </group>
             </group>
           </Suspense>
-          <Environment preset="sunset" background={false} />
-          <ContactShadows
-            position={[0, -0.6, 0]}
-            opacity={0.4}
-            scale={20}
-            blur={2}
-            far={4}
-            resolution={512}
+          <Environment
+            preset="warehouse"
+            background={false}
+            environmentIntensity={0.6}
           />
         </Canvas>
       </div>
