@@ -50,12 +50,12 @@ export default function Footer() {
             ))}
           </div>
 
-          <div className="flex flex-row gap-2 justify-center items-center order-2 md:order-3 md:border-l-2 border-gray-300 md:pl-10">
+          <div className="flex flex-col gap-4 justify-center items-center  order-2 md:items-start md:order-3 md:border-l-2 border-gray-300 md:pl-10">
             <a
               href="https://instagram.com/maison_mine_/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-800 cursor-pointer"
+              className="text-gray-600 hover:text-gray-800 cursor-pointer flex items-center gap-2"
             >
               <svg
                 className="w-6 h-6"
@@ -69,12 +69,13 @@ export default function Footer() {
                   clipRule="evenodd"
                 />
               </svg>
+              <span>Instagram</span>
             </a>
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-black"
+              className="text-gray-600 hover:text-black flex items-center gap-2"
             >
               <svg
                 className="w-6 h-6"
@@ -88,6 +89,22 @@ export default function Footer() {
                   clipRule="evenodd"
                 />
               </svg>
+              <span>Facebook</span>
+            </a>
+            <a
+              href="mailto:contact@maisonmine.com"
+              className="text-gray-600 hover:text-black flex items-center gap-2"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              <span>catherine@maisonmine.com</span>
             </a>
           </div>
         </div>
