@@ -123,7 +123,7 @@ export default function ModelsSection() {
 
               <group position={[1.5, 0, 0]}>
                 <Model
-                  modelPath="/3Dmodels/clubartdeco.glb"
+                  modelPath="/3Dmodels/clubArtDeco.glb"
                   onLoadingChange={handleLoadingChange("clubArtDeco")}
                   position={[0, 0, -0.5]}
                   isRotating={isRotating}
