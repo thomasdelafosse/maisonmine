@@ -71,6 +71,7 @@ export const SANITY_QUERIES = {
         originalFilename,
         url
       }
-    }
+    },
+    pointsOfInterest
   }`,
 } as const;

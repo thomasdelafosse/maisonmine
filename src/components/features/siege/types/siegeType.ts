@@ -20,6 +20,15 @@ export type ImageWithLegend = {
   legend?: string;
 };
 
+export type PointOfInterest = {
+  position: {
+    x: number;
+    y: number;
+    z: number;
+  };
+  text: string;
+};
+
 export type SiegeData = {
   _id: string;
   title: string;
@@ -31,6 +40,7 @@ export type SiegeData = {
   body?: PortableTextBlock[];
   position?: number;
   modelFile?: string | { asset: { url: string } };
+  pointsOfInterest?: PointOfInterest[];
 };
 
 export type SiegeDisplayVariant = "grid" | "footer";
