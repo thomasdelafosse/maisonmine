@@ -26,7 +26,7 @@ const Model = forwardRef<Group, ModelType>(
 
     useEffect(() => {
       if (groupRef.current) {
-        groupRef.current.rotation.y = -0.3;
+        groupRef.current.rotation.y = Math.PI / 2;
       }
     }, []);
 
