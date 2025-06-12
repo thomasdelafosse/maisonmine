@@ -95,13 +95,14 @@ export default function SiegeDetailsContent({ slug }: SiegeDetailsContentType) {
             siege.pointsOfInterest.map((point, index) => (
               <div
                 key={index}
-                className={`point point-${index} group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex flex-col items-center`}
+                className={`point point-${index} group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex flex-col items-center transition-opacity duration-300 ease-in-out`}
+                style={{ opacity: 1, visibility: "visible" }}
               >
-                <div className="cursor-help w-8 h-8 flex items-center justify-center bg-slate-600 text-white rounded-full text-lg font-medium border-2 border-white shadow-lg">
+                <div className="cursor-help w-8 h-8 flex items-center justify-center bg-slate-600 text-white rounded-full text-lg font-medium border-2 border-white shadow-lg transition-all duration-300 ease-in-out">
                   {index + 1}
                 </div>
                 <div
-                  className="text absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max max-w-xs p-3 rounded-md bg-gray-600 bg-opacity-80 text-white text-sm shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out pointer-events-none"
+                  className="text absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max max-w-xs p-3 rounded-md bg-gray-600 bg-opacity-80 text-white text-sm shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out pointer-events-none"
                   style={{ backdropFilter: "blur(2px)" }}
                 >
                   {point.text}

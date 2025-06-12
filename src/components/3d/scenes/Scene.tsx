@@ -44,6 +44,8 @@ function PointsOfInterestHandler({
       const pointElement = document.querySelector(`.point-${index}`);
       if (pointElement instanceof HTMLElement) {
         point.element = pointElement;
+        point.element.style.transition =
+          "opacity 0.3s ease-in-out, visibility 0.3s ease-in-out";
       }
     });
 
@@ -72,7 +74,13 @@ function PointsOfInterestHandler({
           intersects.length === 0 ||
           intersects[0].distance > point.position.distanceTo(camera.position);
 
-        point.element.style.display = isVisible ? "block" : "none";
+        if (isVisible) {
+          point.element.style.opacity = "1";
+          point.element.style.visibility = "visible";
+        } else {
+          point.element.style.opacity = "0";
+          point.element.style.visibility = "hidden";
+        }
       }
 
       raycastIndex.current =
@@ -115,19 +123,10 @@ export default function Scene({
         <ambientLight intensity={4} />
         <OrbitControls
           enableZoom={false}
-          enablePan={true}
-          panSpeed={0.5}
           minPolarAngle={Math.PI / 2.5}
           maxPolarAngle={Math.PI / 2.5}
-          enableDamping={!isMobile}
-          dampingFactor={0.1}
-          rotateSpeed={0.5}
           minAzimuthAngle={-Math.PI / 0}
           maxAzimuthAngle={Math.PI / 0}
-          screenSpacePanning={true}
-          enableRotate={true}
-          autoRotate={false}
-          autoRotateSpeed={1}
         />
         <directionalLight position={[0, 5, 5]} intensity={4} />
         <Suspense fallback={null}>
