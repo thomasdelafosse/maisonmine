@@ -102,7 +102,7 @@ export default function SiegeDetailsContent({ slug }: SiegeDetailsContentType) {
                   {index + 1}
                 </div>
                 <div
-                  className="text absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max max-w-xs p-3 rounded-md bg-gray-600 bg-opacity-80 text-white text-sm shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out pointer-events-none"
+                  className="text absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max max-w-xs p-3 rounded-md bg-gray-600 bg-opacity-80 text-white text-center text-sm shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out pointer-events-none"
                   style={{ backdropFilter: "blur(2px)" }}
                 >
                   {point.text}
