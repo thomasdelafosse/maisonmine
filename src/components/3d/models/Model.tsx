@@ -24,11 +24,11 @@ const Model = forwardRef<Group, ModelType>(
     const groupRef = useRef<Group>(null);
     useImperativeHandle(ref, () => groupRef.current as Group);
 
-    useEffect(() => {
-      if (groupRef.current) {
-        groupRef.current.rotation.y = Math.PI / 2;
-      }
-    }, []);
+    // useEffect(() => {
+    //   if (groupRef.current) {
+    //     groupRef.current.rotation.y = Math.PI / 2;
+    //   }
+    // }, []);
 
     useFrame((state, delta) => {
       if (groupRef.current && isRotating) {
