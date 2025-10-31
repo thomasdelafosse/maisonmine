@@ -185,7 +185,8 @@ export default function Mentionslegales() {
               commandé.
               <br />
               <br />
-              Les règlements sont possibles par :<br />
+              Les règlements sont possibles par :
+              <br />
               <br />
               · Virement bancaire
               <br />
@@ -231,13 +232,16 @@ export default function Mentionslegales() {
               <br />
               La commande peut être résolue par le Client par lettre recommandée
               avec demande d'avis de réception ou par un écrit sur un autre
-              support durable en cas :<br />
+              support durable en cas :
+              <br />
               <br />
               · de livraison d'un Produit non conforme aux caractéristiques
-              déclarées du Produit ;<br />
+              déclarées du Produit ;
+              <br />
               · de livraison dépassant la date limite fixée dans le bon de
               commande ou, à défaut d'une telle date, dans les trente (30) jours
-              suivant la conclusion du contrat ;<br />
+              suivant la conclusion du contrat ;
+              <br />
               · de hausse du prix qui n'est pas justifiée par une modification
               technique du produit imposée par les pouvoirs publics.
               <br />
@@ -344,7 +348,8 @@ export default function Mentionslegales() {
             <p className="text-justify">
               Nos travaux sont effectués selon les règles de l'art exigées par
               le métier de tapissier. Ne donne pas lieu à garantie l'altération
-              prématurée due à :<br />
+              prématurée due à :
+              <br />
               <br />
               · un usage anormal
               <br />

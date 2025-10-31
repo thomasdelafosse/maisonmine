@@ -1,3 +1,4 @@
+"use client";
 import DOMPurify from "dompurify";
 import { PortableText } from "next-sanity";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";

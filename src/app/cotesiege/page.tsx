@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
 import SiegeCollection from "@/components/features/siege/components/SiegeCollection/SiegeCollection";

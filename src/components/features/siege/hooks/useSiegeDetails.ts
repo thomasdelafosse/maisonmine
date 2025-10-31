@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { client } from "@/sanity/client";
 import { SiegeData } from "@/components/features/siege/types/siegeType";

@@ -1,8 +1,9 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
-import { useRouter } from "next/router";
-import { MenuContext } from "@/pages/_app";
+import { usePathname, useRouter } from "next/navigation";
+import { MenuContext } from "@/app/providers/MenuProvider";
 import { Button } from "@/components/common/reusable-ui/buttons";
 
 type NavigationItem = {
@@ -38,6 +39,7 @@ const Logo = ({ onClick }: { onClick?: () => void }) => (
 
 const DesktopNav = () => {
   const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <div className="hidden md:flex md:items-center md:justify-center md:gap-x-8 md:mt-6">
@@ -46,12 +48,12 @@ const DesktopNav = () => {
           key={item.name}
           href={item.href}
           className={`font-medium text-gray-600 hover:text-black transition-colors  ${
-            router.pathname === item.href ? "underline underline-offset-4" : ""
+            pathname === item.href ? "underline underline-offset-4" : ""
           }`}
           onClick={(e) => {
-            if (router.pathname === item.href) {
+            if (pathname === item.href) {
               e.preventDefault();
-              router.reload();
+              router.refresh();
             }
           }}
         >
@@ -64,6 +66,7 @@ const DesktopNav = () => {
 
 const MobileNav = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext);
 
   const MenuIcon = !isMenuOpen ? (
@@ -122,14 +125,12 @@ const MobileNav = () => {
                 key={item.name}
                 href={item.href}
                 className={`font-medium text-gray-600 hover:text-black transition-colors ${
-                  router.pathname === item.href
-                    ? "underline underline-offset-4"
-                    : ""
+                  pathname === item.href ? "underline underline-offset-4" : ""
                 }`}
                 onClick={(e) => {
-                  if (router.pathname === item.href) {
+                  if (pathname === item.href) {
                     e.preventDefault();
-                    router.reload();
+                    router.refresh();
                   }
                   setIsMenuOpen(false);
                 }}

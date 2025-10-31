@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { MinedechangesCollectionType } from "@/components/features/minedechanges/types/mineDechangesType";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";

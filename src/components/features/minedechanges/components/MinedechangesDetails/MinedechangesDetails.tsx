@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { PortableText } from "next-sanity";
 import Image from "next/image";

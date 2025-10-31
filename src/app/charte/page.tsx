@@ -298,7 +298,7 @@ export default function Charte() {
               <h4 className="font-semibold">Safari</h4>
               <ul className="list-disc pl-6">
                 <li>
-                  Accédez aux Paramètres via le menu du navigateur (Safari {">"}{" "}
+                  Accédez aux Paramètres via le menu du navigateur (Safari &gt;
                   Préférences)
                 </li>
                 <li>Cliquez sur Confidentialité.</li>
@@ -310,7 +310,7 @@ export default function Charte() {
               <ul className="list-disc pl-6">
                 <li>
                   Accédez aux Paramètres via le bouton à droite de la barre
-                  d'URL ou via le menu du navigateur (Chrome {">"} Préférences).
+                  d'URL ou via le menu du navigateur (Chrome &gt; Préférences).
                 </li>
                 <li>Sélectionnez Paramètres Avancées</li>
                 <li>Cliquez sur Paramètres du contenu puis sur Cookies.</li>

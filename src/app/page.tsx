@@ -2,34 +2,23 @@ import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/common/reusable-ui/buttons";
-import Head from "next/head";
 import { InfiniteSliderBasic } from "@/components/core/infinite-slider-basic";
 
-const ModelsSection = dynamic(
-  () => import("@/components/3d/sections/ModelsSection"),
-  {
-    loading: () => <div className="h-[600px] md:h-[800px]"></div>,
-    ssr: false,
-  }
-);
+export const metadata = {
+  title: "Maison Mine - Restauration de sièges",
+  description: "Maison Mine, restauration de sièges",
+  openGraph: {
+    title: "Maison Mine",
+    description: "Maison Mine, restauration de sièges",
+    images: ["/images/portfolio/moi2.jpg"],
+  },
+};
 
-export default function Home() {
+import ModelsSection from "./ModelsSectionClient";
+
+export default function Page() {
   return (
     <>
-      <Head>
-        <title>Maison Mine - Restauration de sièges</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Maison Mine, restauration de sièges"
-        />
-        <meta property="og:title" content="Maison Mine" />
-        <meta
-          property="og:description"
-          content="Maison Mine, restauration de sièges"
-        />
-        <meta property="og:image" content="/images/portfolio/moi2.jpg" />
-      </Head>
       <InfiniteSliderBasic />
       <ModelsSection />
 
@@ -149,6 +138,7 @@ export default function Home() {
             </p>
             <p>
               + Le <span className="text-gray-800">dégarnissage</span> et la{" "}
+              {""}
               <span className="text-gray-800">préparation</span> du bois de la
               carcasse, avec les réparations qui peuvent s'avérer nécessaires et
               une nouvelle
@@ -195,7 +185,7 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="flex flex-col mt-10 mx-4 md:flex-row md:mt-20 md:mx-32 rounded-lg md:p-6">
+      <div className="flex flex-col items-center mt-10 mx-4 md:flex-row md:mt-20 md:mx-32 rounded-lg md:p-6">
         <div className="order-2 md:order-1 md:w-2/3 flex flex-col mt-4 text-base text-gray-500 font-light">
           <div className="flex flex-col border-l-2 md:border-l-0 border-gray-300 pl-4 md:border-r-2 md:pr-8">
             <h1 className="text-base font-medium text-black">

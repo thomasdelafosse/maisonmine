@@ -1,5 +1,6 @@
-import { useRouter } from "next/router";
+"use client";
 import dynamic from "next/dynamic";
+import { useParams } from "next/navigation";
 
 const SiegeDetailsContent = dynamic(
   () =>
@@ -15,18 +16,10 @@ const SiegeDetailsContent = dynamic(
 );
 
 export default function Page() {
-  const router = useRouter();
-  const { slug } = router.query;
-
+  const { slug } = useParams<{ slug: string }>();
   return (
     <main className="flex-grow">
-      {!router.isReady ? (
-        <div className="flex justify-center items-center min-h-[50vh]">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
-        </div>
-      ) : (
-        <SiegeDetailsContent slug={slug as string} />
-      )}
+      <SiegeDetailsContent slug={slug} />
     </main>
   );
 }

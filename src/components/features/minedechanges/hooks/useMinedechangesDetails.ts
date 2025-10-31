@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { client } from "@/sanity/client";
 import { MinedechangesDocument } from "@/components/features/minedechanges/types/mineDechangesType";
