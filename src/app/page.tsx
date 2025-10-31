@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { Button } from "@/components/common/reusable-ui/buttons";
 import { InfiniteSliderBasic } from "@/components/core/infinite-slider-basic";
 
@@ -16,7 +15,8 @@ export const metadata = {
 
 import ModelsSection from "./ModelsSectionClient";
 
-export default function Page() {
+export default async function Page() {
+  "use cache";
   return (
     <>
       <InfiniteSliderBasic />

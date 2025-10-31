@@ -1,7 +1,8 @@
 import Image from "next/image";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
 
-export default function TechniqueEtSavoirFaire() {
+export default async function TechniqueEtSavoirFaire() {
+  "use cache";
   const images = [
     {
       src: "/images/portfolio/accotoir.jpg",

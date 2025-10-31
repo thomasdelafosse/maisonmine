@@ -1,5 +1,3 @@
-"use client";
-import React from "react";
 import dynamic from "next/dynamic";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
@@ -11,11 +9,11 @@ const MinedideesCollectionContent = dynamic(
     ),
   {
     loading: () => <LoadingSpinner />,
-    ssr: false,
   }
 );
 
-export default function Uneminedidees() {
+export default async function Uneminedidees() {
+  "use cache";
   return (
     <main className="flex-grow relative z-0">
       <div className="flex flex-col gap-10 mx-4 md:mx-72">

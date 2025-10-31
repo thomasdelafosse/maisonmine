@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import { MeubleItem } from "./MeubleItem";

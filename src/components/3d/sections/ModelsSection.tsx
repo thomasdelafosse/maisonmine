@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect } from "react";
 import ModelLoader from "@/components/common/reusable-ui/loaders/ModelLoader";
 import { Canvas } from "@react-three/fiber";

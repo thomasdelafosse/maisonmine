@@ -1,19 +1,12 @@
-"use client";
-import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
-import dynamic from "next/dynamic";
-import { useParams } from "next/navigation";
+import SiegeDetailsContent from "@/components/features/siege/components/SiegeDetails/siegeDetails";
 
-const SiegeDetailsContent = dynamic(
-  () =>
-    import("@/components/features/siege/components/SiegeDetails/siegeDetails"),
-  {
-    loading: () => <LoadingSpinner />,
-    ssr: false,
-  }
-);
-
-export default function Page() {
-  const { slug } = useParams<{ slug: string }>();
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  "use cache";
+  const { slug } = await params;
   return (
     <main className="flex-grow">
       <SiegeDetailsContent slug={slug} />

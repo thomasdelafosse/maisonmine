@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import { FormField } from "./FormField";
 import { SubmitButton } from "./SubmitButton";
 import { useContactForm } from "@/components/features/contact/hooks/useContactForm";
@@ -11,7 +11,7 @@ const projectTypes: ProjectType[] = [
   "J'ai une autre question",
 ];
 
-export const ContactForm: React.FC = () => {
+export const ContactForm = () => {
   const { form, isSubmitting, errors, handleSubmit } = useContactForm();
 
   const getFieldError = (fieldName: string) => {

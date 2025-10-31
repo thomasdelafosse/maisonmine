@@ -14,11 +14,12 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  "use cache";
   return (
     <html lang="fr">
       <body className="antialiased overflow-x-hidden">

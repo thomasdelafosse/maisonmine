@@ -1,18 +1,8 @@
-"use client";
-import dynamic from "next/dynamic";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
-import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
+import MeubleCollectionContent from "@/components/features/meuble/components/MeubleCollectionContent";
 
-const MeubleCollectionContent = dynamic(
-  () =>
-    import("@/components/features/meuble/components/MeubleCollectionContent"),
-  {
-    loading: () => <LoadingSpinner />,
-    ssr: false,
-  }
-);
-
-export default function CoteMeuble() {
+export default async function CoteMeuble() {
+  "use cache";
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow relative z-0">

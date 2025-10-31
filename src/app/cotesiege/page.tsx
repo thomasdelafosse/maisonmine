@@ -1,11 +1,10 @@
-"use client";
-
 import React from "react";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
 import SiegeCollection from "@/components/features/siege/components/SiegeCollection/SiegeCollection";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 
-export default function Cotesiege() {
+export default async function Cotesiege() {
+  "use cache";
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow relative z-0">

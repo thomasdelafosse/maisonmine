@@ -1,4 +1,5 @@
-export default function Mentionslegales() {
+export default async function Mentionslegales() {
+  "use cache";
   const lastModified = new Date().toLocaleDateString("fr-FR", {
     year: "numeric",
     month: "long",
