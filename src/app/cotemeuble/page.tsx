@@ -1,17 +1,13 @@
 "use client";
-import React from "react";
 import dynamic from "next/dynamic";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
+import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 
 const MeubleCollectionContent = dynamic(
   () =>
     import("@/components/features/meuble/components/MeubleCollectionContent"),
   {
-    loading: () => (
-      <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
-      </div>
-    ),
+    loading: () => <LoadingSpinner />,
     ssr: false,
   }
 );

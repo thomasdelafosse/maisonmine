@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { client } from "@/sanity/client";
 import { SANITY_QUERIES } from "@/components/features/minedechanges/constants/minedechangesConstants";
 import type { MinedechangesDocument } from "@/components/features/minedechanges/types/mineDechangesType";
+import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 
 export const revalidate = 60;
 export const dynamicParams = false;
@@ -19,11 +20,7 @@ const MinedechangesDetails = dynamic(
       "@/components/features/minedechanges/components/MinedechangesDetails/MinedechangesDetails"
     ),
   {
-    loading: () => (
-      <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
-      </div>
-    ),
+    loading: () => <LoadingSpinner />,
   }
 );
 
