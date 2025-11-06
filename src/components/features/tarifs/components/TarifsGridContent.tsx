@@ -1,11 +1,18 @@
 import Image from "next/image";
-import { TarifItem } from "@/components/features/tarifs/types/TarifType";
+import { TARIFS_ITEMS } from "@/components/features/tarifs/constants/tarif-constants";
+import { TarifsItem } from "@/components/features/tarifs/types/tarif-types";
 
-type TarifsPricingItemType = {
-  item: TarifItem;
-};
+export default function TarifsGridContent() {
+  return (
+    <div className="mt-10 mx-4 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-10 md:mx-48">
+      {TARIFS_ITEMS.map((item) => (
+        <TarifsGridItem key={item.src} item={item} />
+      ))}
+    </div>
+  );
+}
 
-export default function TarifsPricingItem({ item }: TarifsPricingItemType) {
+function TarifsGridItem({ item }: { item: TarifsItem }) {
   return (
     <div className="text-center">
       <div className="border-2 border-dashed rounded-full p-8 border-gray-500 md:w-64 md:h-64 mx-auto ">

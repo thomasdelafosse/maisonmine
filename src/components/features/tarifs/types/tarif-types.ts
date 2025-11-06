@@ -1,4 +1,4 @@
-export type TarifItem = {
+export type TarifsItem = {
   src: string;
   alt: string;
   title: string;

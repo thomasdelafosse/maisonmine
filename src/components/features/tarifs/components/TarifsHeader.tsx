@@ -1,6 +1,6 @@
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
 
-export default function TarifsIntro() {
+export default function TarifsHeader() {
   return (
     <div className="mx-4 md:mx-32">
       <h2 className="font-semibold text-center">ON PARLE DE VOTRE PROJET ?</h2>

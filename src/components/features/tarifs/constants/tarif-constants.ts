@@ -1,6 +1,6 @@
-import { TarifItem } from "@/components/features/tarifs/types/TarifType";
+import { TarifsItem } from "@/components/features/tarifs/types/tarif-types";
 
-export const tarifItems: TarifItem[] = [
+export const TARIFS_ITEMS: TarifsItem[] = [
   {
     src: "/images/tarifs/chaiseTarif.png",
     alt: "chaise",

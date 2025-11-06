@@ -1,12 +1,12 @@
-import TarifsIntro from "./components/TarifsIntro";
-import TarifsPricingGrid from "./components/TarifsPricingGrid";
+import TarifsHeader from "./components/TarifsHeader";
+import TarifsGridContent from "./components/TarifsGridContent";
 import TarifsExplanation from "./components/TarifsExplanation";
 
 export default function TarifsContent() {
   return (
     <>
-      <TarifsIntro />
-      <TarifsPricingGrid />
+      <TarifsHeader />
+      <TarifsGridContent />
       <TarifsExplanation />
     </>
   );
