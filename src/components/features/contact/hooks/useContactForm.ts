@@ -2,7 +2,7 @@ import { FormEvent, useRef, useState } from "react";
 import {
   ContactFormData,
   ValidationError,
-} from "@/components/features/contact/types/contact.types";
+} from "@/components/features/contact/types/contact-types";
 import { validateContactForm } from "@/components/features/contact/utils/validation";
 import { createEmailService } from "@/components/features/contact/services/emailService";
 
@@ -35,28 +35,23 @@ export const useContactForm = (): UseContactFormReturn => {
         message: formData.get("message")?.toString() || "",
       };
 
-      // Validate form data
       const validationErrors = validateContactForm(data);
       if (validationErrors.length > 0) {
         setErrors(validationErrors);
         throw new Error("Validation failed");
       }
 
-      // Send email
       const emailService = createEmailService();
       const result = await emailService.sendEmail(data);
 
       if (result.success) {
-        alert("Message envoyé avec succès!");
         form.current.reset();
       } else {
         throw new Error(result.error);
       }
     } catch (error) {
       if (error instanceof Error) {
-        alert(error.message);
       } else {
-        alert("Une erreur s'est produite");
       }
     } finally {
       setIsSubmitting(false);

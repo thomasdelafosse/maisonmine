@@ -1,17 +1,12 @@
-import { ContactFormData } from "@/components/features/contact/types/contact.types";
+import { FieldConfig } from "@/components/features/contact/types/contact-types";
 
-type FormFieldType = {
-  label: string;
-  name: keyof ContactFormData;
-  type?: "text" | "email" | "tel" | "select" | "textarea";
-  placeholder: string;
-  required?: boolean;
-  options?: string[];
+type FormFieldProps = FieldConfig & {
+  required: boolean;
   rows?: number;
-  error?: string;
+  error: string;
 };
 
-export const FormField: React.FC<FormFieldType> = ({
+export const FormField = ({
   label,
   name,
   type = "text",
@@ -20,7 +15,7 @@ export const FormField: React.FC<FormFieldType> = ({
   options,
   rows = 4,
   error,
-}) => {
+}: FormFieldProps) => {
   const baseClasses =
     "appearance-none border border-gray-300 rounded w-full py-2.5 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent placeholder-gray-400";
   const errorClasses = error

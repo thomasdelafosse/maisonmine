@@ -1,6 +1,5 @@
-import ContactContent from "@/components/features/contact/ContactContent";
+import { ContactForm } from "@/components/features/contact/ContactForm";
 
 export default async function Contact() {
-  "use cache";
-  return <ContactContent />;
+  return <ContactForm />;
 }

@@ -1,7 +1,7 @@
 import {
   ContactFormData,
   ValidationError,
-} from "@/components/features/contact/types/contact.types";
+} from "@/components/features/contact/types/contact-types";
 
 export const validateEmail = (email: string): boolean => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -18,7 +18,6 @@ export const validateContactForm = (
 ): ValidationError[] => {
   const errors: ValidationError[] = [];
 
-  // Check required fields
   Object.entries(data).forEach(([key, value]) => {
     if (!value || value.trim() === "") {
       errors.push({
@@ -28,7 +27,6 @@ export const validateContactForm = (
     }
   });
 
-  // Validate email format
   if (data.from_name && !validateEmail(data.from_name)) {
     errors.push({
       field: "from_name",
@@ -36,7 +34,6 @@ export const validateContactForm = (
     });
   }
 
-  // Validate phone format
   if (data.phone && !validatePhone(data.phone)) {
     errors.push({
       field: "phone",
