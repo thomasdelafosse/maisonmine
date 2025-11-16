@@ -15,8 +15,8 @@ const navigation: NavigationItem[] = [
   { name: "CÔTÉ SIÈGE", href: "/cotesiege" },
   { name: "CÔTÉ MEUBLE", href: "/cotemeuble" },
   { name: "UNE MINE D'IDÉES", href: "/uneminedidees" },
-  { name: "UNE MINE D'ÉCHANGES", href: "/uneminedechanges" },
-  { name: "UNE MINE DE SAVOIR-FAIRE", href: "/techniqueetsavoirfaire" },
+  { name: "UNE MINE D'ÉCHANGES", href: "/une-mine-d-echanges" },
+  { name: "UNE MINE DE SAVOIR-FAIRE", href: "/une-mine-de-savoir-faire" },
   { name: "TARIFS", href: "/tarifs" },
   { name: "CONTACT", href: "/contact" },
 ];
@@ -165,8 +165,14 @@ const MobileNav = () => {
 };
 
 function NavBar() {
+  const { isMenuOpen, isOverlayOpen } = useContext(MenuContext);
+  const shouldFixNavbar = isMenuOpen || isOverlayOpen;
   return (
-    <header className="relative z-50 w-full mb-4 md:mb-8 pt-4">
+    <header
+      className={`${
+        shouldFixNavbar ? "fixed top-0 left-0 right-0 bg-white" : "relative"
+      } z-50 w-full mb-4 md:mb-8 pt-4`}
+    >
       <div className="flex flex-col items-center justify-center w-full px-4 py-1 max-w-7xl mx-auto">
         <Logo />
         <DesktopNav />

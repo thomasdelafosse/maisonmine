@@ -70,7 +70,7 @@ export default async function Page() {
           />
         </div>
         <div className="mt-4 border-l-2 border-gray-300 flex flex-col gap-4 pl-4 md:mr-8 md:border-r-2 md:border-l-0 md:pr-4">
-          <Link href="/uneminedechanges/un-savoir-faire">
+          <Link href="/une-mine-d-echanges/un-savoir-faire">
             <h1 className="flex gap-2 text-base font-medium text-black hover:text-red-900 group p-2">
               METHODE TRADITIONNELLE OU MÉTHODE CONTEMPORAINE ?
               <svg
