@@ -3,6 +3,13 @@ import type { Metadata, Viewport } from "next";
 import Layout from "@/components/common/layout/Layout";
 import { Analytics } from "@vercel/analytics/react";
 import { MenuProvider } from "./providers/MenuProvider";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
   title: "Maison Mine",
@@ -21,8 +28,8 @@ export default async function RootLayout({
 }) {
   "use cache";
   return (
-    <html lang="fr">
-      <body className="antialiased overflow-x-hidden">
+    <html lang="fr" className={montserrat.variable}>
+      <body className="antialiased overflow-x-hidden font-sans">
         <MenuProvider>
           <Layout>{children}</Layout>
         </MenuProvider>
