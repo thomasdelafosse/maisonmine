@@ -1,13 +1,13 @@
 import Image from "next/image";
-import { SanityImage } from "@/components/features/meuble/types/meubleType";
+import { SanityImage } from "@/components/features/meuble/types/meuble-types";
 
-type MeubleImageType = {
+type MeubleImageProps = {
   image: SanityImage;
   title: string;
   className?: string;
 };
 
-const MeubleImage = ({ image, title, className }: MeubleImageType) => {
+const MeubleImage = ({ image, title, className }: MeubleImageProps) => {
   return (
     <Image
       src={image.asset.url}

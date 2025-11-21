@@ -3,7 +3,7 @@ import { PortableText } from "@portabletext/react";
 import MeubleImage from "./Components/MeubleImage";
 import { Button } from "@/components/common/reusable-ui/buttons";
 
-type MeubleItemType = {
+type MeubleItemProps = {
   meuble: SanityDocument;
   isVisible: boolean;
   onToggleVisibility: () => void;
@@ -25,7 +25,7 @@ export function MeubleItem({
   showInnerText = true,
   svgElement,
   priceClassName = "",
-}: MeubleItemType) {
+}: MeubleItemProps) {
   return (
     <div className="collection-item relative">
       {svgElement && (
