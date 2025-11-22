@@ -1,10 +1,10 @@
-import MinedideesCollection from "./MinedideesCollection";
-import { VARIANT_STYLES } from "@/components/features/minedidees/constants/minedideesConstants";
+import MineDIdeesCollection from "./MineDIdeesCollection";
+import { VARIANT_STYLES } from "@/components/features/mine-d-idees/constants/mine-d-idees-constants";
 
-export default function MinedideesCollectionContent() {
+export default function MineDIdeesCollectionContent() {
   return (
     <div className="relative -z-50">
-      <MinedideesCollection
+      <MineDIdeesCollection
         className={VARIANT_STYLES.grid.container}
         imageClassName={VARIANT_STYLES.grid.image}
         nameClassName={VARIANT_STYLES.grid.title}

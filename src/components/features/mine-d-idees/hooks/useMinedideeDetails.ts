@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { client } from "@/sanity/client";
-import { MinedideesData } from "@/components/features/minedidees/types/mineDideesType";
-import { SANITY_QUERIES } from "@/components/features/minedidees/constants/minedideesConstants";
+import { MinedideesData } from "@/components/features/mine-d-idees/types/mine-d-idees-type";
+import { SANITY_QUERIES } from "@/components/features/mine-d-idees/constants/mine-d-idees-constants";
 
 export function useMinedideeDetails(slug: string | undefined) {
   const [minedidee, setMinedidee] = useState<MinedideesData | null>(null);

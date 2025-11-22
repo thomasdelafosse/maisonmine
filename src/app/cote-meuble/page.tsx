@@ -2,7 +2,6 @@ import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBl
 import MeubleCollectionContent from "@/components/features/meuble/components/MeubleCollectionContent";
 
 export default async function CoteMeuble() {
-  "use cache";
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow relative z-0">

@@ -2,18 +2,17 @@ import dynamic from "next/dynamic";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 
-const MinedideesCollectionContent = dynamic(
+const MineDIdeesCollectionContent = dynamic(
   () =>
     import(
-      "@/components/features/minedidees/components/MinedideesCollection/MinedideesCollectionContent"
+      "@/components/features/mine-d-idees/components/mine-d-idees-collection/MineDIdeesCollectionContent"
     ),
   {
     loading: () => <LoadingSpinner />,
   }
 );
 
-export default async function Uneminedidees() {
-  "use cache";
+export default async function UneMineDIdees() {
   return (
     <main className="flex-grow relative z-0">
       <div className="flex flex-col gap-10 mx-4 md:mx-72">
@@ -31,7 +30,7 @@ export default async function Uneminedidees() {
         </div>
       </div>
       <div className="relative -z-50 mt-8">
-        <MinedideesCollectionContent />
+        <MineDIdeesCollectionContent />
       </div>
     </main>
   );

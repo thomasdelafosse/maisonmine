@@ -3,18 +3,18 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
-import { MinedideesCollectionType } from "@/components/features/minedidees/types/mineDideesType";
+import { MinedideesCollectionProps } from "@/components/features/mine-d-idees/types/mine-d-idees-type";
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
-import { useMinedideesCollection } from "@/components/features/minedidees/hooks/useMinedideesCollection";
+import { useMinedideesCollection } from "@/components/features/mine-d-idees/hooks/useMinedideesCollection";
 
-export default function MinedideesCollection({
+export default function MineDIdeesCollection({
   className = "",
   nameClassName = "",
   innerDivClassName = "",
   imageClassName = "",
   showInnerText = true,
   svgElement,
-}: MinedideesCollectionType) {
+}: MinedideesCollectionProps) {
   const { minedidees, loading, error } = useMinedideesCollection();
   const [visibleTextIds, setVisibleTextIds] = useState<Record<string, boolean>>(
     {}
@@ -46,7 +46,7 @@ export default function MinedideesCollection({
               {svgElement}
             </div>
           )}
-          <Link href={`/uneminedidees/${minedidee.slug.current}`}>
+          <Link href={`/une-mine-d-idees/${minedidee.slug.current}`}>
             <div className="relative group">
               {minedidee.image && (
                 <Image

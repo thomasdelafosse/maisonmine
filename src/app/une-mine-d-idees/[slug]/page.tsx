@@ -1,6 +1,6 @@
 import { client } from "@/sanity/client";
-import { SANITY_QUERIES } from "@/components/features/minedidees/constants/minedideesConstants";
-import MinedideesDetails from "@/components/features/minedidees/components/MinedideesDetails/MinedideesDetails";
+import { SANITY_QUERIES } from "@/components/features/mine-d-idees/constants/mine-d-idees-constants";
+import MineDIdeesDetails from "@/components/features/mine-d-idees/components/mine-d-idees-details/MineDIdeesDetails";
 
 export async function generateStaticParams() {
   const paths = await client.fetch<string[]>(SANITY_QUERIES.MINEDIDEES_SLUGS);
@@ -12,11 +12,10 @@ export default async function Page({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  "use cache";
   const { slug } = await params;
   return (
     <main className="flex-grow relative z-0">
-      <MinedideesDetails slug={slug} />
+      <MineDIdeesDetails slug={slug} />
     </main>
   );
 }
