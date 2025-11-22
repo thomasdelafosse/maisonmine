@@ -1,21 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import { MeubleItem } from "./MeubleItem";
 import { MeubleCollectionProps } from "@/components/features/meuble/types/meuble-types";
-import { useMeubleCollection } from "@/components/features/meuble/hooks/useMeubleCollection";
+import { InfoIcon } from "./Components/InfoIcon";
 
 export default function MeubleCollection({
-  className = "",
-  nameClassName = "",
-  innerDivClassName = "",
-  imageClassName = "",
+  meubles,
+  className,
+  nameClassName,
+  innerDivClassName,
+  imageClassName,
   showInnerText = true,
   svgElement,
-  priceClassName = "",
+  priceClassName,
 }: MeubleCollectionProps) {
-  const { meubles, loading } = useMeubleCollection();
   const [visibleItems, setVisibleItems] = useState<Set<string>>(new Set());
 
   const toggleVisibility = (id: string) => {
@@ -30,8 +29,6 @@ export default function MeubleCollection({
     });
   };
 
-  if (loading) return <LoadingSpinner />;
-
   return (
     <div className={className}>
       {meubles.map((meuble) => (
@@ -44,7 +41,7 @@ export default function MeubleCollection({
           innerDivClassName={innerDivClassName}
           imageClassName={imageClassName}
           showInnerText={showInnerText}
-          svgElement={svgElement}
+          svgElement={svgElement || <InfoIcon />}
           priceClassName={priceClassName}
         />
       ))}
