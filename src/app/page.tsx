@@ -16,7 +16,6 @@ export const metadata = {
 import ModelsSection from "./ModelsSectionClient";
 
 export default async function Page() {
-  "use cache";
   return (
     <>
       <InfiniteSliderBasic />

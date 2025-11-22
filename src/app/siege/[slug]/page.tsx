@@ -5,7 +5,6 @@ export default async function Page({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  "use cache";
   const { slug } = await params;
   return (
     <main className="flex-grow">

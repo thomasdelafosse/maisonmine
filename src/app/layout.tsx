@@ -26,7 +26,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  "use cache";
   return (
     <html lang="fr" className={montserrat.variable}>
       <body className="antialiased overflow-x-hidden font-sans">

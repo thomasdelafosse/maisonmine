@@ -1,5 +1,4 @@
 export default async function Charte() {
-  "use cache";
   const lastModified = new Date().toLocaleDateString("fr-FR", {
     year: "numeric",
     month: "long",

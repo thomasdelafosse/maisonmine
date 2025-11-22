@@ -4,7 +4,6 @@ import SiegeCollection from "@/components/features/siege/components/SiegeCollect
 import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 
 export default async function Cotesiege() {
-  "use cache";
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow relative z-0">
