@@ -1,10 +1,12 @@
-import { SanityDocument } from "next-sanity";
 import { PortableText } from "@portabletext/react";
 import MeubleImage from "./Components/MeubleImage";
 import { Button } from "@/components/common/reusable-ui/buttons";
+import { MeubleData } from "@/components/features/meuble/types/meuble-types";
+import { cn } from "@/lib/utils";
+import { formatPrice } from "@/components/features/meuble/utils/priceFormatter";
 
 type MeubleItemProps = {
-  meuble: SanityDocument;
+  meuble: MeubleData;
   isVisible: boolean;
   onToggleVisibility: () => void;
   nameClassName?: string;
@@ -19,12 +21,12 @@ export function MeubleItem({
   meuble,
   isVisible,
   onToggleVisibility,
-  nameClassName = "",
-  innerDivClassName = "",
-  imageClassName = "",
+  nameClassName,
+  innerDivClassName,
+  imageClassName,
   showInnerText = true,
   svgElement,
-  priceClassName = "",
+  priceClassName,
 }: MeubleItemProps) {
   return (
     <div className="collection-item relative">
@@ -44,9 +46,11 @@ export function MeubleItem({
           className={imageClassName}
         />
         <div
-          className={`${innerDivClassName} ${
-            isVisible ? "opacity-100 md:opacity-0" : "opacity-0"
-          } md:group-hover:opacity-100 transition-opacity`}
+          className={cn(
+            innerDivClassName,
+            isVisible ? "opacity-100 md:opacity-0" : "opacity-0",
+            "md:group-hover:opacity-100 transition-opacity"
+          )}
         >
           {showInnerText && meuble.bodyOnHover && (
             <div className="mx-4 [&>p]:mb-4 last:[&>p]:mb-0">
@@ -56,13 +60,7 @@ export function MeubleItem({
         </div>
       </div>
       <p className={nameClassName}>{meuble.title}</p>
-      <p className={priceClassName}>
-        {!meuble.price || Number(meuble.price) === 0 || meuble.price === "0" ? (
-          <i>NON DISPONIBLE</i>
-        ) : (
-          `${meuble.price}€`
-        )}
-      </p>
+      <p className={priceClassName}>{formatPrice(meuble.price)}</p>
     </div>
   );
 }
