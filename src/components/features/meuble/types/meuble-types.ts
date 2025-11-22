@@ -18,6 +18,7 @@ export type MeubleData = {
 };
 
 export type MeubleCollectionProps = {
+  meubles: MeubleData[];
   className?: string;
   nameClassName?: string;
   innerDivClassName?: string;
