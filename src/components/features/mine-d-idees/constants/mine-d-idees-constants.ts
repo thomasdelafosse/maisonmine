@@ -22,6 +22,13 @@ export const INFORMATIONS = {
   NOT_AVAILABLE: "NON DISPONIBLE",
 } as const;
 
+export const PAGE_CONTENT = {
+  DESCRIPTION_1:
+    "Nos sièges sont présentés dans leur jus ou avec leur structure mise à nue. Chaque carcasse peut être retapissée et personnalisée selon vos goûts pour correspondre parfaitement à vos préférences et à votre intérieur.",
+  DESCRIPTION_2:
+    "D'autres sièges attendent leur rénovation selon mes inspirations... ou les vôtres. Un projet vous tente ?",
+} as const;
+
 export const SANITY_QUERIES = {
   MINEDIDEES_COLLECTION: `*[_type == "minedidees" && defined(slug.current)] {
     _id,
