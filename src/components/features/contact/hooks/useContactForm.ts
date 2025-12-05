@@ -50,8 +50,12 @@ export const useContactForm = (): UseContactFormReturn => {
         throw new Error(result.error);
       }
     } catch (error) {
-      if (error instanceof Error) {
+      if (error instanceof Error && error.message === "Validation failed") {
+        alert("Veuillez corriger les erreurs dans le formulaire.");
+      } else if (error instanceof Error) {
+        alert("Une erreur est survenue : " + error.message);
       } else {
+        alert("Une erreur inconnue est survenue");
       }
     } finally {
       setIsSubmitting(false);
