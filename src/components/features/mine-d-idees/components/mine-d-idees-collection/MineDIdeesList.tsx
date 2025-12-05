@@ -1,21 +1,27 @@
 "use client";
+
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
-import { MinedideesCollectionProps } from "@/components/features/mine-d-idees/types/mine-d-idees-type";
-import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
-import { useMinedideesCollection } from "@/components/features/mine-d-idees/hooks/useMinedideesCollection";
+import {
+  MinedideesCollectionProps,
+  MinedideesDocument,
+} from "@/components/features/mine-d-idees/types/mine-d-idees-type";
 
-export default function MineDIdeesCollection({
+type MineDIdeesListProps = MinedideesCollectionProps & {
+  items: MinedideesDocument[];
+};
+
+export default function MineDIdeesList({
+  items,
   className = "",
   nameClassName = "",
   innerDivClassName = "",
   imageClassName = "",
   showInnerText = true,
   svgElement,
-}: MinedideesCollectionProps) {
-  const { minedidees, loading, error } = useMinedideesCollection();
+}: MineDIdeesListProps) {
   const [visibleTextIds, setVisibleTextIds] = useState<Record<string, boolean>>(
     {}
   );
@@ -23,17 +29,9 @@ export default function MineDIdeesCollection({
   const toggleTextVisibility = (id: string) =>
     setVisibleTextIds((prevState) => ({ ...prevState, [id]: !prevState[id] }));
 
-  if (loading) {
-    return <LoadingSpinner />;
-  }
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
   return (
     <div className={className}>
-      {minedidees.map((minedidee) => (
+      {items.map((minedidee) => (
         <div
           key={minedidee._id}
           className="collection-item relative cursor-pointer"
