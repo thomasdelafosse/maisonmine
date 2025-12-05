@@ -197,7 +197,7 @@ export default async function Page() {
             </p>
           </div>
           <div className="flex flex-col items-center md:flex-row md:justify-evenly gap-4 font-light mt-10">
-            <Link href="/uneminedidees">
+            <Link href="/une-mine-d-idees">
               <Button variant="primary" size="lg">
                 DÉCOUVRIR LES MINES D'IDÉES
               </Button>
