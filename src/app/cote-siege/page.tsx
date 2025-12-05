@@ -1,6 +1,5 @@
-import React from "react";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
-import SiegeList from "@/components/features/siege/components/SiegeCollection/SiegeList";
+import { SiegeList } from "@/components/features/siege/components/SiegeCollection/SiegeList";
 import { client } from "@/sanity/client";
 import { SANITY_QUERIES } from "@/components/features/siege/constants/siegeConstants";
 import { sortSieges } from "@/components/features/siege/utils/sortSieges";

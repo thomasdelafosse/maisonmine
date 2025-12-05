@@ -6,7 +6,7 @@ import {
 
 type ItemDetailsType = {
   title: string;
-  price: string | number;
+  price?: string | number;
   variant?: SiegeDisplayVariant;
 };
 

@@ -5,7 +5,7 @@ import { SiegeItem } from "./SiegeItem";
 import { SiegeListProps } from "@/components/features/siege/types/siegeType";
 import { VARIANT_STYLES } from "@/components/features/siege/constants/siegeConstants";
 
-export default function SiegeList({
+export function SiegeList({
   items,
   variant = "grid",
   className = "",

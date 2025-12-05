@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, Suspense } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { MenuContext } from "@/app/providers/MenuProvider";
 import { Button } from "@/components/common/reusable-ui/buttons";
@@ -12,7 +12,7 @@ type NavigationItem = {
 };
 
 const navigation: NavigationItem[] = [
-  { name: "CÔTÉ SIÈGE", href: "/cotesiege" },
+  { name: "CÔTÉ SIÈGE", href: "/cote-siege" },
   { name: "CÔTÉ MEUBLE", href: "/cote-meuble" },
   { name: "UNE MINE D'IDÉES", href: "/une-mine-d-idees" },
   { name: "UNE MINE D'ÉCHANGES", href: "/une-mine-d-echanges" },
@@ -175,8 +175,10 @@ function NavBar() {
     >
       <div className="flex flex-col items-center justify-center w-full px-4 py-1 max-w-7xl mx-auto">
         <Logo />
-        <DesktopNav />
-        <MobileNav />
+        <Suspense fallback={null}>
+          <DesktopNav />
+          <MobileNav />
+        </Suspense>
       </div>
     </header>
   );

@@ -7,7 +7,7 @@ import {
 } from "@/components/features/siege/types/siegeType";
 import { useSiegeDetails } from "@/components/features/siege/hooks/useSiegeDetails";
 import { ImageGallery } from "./components/ImageGallery";
-import SiegeList from "@/components/features/siege/components/SiegeCollection/SiegeList";
+import { SiegeList } from "@/components/features/siege/components/SiegeCollection/SiegeList";
 import SiegeInfo from "./components/SiegeInfo/SiegeInfo";
 import SiegeModelViewer from "./components/SiegeModelViewer/SiegeModelViewer";
 
