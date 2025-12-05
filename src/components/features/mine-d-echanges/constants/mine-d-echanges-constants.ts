@@ -14,6 +14,7 @@ export const SANITY_QUERIES = {
     title,
     slug,
     publishedAt,
+    blogSummaryBody,
     body,
     position
   }`,
