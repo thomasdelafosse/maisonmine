@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import Layout from "@/components/common/layout/Layout";
 import { Analytics } from "@vercel/analytics/react";
 import { MenuProvider } from "./providers/MenuProvider";
+import { Suspense } from "react";
 import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({
@@ -29,9 +30,11 @@ export default async function RootLayout({
   return (
     <html lang="fr" className={montserrat.variable}>
       <body className="antialiased overflow-x-hidden font-sans">
-        <MenuProvider>
-          <Layout>{children}</Layout>
-        </MenuProvider>
+        <Suspense fallback={null}>
+          <MenuProvider>
+            <Layout>{children}</Layout>
+          </MenuProvider>
+        </Suspense>
         <Analytics />
       </body>
     </html>

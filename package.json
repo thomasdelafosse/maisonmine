@@ -54,6 +54,7 @@
     "@types/react-dom": "^19.0.2",
     "@types/react-image-gallery": "^1.2.4",
     "@types/three": "^0.172.0",
+    "baseline-browser-mapping": "^2.9.3",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8",

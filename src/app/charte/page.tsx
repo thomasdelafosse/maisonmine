@@ -1,9 +1,5 @@
 export default async function Charte() {
-  const lastModified = new Date().toLocaleDateString("fr-FR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const lastModified = "5 décembre 2025";
 
   return (
     <main className="">
