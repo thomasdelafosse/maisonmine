@@ -1,18 +1,13 @@
-import dynamic from "next/dynamic";
 import type { Metadata } from "next";
+import { client } from "@/sanity/client";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
-import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
-import { PAGE_CONTENT } from "@/components/features/mine-d-idees/constants/mine-d-idees-constants";
-
-const MineDIdeesCollectionContent = dynamic(
-  () =>
-    import(
-      "@/components/features/mine-d-idees/components/mine-d-idees-collection/MineDIdeesCollectionContent"
-    ),
-  {
-    loading: () => <LoadingSpinner />,
-  }
-);
+import {
+  PAGE_CONTENT,
+  SANITY_QUERIES,
+} from "@/components/features/mine-d-idees/constants/mine-d-idees-constants";
+import MineDIdeesCollectionContent from "@/components/features/mine-d-idees/components/mine-d-idees-collection/MineDIdeesCollectionContent";
+import { MinedideesDocument } from "@/components/features/mine-d-idees/types/mine-d-idees-type";
+import { sortMinedidees } from "@/components/features/mine-d-idees/utils/sortMinedidees";
 
 export const metadata: Metadata = {
   title: "Une Mine d'Idées | Maison Mine",
@@ -21,6 +16,15 @@ export const metadata: Metadata = {
 };
 
 export default async function UneMineDIdees() {
+  "use cache";
+  const items = await client.fetch<MinedideesDocument[]>(
+    SANITY_QUERIES.MINEDIDEES_COLLECTION,
+    {},
+    { next: { revalidate: 60, tags: ["une-mine-d-idees"] } }
+  );
+
+  const sortedItems = sortMinedidees(items);
+
   return (
     <main className="flex-grow relative z-0">
       <div className="mx-4 md:mx-36">
@@ -29,9 +33,7 @@ export default async function UneMineDIdees() {
           {PAGE_CONTENT.DESCRIPTION_2}
         </DescriptionBlock>
       </div>
-      <div className="relative -z-50 mt-8">
-        <MineDIdeesCollectionContent />
-      </div>
+      <MineDIdeesCollectionContent items={sortedItems} className="mt-8" />
     </main>
   );
 }

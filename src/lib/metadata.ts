@@ -14,7 +14,12 @@ export async function generateSanityMetadata({
   makeTitle = (title) => `${title} | Maison Mine`,
   makeDescription,
 }: GenerateMetadataProps): Promise<Metadata> {
-  const data = await client.fetch(query, { slug });
+  // Ensure the fetch is cached so generateMetadata doesn't cause dynamic bailout
+  const data = await client.fetch(
+    query,
+    { slug },
+    { next: { revalidate: 3600 } }
+  );
 
   if (!data) {
     return {
