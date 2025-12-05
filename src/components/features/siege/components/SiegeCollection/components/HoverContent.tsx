@@ -4,7 +4,7 @@ import { VARIANT_STYLES } from "@/components/features/siege/constants/siegeConst
 
 type HoverContentType = {
   isVisible: boolean;
-  content: PortableTextBlock[];
+  content?: PortableTextBlock[];
   variant?: SiegeDisplayVariant;
 };
 
@@ -14,6 +14,7 @@ export function HoverContent({
   variant = "grid",
 }: HoverContentType) {
   if (variant !== "grid") return null;
+  if (!content) return null;
 
   return (
     <div
