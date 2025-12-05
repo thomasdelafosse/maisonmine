@@ -1,17 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import { SiegeItem } from "./SiegeItem";
-import { SiegeCollectionType } from "@/components/features/siege/types/siegeType";
+import { SiegeListProps } from "@/components/features/siege/types/siegeType";
 import { VARIANT_STYLES } from "@/components/features/siege/constants/siegeConstants";
-import { useSiegeCollection } from "@/components/features/siege/hooks/useSiegeCollection";
 
-export default function SiegeCollection({
+export default function SiegeList({
+  items,
   variant = "grid",
   className = "",
-}: SiegeCollectionType) {
-  const { sieges, loading } = useSiegeCollection();
+}: SiegeListProps) {
   const [visibleItems, setVisibleItems] = useState<Set<string>>(new Set());
 
   const toggleVisibility = (id: string) => {
@@ -26,8 +24,6 @@ export default function SiegeCollection({
     });
   };
 
-  if (loading) return <LoadingSpinner />;
-
   const baseClassName = VARIANT_STYLES[variant].container;
   const finalClassName = className
     ? `${baseClassName} ${className}`
@@ -35,7 +31,7 @@ export default function SiegeCollection({
 
   return (
     <div className={finalClassName}>
-      {sieges.map((siege) => (
+      {items.map((siege) => (
         <SiegeItem
           key={siege._id}
           siege={siege}
