@@ -1,4 +1,5 @@
 import { PortableTextBlock } from "next-sanity";
+import { SanityDocument } from "next-sanity";
 
 export type SanityImage = {
   asset: {
@@ -25,11 +26,12 @@ export type PointOfInterest = {
     x: number;
     y: number;
     z: number;
+    start?: number;
   };
   text: string;
 };
 
-export type SiegeData = {
+export type SiegeData = SanityDocument & {
   _id: string;
   title: string;
   slug: { current: string };
@@ -45,8 +47,8 @@ export type SiegeData = {
 
 export type SiegeDisplayVariant = "grid" | "footer";
 
-export type SiegeCollectionType = {
+export type SiegeListProps = {
+  items: SiegeData[];
   variant?: SiegeDisplayVariant;
   className?: string;
-  onToggleVisibility?: (id: string) => void;
 };

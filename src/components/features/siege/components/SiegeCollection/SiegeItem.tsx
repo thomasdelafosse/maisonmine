@@ -1,14 +1,16 @@
 import Link from "next/link";
-import { SanityDocument } from "next-sanity";
 import SiegeImage from "@/components/common/reusable-ui/images/SiegeImage";
-import { SiegeDisplayVariant } from "@/components/features/siege/types/siegeType";
+import {
+  SiegeData,
+  SiegeDisplayVariant,
+} from "@/components/features/siege/types/siegeType";
 import { VARIANT_STYLES } from "@/components/features/siege/constants/siegeConstants";
 import { InfoButton } from "./components/InfoButton";
 import { HoverContent } from "./components/HoverContent";
 import { ItemDetails } from "./components/ItemDetails";
 
 type SiegeItemType = {
-  siege: SanityDocument;
+  siege: SiegeData;
   isVisible: boolean;
   onToggleVisibility: () => void;
   variant?: SiegeDisplayVariant;

@@ -24,7 +24,7 @@ export async function generateMetadata({
     slug,
     query: SANITY_QUERIES.MINEDECHANGES_DETAILS,
     makeDescription: (data) =>
-      data.summary ||
+      data.blogSummaryBody ||
       `Découvrez ${data.title} dans notre rubrique Une Mine d'Échanges.`,
   });
 }

@@ -15,7 +15,7 @@ export type MineDetailsProps = {
   slug: string;
 };
 
-type ImageWithAsset = {
+export type SanityImage = {
   asset: {
     _id: string;
     url: string;
@@ -24,28 +24,20 @@ type ImageWithAsset = {
   legend?: string;
 };
 
-type ImageWithLegend = {
-  image: ImageWithAsset;
-  legend?: string;
-};
-
 export type MinedideesDocument = SanityDocument & {
   _id: string;
   title: string;
   slug: { current: string };
-  image: {
-    asset: {
-      _id: string;
-      url: string;
-    };
-    alt?: string;
-  };
+  image?: SanityImage;
   price?: string;
   bodyOnHover?: TypedObject | TypedObject[];
   position?: number;
 };
 
 export type MinedideesData = MinedideesDocument & {
-  imagesWithLegends?: ImageWithLegend[];
+  imagesWithLegends?: {
+    image: SanityImage;
+    legend?: string;
+  }[];
   body?: TypedObject | TypedObject[];
 };
