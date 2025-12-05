@@ -1,9 +1,21 @@
 import React from "react";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
-import SiegeCollection from "@/components/features/siege/components/SiegeCollection/SiegeCollection";
-import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
+import SiegeList from "@/components/features/siege/components/SiegeCollection/SiegeList";
+import { client } from "@/sanity/client";
+import { SANITY_QUERIES } from "@/components/features/siege/constants/siegeConstants";
+import { sortSieges } from "@/components/features/siege/utils/sortSieges";
+import { SiegeData } from "@/components/features/siege/types/siegeType";
 
 export default async function Cotesiege() {
+  "use cache";
+  const items = await client.fetch<SiegeData[]>(
+    SANITY_QUERIES.SIEGE_COLLECTION,
+    {},
+    { next: { revalidate: 60, tags: ["cotesiege"] } }
+  );
+
+  const sortedItems = sortSieges(items) as SiegeData[];
+
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow relative z-0">
@@ -19,9 +31,7 @@ export default async function Cotesiege() {
           </div>
         </div>
         <div className="relative -z-50 mt-8">
-          <React.Suspense fallback={<LoadingSpinner />}>
-            <SiegeCollection />
-          </React.Suspense>
+          <SiegeList items={sortedItems} />
         </div>
       </main>
     </div>
