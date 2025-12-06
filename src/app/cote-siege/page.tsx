@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
 import { SiegeList } from "@/components/features/siege/components/SiegeCollection/SiegeList";
 import { client } from "@/sanity/client";
 import { SANITY_QUERIES } from "@/components/features/siege/constants/siegeConstants";
 import { sortSieges } from "@/components/features/siege/utils/sortSieges";
 import { SiegeData } from "@/components/features/siege/types/siegeType";
+
+export const metadata: Metadata = {
+  title: "Côté Siège | Maison Mine",
+  description:
+    "Découvrez notre collection de sièges restaurés, prêts à embellir votre intérieur. Chaque pièce a été soigneusement retapissée selon les règles de l'art.",
+};
 
 export default async function Cotesiege() {
   "use cache";
