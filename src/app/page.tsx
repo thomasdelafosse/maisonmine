@@ -172,12 +172,12 @@ export default async function Page() {
         </div>
       </div>
       <div className="flex flex-col items-center md:flex-row md:justify-evenly mt-6 gap-4 mx-4 md:mx-32 font-light mb-6">
-        <Link href="/cotesiege">
+        <Link href="/cote-siege">
           <Button variant="primary" size="lg">
             DÉCOUVRIR LE CÔTÉ SIÈGE
           </Button>
         </Link>
-        <Link href="/cotemeuble">
+        <Link href="/cote-meuble">
           <Button variant="primary" size="lg">
             DÉCOUVRIR LE CÔTÉ MEUBLE
           </Button>
