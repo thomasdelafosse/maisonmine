@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/common/reusable-ui/buttons";
 import { InfiniteSliderBasic } from "@/components/core/infinite-slider-basic";
+import DescriptionBlock from "@/components/common/reusable-ui/text/DescriptionBlock";
+import ModelsSection from "./ModelsSectionClient";
 
 export const metadata = {
   title: "Maison Mine - Restauration de sièges",
@@ -13,9 +15,7 @@ export const metadata = {
   },
 };
 
-import ModelsSection from "./ModelsSectionClient";
-
-export default async function Page() {
+export default function Page() {
   return (
     <>
       <InfiniteSliderBasic />
@@ -32,28 +32,31 @@ export default async function Page() {
           />
         </div>
         <div className="flex flex-col text-base text-gray-500 font-light mr-4 md:ml-8 ">
-          <div className="mt-4 border-l-2 border-gray-300 flex flex-col gap-2 pl-4 md:mt-0 ">
-            <p>
-              J'avais à coeur d'apprendre les techniques artisanales de ce
-              métier pour restaurer différents style de sièges dans les règles
-              de l'art.
-            </p>
-            <p>
-              Aussi, modestement, je fais vivre ce métier d'art en reproduisant
-              avec attention et minutie les gestes enseignés, application d'un
-              savoir-faire à l'ancienne.
-            </p>
-            <p>
-              Je privilégie une réfection traditionnelle en étant attentive aux
-              choix des matériaux utilisés; matériaux naturels et de qualité,
-              gage de durabilité.
-            </p>
-            <p>
-              Mon leitmotiv c'est prendre le temps de la réflexion pour redonner
-              son utilité à l'objet et l'adapter à son nouvel environnement,
-              prendre le temps de la restauration et avoir la satisfaction d'un
-              travail de qualité à partager et à transmettre.
-            </p>
+          <div className="mt-4 md:mt-0">
+            <DescriptionBlock className="flex flex-col gap-2 text-base text-gray-500 font-light">
+              <p>
+                J'avais à coeur d'apprendre les techniques artisanales de ce
+                métier pour restaurer différents style de sièges dans les règles
+                de l'art.
+              </p>
+              <p>
+                Aussi, modestement, je fais vivre ce métier d'art en
+                reproduisant avec attention et minutie les gestes enseignés,
+                application d'un savoir-faire à l'ancienne.
+              </p>
+              <p>
+                Je privilégie une réfection traditionnelle en étant attentive
+                aux choix des matériaux utilisés; matériaux naturels et de
+                qualité, gage de durabilité.
+              </p>
+              <p>
+                Mon leitmotiv c'est prendre le temps de la réflexion pour
+                redonner son utilité à l'objet et l'adapter à son nouvel
+                environnement, prendre le temps de la restauration et avoir la
+                satisfaction d'un travail de qualité à partager et à
+                transmettre.
+              </p>
+            </DescriptionBlock>
           </div>
         </div>
       </div>
@@ -127,17 +130,14 @@ export default async function Page() {
             className="rounded-lg object-contain"
           />
         </div>
-        <div className="flex flex-col mt-4 text-base text-gray-500 font-light border-l-2 border-gray-300 pl-4 md:m-8">
-          <h1 className="text-base font-medium text-black">
+        <div className="flex flex-col mt-4 text-base text-gray-500 font-light pl-4 md:m-8">
+          <h1 className="text-base font-medium text-black border-l-2 border-gray-300 pl-4">
             QUELLES SONT LES ÉTAPES DE RESTAURATION D'UN SIÈGE ?
           </h1>
-          <div className="flex flex-col gap-6 text-base text-gray-500">
-            <p className="mt-6">
-              Toute restauration comporte les mêmes étapes :
-            </p>
+          <DescriptionBlock className="flex flex-col gap-6 text-base text-gray-500 mt-6">
+            <p>Toute restauration comporte les mêmes étapes :</p>
             <p>
               + Le <span className="text-gray-800">dégarnissage</span> et la{" "}
-              {""}
               <span className="text-gray-800">préparation</span> du bois de la
               carcasse, avec les réparations qui peuvent s'avérer nécessaires et
               une nouvelle
@@ -168,7 +168,7 @@ export default async function Page() {
             <p>
               + Les <span className="text-gray-800">finitions</span>.
             </p>
-          </div>
+          </DescriptionBlock>
         </div>
       </div>
       <div className="flex flex-col items-center md:flex-row md:justify-evenly mt-6 gap-4 mx-4 md:mx-32 font-light mb-6">
@@ -186,15 +186,17 @@ export default async function Page() {
 
       <div className="flex flex-col items-center mt-10 mx-4 md:flex-row md:mt-20 md:mx-32 rounded-lg md:p-6">
         <div className="order-2 md:order-1 md:w-2/3 flex flex-col mt-4 text-base text-gray-500 font-light">
-          <div className="flex flex-col border-l-2 md:border-l-0 border-gray-300 pl-4 md:border-r-2 md:pr-8">
-            <h1 className="text-base font-medium text-black">
+          <div className="flex flex-col pl-4 md:pr-8">
+            <h1 className="text-base font-medium text-black border-l-2 md:border-l-0 border-gray-300 md:border-r-2 pr-4">
               GERMINATION D'IDÉES : D'AUTRES SIÈGES SONT DISPONIBLES !
             </h1>
-            <p className="mt-6">
-              D'autres sièges attendent leur rénovation selon mes
-              inspirations... ou les vôtres. Un projet vous tente ?
-              Contactez-moi !
-            </p>
+            <DescriptionBlock className="mt-6 md:border-l-0 md:border-r-2 md:pr-4">
+              <p>
+                D'autres sièges attendent leur rénovation selon mes
+                inspirations... ou les vôtres. Un projet vous tente ?
+                Contactez-moi !
+              </p>
+            </DescriptionBlock>
           </div>
           <div className="flex flex-col items-center md:flex-row md:justify-evenly gap-4 font-light mt-10">
             <Link href="/une-mine-d-idees">
