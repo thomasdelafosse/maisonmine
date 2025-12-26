@@ -28,7 +28,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={montserrat.variable}>
+    <html
+      lang="fr"
+      className={`${montserrat.variable} ${montserrat.className}`}
+    >
       <body className="antialiased overflow-x-hidden font-sans">
         <Suspense fallback={null}>
           <MenuProvider>
