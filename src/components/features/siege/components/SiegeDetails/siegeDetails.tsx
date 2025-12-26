@@ -1,31 +1,24 @@
 "use client";
 
-import LoadingSpinner from "@/components/common/reusable-ui/loaders/LoadingSpinner";
 import {
   SanityImage,
   ImageWithLegend,
+  SiegeData,
 } from "@/components/features/siege/types/siegeType";
-import { useSiegeDetails } from "@/components/features/siege/hooks/useSiegeDetails";
 import { ImageGallery } from "./components/ImageGallery";
-import { SiegeList } from "@/components/features/siege/components/SiegeCollection/SiegeList";
+import { SiegeListClient } from "@/components/features/siege/components/SiegeCollection/SiegeListClient";
 import SiegeInfo from "./components/SiegeInfo/SiegeInfo";
 import SiegeModelViewer from "./components/SiegeModelViewer/SiegeModelViewer";
 
 type SiegeDetailsContentType = {
-  slug: string;
+  siege: SiegeData;
+  allSieges: SiegeData[];
 };
 
-export default function SiegeDetailsContent({ slug }: SiegeDetailsContentType) {
-  const { siege, allSieges, loading } = useSiegeDetails(slug);
-
-  if (!slug) {
-    return null;
-  }
-
-  if (loading || !siege) {
-    return <LoadingSpinner />;
-  }
-
+export default function SiegeDetailsContent({
+  siege,
+  allSieges,
+}: SiegeDetailsContentType) {
   const allImages = siege.imagesWithLegends
     ? [
         siege.image,
@@ -53,7 +46,7 @@ export default function SiegeDetailsContent({ slug }: SiegeDetailsContentType) {
       <SiegeModelViewer siege={siege} />
 
       <div className="my-10 border-t-2 border-gray-300 mx-20 md:my-20 md:mx-36" />
-      <SiegeList items={allSieges} variant="footer" />
+      <SiegeListClient items={allSieges} variant="footer" />
     </div>
   );
 }
