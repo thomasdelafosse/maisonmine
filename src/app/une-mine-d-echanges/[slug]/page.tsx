@@ -4,6 +4,8 @@ import { generateSanityMetadata } from "@/lib/metadata";
 import { MinedechangesDocument } from "@/components/features/mine-d-echanges/types/mine-d-echanges-type";
 import { client } from "@/sanity/client";
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { MineDEchangesDetailsSkeleton } from "@/components/features/mine-d-echanges/components/mine-d-echanges-details/MineDEchangesDetailsSkeleton";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -31,5 +33,9 @@ export async function generateMetadata({
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
-  return <MineDEchangesDetails slug={slug} />;
+  return (
+    <Suspense fallback={<MineDEchangesDetailsSkeleton />}>
+      <MineDEchangesDetails slug={slug} />
+    </Suspense>
+  );
 }
