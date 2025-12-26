@@ -1,8 +1,9 @@
+import CollectionGridSkeleton from "@/components/common/reusable-ui/skeletons/CollectionGridSkeleton";
+import DescriptionBlockSkeleton from "@/components/common/reusable-ui/skeletons/DescriptionBlockSkeleton";
 import { VARIANT_STYLES } from "@/components/features/siege/constants/siegeConstants";
 
 export function SiegeDetailsSkeleton() {
   const footerStyles = VARIANT_STYLES.footer;
-  const footerSkeletons = Array.from({ length: 6 });
 
   return (
     <div>
@@ -20,10 +21,13 @@ export function SiegeDetailsSkeleton() {
         {/* Info Skeleton (Right) */}
         <div className="w-full md:w-2/3 mt-8 md:mt-0 md:pl-10">
           <div className="h-10 w-3/4 bg-gray-200 rounded animate-pulse mb-6" />
-          <div className="h-4 w-full bg-gray-200 rounded animate-pulse mb-2" />
-          <div className="h-4 w-full bg-gray-200 rounded animate-pulse mb-2" />
-          <div className="h-4 w-2/3 bg-gray-200 rounded animate-pulse mb-6" />
-          <div className="h-12 w-40 bg-gray-200 rounded animate-pulse" />
+
+          <DescriptionBlockSkeleton
+            containerClassName="md:border-l-2 md:border-gray-300 md:pl-6"
+            lines={5}
+          />
+
+          <div className="mt-6 h-12 w-40 bg-gray-200 rounded animate-pulse" />
         </div>
       </div>
 
@@ -35,16 +39,10 @@ export function SiegeDetailsSkeleton() {
       <div className="my-10 border-t-2 border-gray-300 mx-20 md:my-20 md:mx-36" />
 
       {/* Footer List Skeleton */}
-      <div className={footerStyles.container}>
-        {footerSkeletons.map((_, index) => (
-          <div key={index} className="collection-item relative">
-            <div className="aspect-[4/5] w-full rounded-lg bg-gray-200 animate-pulse" />
-            <div className="mt-1 flex justify-center">
-              <div className="h-3 w-3/4 rounded bg-gray-200 animate-pulse" />
-            </div>
-          </div>
-        ))}
-      </div>
+      <CollectionGridSkeleton
+        containerClassName={footerStyles.container}
+        showPrice={false}
+      />
     </div>
   );
 }
