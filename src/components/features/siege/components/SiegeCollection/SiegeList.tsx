@@ -1,45 +1,29 @@
-"use client";
+import {
+  SiegeListProps,
+  SiegeData,
+} from "@/components/features/siege/types/siegeType";
+import { SANITY_QUERIES } from "@/components/features/siege/constants/siegeConstants";
+import { client } from "@/sanity/client";
+import { sortSieges } from "@/components/features/siege/utils/sortSieges";
+import { SiegeListClient } from "./SiegeListClient";
 
-import { useState } from "react";
-import { SiegeItem } from "./SiegeItem";
-import { SiegeListProps } from "@/components/features/siege/types/siegeType";
-import { VARIANT_STYLES } from "@/components/features/siege/constants/siegeConstants";
-
-export function SiegeList({
-  items,
+export async function SiegeList({
   variant = "grid",
   className = "",
-}: SiegeListProps) {
-  const [visibleItems, setVisibleItems] = useState<Set<string>>(new Set());
+}: Omit<SiegeListProps, "items">) {
+  const items = await client.fetch<SiegeData[]>(
+    SANITY_QUERIES.SIEGE_COLLECTION,
+    {},
+    { next: { revalidate: 60, tags: ["cotesiege"] } }
+  );
 
-  const toggleVisibility = (id: string) => {
-    setVisibleItems((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(id)) {
-        newSet.delete(id);
-      } else {
-        newSet.add(id);
-      }
-      return newSet;
-    });
-  };
-
-  const baseClassName = VARIANT_STYLES[variant].container;
-  const finalClassName = className
-    ? `${baseClassName} ${className}`
-    : baseClassName;
+  const sortedItems = sortSieges(items) as SiegeData[];
 
   return (
-    <div className={finalClassName}>
-      {items.map((siege) => (
-        <SiegeItem
-          key={siege._id}
-          siege={siege}
-          isVisible={visibleItems.has(siege._id)}
-          onToggleVisibility={() => toggleVisibility(siege._id)}
-          variant={variant}
-        />
-      ))}
-    </div>
+    <SiegeListClient
+      items={sortedItems}
+      variant={variant}
+      className={className}
+    />
   );
 }
