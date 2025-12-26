@@ -3,6 +3,8 @@ import { SANITY_QUERIES } from "@/components/features/mine-d-idees/constants/min
 import MineDIdeesDetails from "@/components/features/mine-d-idees/components/mine-d-idees-details/MineDIdeesDetails";
 import { generateSanityMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { MineDIdeesDetailsSkeleton } from "@/components/features/mine-d-idees/components/mine-d-idees-details/MineDIdeesDetailsSkeleton";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -29,7 +31,9 @@ export default async function Page({ params }: PageProps) {
   const { slug } = await params;
   return (
     <main className="flex-grow relative z-0">
-      <MineDIdeesDetails slug={slug} />
+      <Suspense fallback={<MineDIdeesDetailsSkeleton />}>
+        <MineDIdeesDetails slug={slug} />
+      </Suspense>
     </main>
   );
 }
