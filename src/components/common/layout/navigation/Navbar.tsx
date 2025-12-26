@@ -5,6 +5,7 @@ import { useContext, Suspense } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { MenuContext } from "@/app/providers/MenuProvider";
 import { Button } from "@/components/common/reusable-ui/buttons";
+import { NavSkeleton } from "./NavSkeleton";
 
 type NavigationItem = {
   name: string;
@@ -175,7 +176,7 @@ function NavBar() {
     >
       <div className="flex flex-col items-center justify-center w-full px-4 py-1 max-w-7xl mx-auto">
         <Logo />
-        <Suspense fallback={null}>
+        <Suspense fallback={<NavSkeleton />}>
           <DesktopNav />
           <MobileNav />
         </Suspense>
